@@ -66,7 +66,7 @@
   header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--border)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
   .brand{display:flex;align-items:center;gap:.55rem;font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
-  .brand .logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--espresso),var(--espresso-deep));display:grid;place-items:center;font-size:1rem}
+  .brand .logo-img{height:34px;width:auto;display:block}
   .nav .btn{padding:.6rem 1.15rem;font-size:.92rem;box-shadow:none}
 
   /* Hero */
@@ -130,7 +130,6 @@
   footer{background:var(--espresso-deep);color:#d9c8bc;padding:38px 0}
   footer .fnav{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
   footer .brand{color:#fff}
-  footer .brand .logo{background:linear-gradient(135deg,#fff,#ffd9c2)}
   footer a{color:#d9c8bc}footer a:hover{color:#fff}
   footer .fine{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:#b49e90;line-height:1.7}
 
@@ -147,7 +146,7 @@
 <!-- ===================== HEADER ===================== -->
 <header>
   <div class="wrap nav">
-    <div class="brand"><span class="logo">☕</span> Coffee Cart Launch</div>
+    <div class="brand"><img class="logo-img" src="roast-launch-logo.png" alt="Roast Launch" /> Coffee Cart Launch</div>
     <a href="#offer" class="btn">Claim Your Spot</a>
   </div>
 </header>
@@ -292,7 +291,7 @@
 <footer>
   <div class="wrap">
     <div class="fnav">
-      <div class="brand"><span class="logo">☕</span> Coffee Cart Launch</div>
+      <div class="brand"><img class="logo-img" src="roast-launch-logo.png" alt="Roast Launch" /> Coffee Cart Launch</div>
       <div><a href="#offer">Claim Your Spot</a></div>
     </div>
     <p class="fine">
