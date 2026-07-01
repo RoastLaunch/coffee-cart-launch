@@ -3,20 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Coffee Cart Launch System: From Idea to First Booking in 30 Days, Guaranteed</title>
-<meta name="description" content="Launch your coffee cart professionally in 30 days. Brand, website, business setup, marketing, and coaching with a guaranteed first paid booking or your money back." />
+<title>Launch-Ready Coffee Cart Package | Launch Your Cart in 14 Days</title>
+<meta name="description" content="A done-for-you package to launch your coffee cart in 14 days without looking amateur: professional branding, a simple website, a local permits guide, an equipment sourcing list, and marketing templates. $1,997. Launch-ready in 14 days or full refund." />
 
 <!-- Open Graph -->
-<meta property="og:title" content="Coffee Cart Launch System: First Booking in 30 Days, Guaranteed" />
-<meta property="og:description" content="Everything you need to launch your coffee cart professionally and start cashing checks in 30 days." />
+<meta property="og:title" content="Launch-Ready Coffee Cart Package" />
+<meta property="og:description" content="Everything you need to launch your coffee cart in 14 days, without looking amateur. Branding, website, permits guide, equipment list, and marketing templates. $1,997." />
 <meta property="og:type" content="website" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-<!-- Stripe.js (required for real checkout). Safe to leave loaded. -->
-<script src="https://js.stripe.com/v3/"></script>
 
 <style>
   :root{
@@ -29,13 +26,12 @@
     --espresso-deep:#3a241a;
     --cta:#ff6a2b;
     --cta-hover:#e85512;
-    --gold:#f5a623;
     --green:#1f9d58;
     --border:#ece5db;
-    --shadow:0 10px 40px rgba(35,22,12,.10);
-    --shadow-lg:0 24px 70px rgba(35,22,12,.16);
-    --radius:18px;
-    --maxw:1120px;
+    --shadow:0 10px 34px rgba(35,22,12,.09);
+    --shadow-lg:0 20px 56px rgba(35,22,12,.14);
+    --radius:16px;
+    --maxw:940px;
   }
 
   *{box-sizing:border-box;margin:0;padding:0}
@@ -44,205 +40,105 @@
     font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
     color:var(--ink);
     background:var(--bg);
-    line-height:1.6;
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
   }
-  h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.12;letter-spacing:-.02em;font-weight:700}
+  h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15;letter-spacing:-.02em;font-weight:700}
   p{color:var(--muted)}
   a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-  .center{text-align:center}
 
-  /* ---------- Buttons ---------- */
+  /* Buttons */
   .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
     background:var(--cta);color:#fff;font-weight:700;font-family:'Sora',sans-serif;
-    font-size:1.06rem;padding:1.05rem 1.9rem;border-radius:999px;border:none;cursor:pointer;
-    box-shadow:0 12px 30px rgba(255,106,43,.38);
-    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
-    text-align:center;line-height:1.2;
+    font-size:1.05rem;padding:1rem 1.8rem;border-radius:12px;border:none;cursor:pointer;
+    box-shadow:0 10px 24px rgba(255,106,43,.30);
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;line-height:1.2;
   }
-  .btn:hover{background:var(--cta-hover);transform:translateY(-2px);box-shadow:0 16px 40px rgba(255,106,43,.46)}
-  .btn:active{transform:translateY(0)}
-  .btn--lg{font-size:1.18rem;padding:1.25rem 2.3rem;width:100%;max-width:460px}
-  .btn--ghost{background:#fff;color:var(--ink);border:1.5px solid var(--border);box-shadow:none}
-  .btn--ghost:hover{background:var(--cream);color:var(--ink)}
-  .btn-sub{display:block;margin-top:.7rem;font-size:.86rem;color:var(--muted);font-family:'Inter',sans-serif;font-weight:500}
+  .btn:hover{background:var(--cta-hover);transform:translateY(-2px)}
+  .btn--lg{font-size:1.12rem;padding:1.15rem 2.2rem}
+  .btn-sub{display:block;margin-top:.8rem;font-size:.9rem;color:var(--muted);font-weight:500}
 
-  /* ---------- Header ---------- */
-  header{
-    position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);
-    backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--border);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
-  .brand{display:flex;align-items:center;gap:.6rem;font-family:'Sora',sans-serif;font-weight:800;font-size:1.08rem;letter-spacing:-.02em;color:var(--ink)}
-  .brand .logo{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--espresso),var(--espresso-deep));display:grid;place-items:center;font-size:1.05rem}
-  .nav .btn{padding:.7rem 1.3rem;font-size:.95rem;box-shadow:0 8px 18px rgba(255,106,43,.32)}
-  .nav-cta-wrap{display:flex;align-items:center;gap:1.2rem}
-  .nav-price{font-size:.9rem;color:var(--muted);font-weight:600}
-  .nav-price s{color:#bcb2a6;font-weight:500}
+  /* Header */
+  header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:.55rem;font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
+  .brand .logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--espresso),var(--espresso-deep));display:grid;place-items:center;font-size:1rem}
+  .nav .btn{padding:.6rem 1.15rem;font-size:.92rem;box-shadow:none}
 
-  /* ---------- Hero ---------- */
-  .hero{position:relative;background:linear-gradient(180deg,#fff 0%, var(--cream) 100%);overflow:hidden}
-  .hero:before{content:"";position:absolute;inset:0;background:
-     radial-gradient(1200px 400px at 80% -10%, rgba(255,106,43,.08), transparent 60%);
-     pointer-events:none}
-  .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:66px 0 74px}
+  /* Hero */
+  .hero{background:linear-gradient(180deg,#fff 0%, var(--cream) 100%)}
+  .hero-inner{padding:64px 0 60px;max-width:760px}
   .eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--border);color:var(--espresso);
-    font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;padding:.5rem .9rem;border-radius:999px;box-shadow:var(--shadow)}
-  .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(31,157,88,.16)}
-  h1.hero-title{font-size:clamp(2.15rem,4.6vw,3.55rem);font-weight:800;margin:1.1rem 0 .9rem}
-  h1 .accent{color:var(--espresso);position:relative}
-  .hero-sub{font-size:1.16rem;color:var(--muted);max-width:34ch;margin-bottom:1.7rem}
-  .hero-cta-row{display:flex;flex-direction:column;gap:.4rem;max-width:460px}
-  .hero-trust{display:flex;flex-wrap:wrap;gap:1.3rem;margin-top:1.9rem;padding-top:1.6rem;border-top:1px solid var(--border)}
-  .hero-trust .t{display:flex;align-items:center;gap:.55rem;font-size:.92rem;font-weight:600;color:var(--ink)}
-  .hero-trust svg{flex:none}
+    font-weight:700;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;padding:.45rem .85rem;border-radius:999px;box-shadow:var(--shadow)}
+  h1.hero-title{font-size:clamp(2.1rem,4.8vw,3.2rem);font-weight:800;margin:1.1rem 0 1rem}
+  h1 .accent{color:var(--espresso)}
+  .hero-sub{font-size:1.15rem;color:var(--muted);max-width:56ch;margin-bottom:1.8rem}
+  .trust-line{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:1.6rem;font-size:.94rem;font-weight:600;color:var(--ink)}
+  .trust-line span{display:inline-flex;align-items:center;gap:.45rem}
+  .trust-line svg{flex:none}
 
-  /* Hero card (deliverables preview) */
-  .hero-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:26px}
-  .hero-card h3{font-size:1.02rem;margin-bottom:.3rem}
-  .hero-card .card-tag{font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--cta)}
-  .deliverable{display:flex;gap:.85rem;align-items:flex-start;padding:.85rem 0;border-bottom:1px dashed var(--border)}
-  .deliverable:last-child{border-bottom:none;padding-bottom:0}
-  .deliverable .chk{flex:none;width:26px;height:26px;border-radius:50%;background:rgba(31,157,88,.12);display:grid;place-items:center;margin-top:2px}
-  .deliverable .chk svg{width:15px;height:15px}
-  .deliverable b{color:var(--ink);font-family:'Inter',sans-serif;font-weight:700;font-size:.98rem;display:block}
-  .deliverable span{font-size:.87rem;color:var(--muted)}
+  /* Sections */
+  section.pad{padding:64px 0}
+  .kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:700;color:var(--cta)}
+  .section-head{max-width:620px;margin-bottom:38px}
+  .section-head h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:.55rem 0 .6rem}
+  .section-head p{font-size:1.05rem}
 
-  /* ---------- Logo / trust strip ---------- */
-  .strip{background:var(--espresso-deep);color:#f3e8df}
-  .strip .wrap{display:flex;flex-wrap:wrap;gap:1.4rem 2.6rem;justify-content:center;align-items:center;padding:18px 22px;text-align:center}
-  .strip .item{display:flex;align-items:center;gap:.6rem;font-weight:600;font-size:.95rem;color:#f3e8df;opacity:.95}
-  .strip .item svg{flex:none;opacity:.85}
+  /* Problem */
+  .problem{background:#fff}
+  .problem .card{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:32px}
+  .problem h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:.8rem;max-width:22ch}
+  .problem p{font-size:1.08rem;max-width:62ch}
 
-  /* ---------- Sections ---------- */
-  section.pad{padding:78px 0}
-  .kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;font-weight:700;color:var(--cta)}
-  .section-head{max-width:640px;margin:0 auto 46px}
-  .section-head h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin:.6rem 0 .7rem}
-  .section-head p{font-size:1.08rem}
+  /* Deliverables */
+  .included{background:var(--cream)}
+  .grid{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+  .item{display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px}
+  .item .num{flex:none;width:34px;height:34px;border-radius:9px;background:var(--espresso-deep);color:#fff;font-family:'Sora',sans-serif;font-weight:700;display:grid;place-items:center;font-size:1rem}
+  .item h3{font-size:1.06rem;margin-bottom:.25rem}
+  .item p{font-size:.94rem}
 
-  /* Deliverables grid */
-  .grid{display:grid;gap:20px}
-  .grid-3{grid-template-columns:repeat(3,1fr)}
-  .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:transform .18s ease, box-shadow .18s ease}
-  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-  .card .ic{width:52px;height:52px;border-radius:14px;background:var(--cream-2);display:grid;place-items:center;margin-bottom:16px;font-size:1.5rem}
-  .card h3{font-size:1.18rem;margin-bottom:.45rem}
-  .card p{font-size:.96rem}
-  .card .outcome{display:inline-block;margin-top:14px;font-size:.82rem;font-weight:700;color:var(--green);background:rgba(31,157,88,.10);padding:.32rem .7rem;border-radius:999px}
-
-  /* ---------- Social proof ---------- */
-  .proof{background:var(--cream)}
-  .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:920px;margin:0 auto}
-  .quote{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
-  .stars{color:var(--gold);font-size:1.05rem;letter-spacing:2px;margin-bottom:14px}
-  .quote .result{font-family:'Sora',sans-serif;font-size:1.55rem;font-weight:800;color:var(--ink);line-height:1.15;margin-bottom:.5rem;letter-spacing:-.02em}
-  .quote .result em{color:var(--cta);font-style:normal}
-  .quote p{font-size:.98rem;margin-bottom:18px}
-  .who{display:flex;align-items:center;gap:.8rem}
-  .who .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--espresso),var(--espresso-deep));color:#fff;display:grid;place-items:center;font-family:'Sora',sans-serif;font-weight:700}
-  .who b{font-family:'Inter',sans-serif;color:var(--ink);font-size:.95rem;display:block}
-  .who span{font-size:.85rem;color:var(--muted)}
-
-  /* ---------- Why it works / comparison ---------- */
-  .why{background:#fff}
-  .compare{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:860px;margin:0 auto}
-  .col{border-radius:var(--radius);padding:30px;border:1px solid var(--border)}
-  .col.bad{background:var(--cream);border-color:var(--border)}
-  .col.good{background:linear-gradient(180deg,#fff,#fff7f2);border:2px solid var(--cta);box-shadow:var(--shadow-lg);position:relative}
-  .col h3{font-size:1.15rem;margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
-  .col .tag{position:absolute;top:-13px;right:22px;background:var(--cta);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.35rem .8rem;border-radius:999px}
-  .li{display:flex;gap:.7rem;align-items:flex-start;padding:.5rem 0;font-size:.98rem;color:var(--ink)}
-  .li svg{flex:none;margin-top:3px}
-  .col.bad .li{color:var(--muted)}
-  .big-stat{font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;color:var(--ink);margin-top:1rem;padding-top:1rem;border-top:1px dashed var(--border)}
-  .col.bad .big-stat{color:var(--muted)}
-
-  /* ---------- Guarantee ---------- */
+  /* Guarantee */
   .guarantee{background:linear-gradient(160deg,var(--espresso) 0%, var(--espresso-deep) 100%);color:#fff}
-  .g-box{max-width:820px;margin:0 auto;text-align:center;position:relative}
-  .g-seal{width:120px;height:120px;border-radius:50%;margin:0 auto 22px;display:grid;place-items:center;
-    background:radial-gradient(circle at 50% 35%, #fff 0%, #ffe9db 60%, #ffd3b8 100%);
-    box-shadow:0 0 0 8px rgba(255,255,255,.10), 0 20px 50px rgba(0,0,0,.35);border:3px solid var(--cta)}
-  .g-seal .g-100{font-family:'Sora',sans-serif;font-weight:800;font-size:1.7rem;color:var(--espresso-deep);line-height:1}
-  .g-seal small{display:block;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--espresso);font-weight:700;margin-top:2px}
-  .guarantee h2{color:#fff;font-size:clamp(1.7rem,3.4vw,2.5rem);margin-bottom:1rem}
-  .guarantee p{color:#f0e2d7;font-size:1.16rem;max-width:60ch;margin:0 auto}
-  .guarantee .fine{margin-top:1.3rem;font-size:.95rem;color:#d8c4b6}
-  .guarantee b{color:#fff}
+  .g-inner{max-width:680px;margin:0 auto;text-align:center}
+  .g-badge{display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:.5rem 1rem;font-weight:700;font-size:.85rem;letter-spacing:.03em;color:#fff;margin-bottom:1.2rem}
+  .guarantee h2{color:#fff;font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:.9rem}
+  .guarantee p{color:#f0e2d7;font-size:1.1rem}
 
-  /* ---------- Pricing / Offer ---------- */
-  .offer{background:var(--cream)}
-  .price-card{max-width:560px;margin:0 auto;background:#fff;border-radius:26px;box-shadow:var(--shadow-lg);overflow:hidden;border:1px solid var(--border)}
-  .price-top{background:var(--espresso-deep);color:#fff;padding:16px;text-align:center;font-weight:700;font-family:'Sora',sans-serif;letter-spacing:.02em;font-size:.98rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
-  .price-body{padding:38px 34px 34px;text-align:center}
-  .scarcity{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,106,43,.10);color:var(--cta-hover);font-weight:700;font-size:.9rem;padding:.5rem 1rem;border-radius:999px;margin-bottom:20px}
-  .scarcity .pulse{width:9px;height:9px;border-radius:50%;background:var(--cta);animation:pulse 1.6s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,106,43,.5)}70%{box-shadow:0 0 0 8px rgba(255,106,43,0)}100%{box-shadow:0 0 0 0 rgba(255,106,43,0)}}
-  .price-row{display:flex;align-items:baseline;justify-content:center;gap:.7rem;margin-bottom:.3rem}
-  .price-now{font-family:'Sora',sans-serif;font-weight:800;font-size:3.6rem;color:var(--ink);letter-spacing:-.03em;line-height:1}
-  .price-was{font-size:1.4rem;color:#b8ada0;text-decoration:line-through;font-weight:600}
-  .save-badge{display:inline-block;background:var(--green);color:#fff;font-weight:700;font-size:.82rem;padding:.3rem .8rem;border-radius:999px;margin-bottom:22px}
-  .price-list{text-align:left;max-width:400px;margin:0 auto 26px}
-  .price-list .li{padding:.42rem 0;font-size:.97rem}
-  .pay-note{display:flex;align-items:center;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-top:18px;color:var(--muted);font-size:.82rem;font-weight:500}
-  .pay-note .s{display:flex;align-items:center;gap:.4rem}
+  /* Offer / price */
+  .offer{background:#fff}
+  .price-card{max-width:560px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden}
+  .price-top{background:var(--espresso-deep);color:#fff;padding:16px 20px;text-align:center;font-family:'Sora',sans-serif;font-weight:700;font-size:1rem}
+  .price-body{padding:34px 32px}
+  .price-name{font-family:'Sora',sans-serif;font-weight:700;font-size:1.15rem;color:var(--ink);text-align:center;margin-bottom:.4rem}
+  .scarcity{display:block;text-align:center;font-size:.9rem;font-weight:700;color:var(--cta-hover);margin-bottom:1.2rem}
+  .price-amount{font-family:'Sora',sans-serif;font-weight:800;font-size:3.4rem;color:var(--ink);letter-spacing:-.03em;line-height:1;text-align:center}
+  .price-unit{text-align:center;color:var(--muted);font-size:.92rem;margin-top:.4rem;margin-bottom:1.6rem}
+  .price-list{margin:0 auto 1.8rem;max-width:420px}
+  .price-list .li{display:flex;gap:.65rem;align-items:flex-start;padding:.4rem 0;font-size:.97rem;color:var(--ink)}
+  .price-list .li svg{flex:none;margin-top:4px}
+  .price-cta{text-align:center}
+  .price-cta .btn{width:100%;max-width:400px}
+  .email-line{text-align:center;margin-top:1rem;font-size:.92rem;color:var(--muted)}
+  .email-line a{color:var(--espresso);font-weight:600;text-decoration:underline}
 
-  /* ---------- FAQ ---------- */
-  .faq{background:#fff}
-  .faq-list{max-width:760px;margin:0 auto}
-  details{border:1px solid var(--border);border-radius:14px;padding:4px 20px;margin-bottom:14px;background:#fff;transition:box-shadow .2s}
-  details[open]{box-shadow:var(--shadow)}
-  summary{cursor:pointer;list-style:none;padding:16px 0;font-family:'Sora',sans-serif;font-weight:600;font-size:1.05rem;color:var(--ink);display:flex;justify-content:space-between;align-items:center;gap:1rem}
-  summary::-webkit-details-marker{display:none}
-  summary .plus{flex:none;width:26px;height:26px;border-radius:50%;background:var(--cream-2);display:grid;place-items:center;font-size:1.2rem;color:var(--espresso);transition:transform .2s}
-  details[open] summary .plus{transform:rotate(45deg)}
-  details p{padding:0 0 18px;font-size:.98rem}
-
-  /* ---------- Final CTA ---------- */
-  .final{background:linear-gradient(160deg,#fff, var(--cream))}
-  .final .section-head{margin-bottom:30px}
-  .final h2{font-size:clamp(1.9rem,4vw,2.9rem)}
-
-  /* ---------- Footer ---------- */
-  footer{background:var(--espresso-deep);color:#d9c8bc;padding:44px 0 34px}
-  footer .fnav{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;flex-wrap:wrap}
+  /* Footer */
+  footer{background:var(--espresso-deep);color:#d9c8bc;padding:38px 0}
+  footer .fnav{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
   footer .brand{color:#fff}
   footer .brand .logo{background:linear-gradient(135deg,#fff,#ffd9c2)}
   footer a{color:#d9c8bc}footer a:hover{color:#fff}
-  footer .flinks{display:flex;gap:1.5rem;font-size:.92rem}
-  footer .fine{margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:#b49e90;line-height:1.7}
+  footer .fine{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:#b49e90;line-height:1.7}
 
-  /* ---------- Sticky mobile CTA ---------- */
-  .mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--border);
-    padding:10px 16px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(0,0,0,.08);display:none;
-    align-items:center;justify-content:space-between;gap:12px}
-  .mobile-bar .mb-price{font-family:'Sora',sans-serif;font-weight:800;font-size:1.1rem;color:var(--ink);line-height:1}
-  .mobile-bar .mb-price s{display:block;font-size:.72rem;color:#b8ada0;font-weight:500}
-  .mobile-bar .btn{padding:.85rem 1.3rem;font-size:.98rem;white-space:nowrap}
-
-  /* ---------- Responsive ---------- */
-  @media (max-width:900px){
-    .hero-inner{grid-template-columns:1fr;gap:36px;padding:44px 0 54px}
-    .hero-sub{max-width:46ch}
-    .hero-card{order:2}
-    .grid-3{grid-template-columns:1fr}
-    .proof-grid{grid-template-columns:1fr}
-    .compare{grid-template-columns:1fr}
-    .nav-price{display:none}
-    section.pad{padding:58px 0}
-  }
-  @media (max-width:600px){
+  @media (max-width:760px){
+    .grid{grid-template-columns:1fr}
+    section.pad{padding:50px 0}
     .nav .btn{display:none}
-    .mobile-bar{display:flex}
-    body{padding-bottom:76px}
-    .price-now{font-size:3rem}
-    .hero-trust{gap:.9rem 1.3rem}
+    .price-amount{font-size:3rem}
   }
 </style>
 </head>
@@ -251,192 +147,96 @@
 <!-- ===================== HEADER ===================== -->
 <header>
   <div class="wrap nav">
-    <div class="brand"><span class="logo">☕</span> Coffee Cart Launch System</div>
-    <div class="nav-cta-wrap">
-      <span class="nav-price"><s>$7,500</s> &nbsp;$4,997</span>
-      <a href="#offer" class="btn">Start My Launch</a>
-    </div>
+    <div class="brand"><span class="logo">☕</span> Coffee Cart Launch</div>
+    <a href="#offer" class="btn">Claim Your Spot</a>
   </div>
 </header>
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">
   <div class="wrap hero-inner">
-    <div>
-      <span class="eyebrow"><span class="dot"></span> Done-for-you launch &middot; 30-day guarantee</span>
-      <h1 class="hero-title">From Idea to Your <span class="accent">First Paid Booking</span> in 30 Days, Guaranteed</h1>
-      <p class="hero-sub">Stop wasting months figuring it out yourself. Get everything you need to launch professionally and start cashing checks.</p>
+    <span class="eyebrow">Launch-Ready Coffee Cart Package</span>
+    <h1 class="hero-title">Launch Your Coffee Cart in 14 Days, <span class="accent">Without Looking Like an Amateur</span></h1>
+    <p class="hero-sub">Everything you need to open for business: a professional brand, a simple website, and the exact permits and equipment for your area. Done for you, so you launch like a pro instead of piecing it together alone.</p>
 
-      <div class="hero-cta-row">
-        <a href="#offer" class="btn btn--lg">Start My 30-Day Launch Now &rarr;</a>
-        <span class="btn-sub">✓ Guaranteed first booking &nbsp;·&nbsp; ✓ 100% money-back &nbsp;·&nbsp; ✓ Only 5 spots this month</span>
-      </div>
+    <a href="#offer" class="btn btn--lg">Claim Your Spot &rarr;</a>
+    <span class="btn-sub">$1,997 &middot; Launch-ready in 14 days or full refund</span>
 
-      <div class="hero-trust">
-        <div class="t">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.9 5.7 21l2.3-7.1-6-4.5h7.6z" fill="#f5a623"/></svg>
-          Real client results
-        </div>
-        <div class="t">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" fill="#1f9d58"/><path d="M8.5 12l2.3 2.3 4.7-4.7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Money-back guarantee
-        </div>
-        <div class="t">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#5b3a29"/><path d="M12 7v5l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Launched in 30 days
-        </div>
-      </div>
-    </div>
-
-    <!-- Deliverables preview card -->
-    <div class="hero-card">
-      <span class="card-tag">Everything included</span>
-      <h3>Your complete launch package</h3>
-      <div style="margin-top:16px">
-        <div class="deliverable">
-          <span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#1f9d58" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <div><b>Professional brand package</b><span>Logo, colors &amp; brand guidelines</span></div>
-        </div>
-        <div class="deliverable">
-          <span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#1f9d58" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <div><b>Launch-ready website</b><span>With an online booking system built in</span></div>
-        </div>
-        <div class="deliverable">
-          <span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#1f9d58" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <div><b>Complete business setup</b><span>Google Business, social media &amp; registration</span></div>
-        </div>
-        <div class="deliverable">
-          <span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#1f9d58" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <div><b>Marketing materials</b><span>Business cards, flyers &amp; promo assets</span></div>
-        </div>
-        <div class="deliverable">
-          <span class="chk"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4.5 4.5L19 7" stroke="#1f9d58" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <div><b>30-day success coaching</b><span>With a guaranteed first booking</span></div>
-        </div>
-      </div>
+    <div class="trust-line">
+      <span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" fill="#1f9d58"/><path d="M8.5 12l2.3 2.3 4.7-4.7" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        14-day full-refund guarantee
+      </span>
+      <span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#5b3a29"/><path d="M12 7v5l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Only 5 spots per month
+      </span>
     </div>
   </div>
 </section>
 
-<!-- ===================== TRUST STRIP ===================== -->
-<div class="strip">
+<!-- ===================== PROBLEM ===================== -->
+<section class="pad problem">
   <div class="wrap">
-    <div class="item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" fill="#ff6a2b"/></svg> Guaranteed first paid booking</div>
-    <div class="item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#ff6a2b"/><path d="M12 7v5l3 2" stroke="#3a241a" stroke-width="2" stroke-linecap="round"/></svg> 30-day professional launch</div>
-    <div class="item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 7h16v12H4z" stroke="#ff6a2b" stroke-width="2"/><path d="M4 10h16" stroke="#ff6a2b" stroke-width="2"/></svg> Secure Stripe checkout</div>
-    <div class="item"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1L12 16.9 5.7 21l2.3-7.1-6-4.5h7.6z" fill="#ff6a2b"/></svg> Real, verifiable client wins</div>
-  </div>
-</div>
-
-<!-- ===================== DELIVERABLES ===================== -->
-<section class="pad" id="whats-included">
-  <div class="wrap">
-    <div class="section-head center">
-      <span class="kicker">What you walk away with</span>
-      <h2>A real, bookable coffee cart business, not a pile of homework</h2>
-      <p>We build the whole thing with you and hand you a business that's ready to take paid bookings on day 30.</p>
-    </div>
-
-    <div class="grid grid-3">
-      <div class="card">
-        <div class="ic">🎨</div>
-        <h3>Professional brand package</h3>
-        <p>A logo, color palette, and brand guidelines that make you look established from day one, so customers trust you before you say a word.</p>
-        <span class="outcome">Look premium instantly</span>
-      </div>
-      <div class="card">
-        <div class="ic">🌐</div>
-        <h3>Launch-ready website</h3>
-        <p>A clean, mobile-first site with an online booking system so events and customers can reserve your cart while you sleep.</p>
-        <span class="outcome">Take bookings 24/7</span>
-      </div>
-      <div class="card">
-        <div class="ic">🏛️</div>
-        <h3>Complete business setup</h3>
-        <p>Google Business Profile, social media accounts, and business registration handled: the boring paperwork that stops most people, done for you.</p>
-        <span class="outcome">Legit &amp; findable</span>
-      </div>
-      <div class="card">
-        <div class="ic">📇</div>
-        <h3>Marketing materials</h3>
-        <p>Business cards, flyers, and promotional assets designed to match your brand, ready to hand out and start pulling in leads.</p>
-        <span class="outcome">Market from day one</span>
-      </div>
-      <div class="card">
-        <div class="ic">📈</div>
-        <h3>30-day success coaching</h3>
-        <p>Hands-on guidance for 30 days with one job: getting you to your first paid booking. You're never figuring it out alone.</p>
-        <span class="outcome">Booked, guaranteed</span>
-      </div>
-      <div class="card" style="background:linear-gradient(160deg,#fff,#fff7f2);border:2px solid var(--cta)">
-        <div class="ic" style="background:rgba(255,106,43,.12)">✅</div>
-        <h3>The guaranteed outcome</h3>
-        <p>Everything above adds up to one thing: a professional cart booking real, paying events in 30 days, or your money back.</p>
-        <span class="outcome">First booking or refund</span>
-      </div>
+    <div class="card">
+      <span class="kicker">The problem</span>
+      <h2>Most new coffee carts look amateur before they serve a single cup</h2>
+      <p>A logo made in a free app, a DIY website, guessing at which permits you need, and scrambling to find equipment. It costs you customers and credibility on day one. The Launch-Ready Coffee Cart Package gives you a professional foundation that is ready to launch in two weeks, so you show up looking like a real business from the start.</p>
     </div>
   </div>
 </section>
 
-<!-- ===================== SOCIAL PROOF ===================== -->
-<section class="pad proof">
+<!-- ===================== WHAT'S INCLUDED ===================== -->
+<section class="pad included" id="included">
   <div class="wrap">
-    <div class="section-head center">
-      <span class="kicker">Recent client results</span>
-      <h2>People just like you are already cashing checks</h2>
-    </div>
-    <div class="proof-grid">
-      <div class="quote">
-        <div class="stars">★★★★★</div>
-        <div class="result">Hit <em>$8,000</em> in month 2</div>
-        <p>"I'd been sitting on the coffee cart idea for over a year. The system got me launched and booked fast. By my second month I cleared eight grand. It paid for itself many times over."</p>
-        <div class="who"><span class="av">S</span><div><b>Sarah</b><span>Coffee cart owner</span></div></div>
-      </div>
-      <div class="quote">
-        <div class="stars">★★★★★</div>
-        <div class="result">Booked <em>6 events</em> his first month</div>
-        <p>"I had zero idea where to start. They handled the brand, the website, the setup, all of it. I booked six events in my first 30 days and haven't looked back since."</p>
-        <div class="who"><span class="av">M</span><div><b>Mike</b><span>Mobile coffee cart</span></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== WHY IT WORKS ===================== -->
-<section class="pad why">
-  <div class="wrap">
-    <div class="section-head center">
-      <span class="kicker">Why this works</span>
-      <h2>The DIY route costs more, takes longer, and still looks amateur</h2>
-      <p>Most people spend 6+ months and $3,000+ figuring this out themselves, and still don't look professional. Here's the difference.</p>
+    <div class="section-head">
+      <span class="kicker">What's included</span>
+      <h2>Five things that get you launch-ready</h2>
+      <p>No fluff, no ongoing commitments. Just the core pieces you need to open, done for you.</p>
     </div>
 
-    <div class="compare">
-      <div class="col bad">
-        <h3>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#e7ded4"/><path d="M8 8l8 8M16 8l-8 8" stroke="#9a8f82" stroke-width="2" stroke-linecap="round"/></svg>
-          Doing it yourself
-        </h3>
-        <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#b0a597" stroke-width="2.2" stroke-linecap="round"/></svg> 6+ months of trial and error</div>
-        <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#b0a597" stroke-width="2.2" stroke-linecap="round"/></svg> $3,000+ spent piecing it together</div>
-        <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#b0a597" stroke-width="2.2" stroke-linecap="round"/></svg> A brand that still looks amateur</div>
-        <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#b0a597" stroke-width="2.2" stroke-linecap="round"/></svg> No system to actually get booked</div>
-        <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#b0a597" stroke-width="2.2" stroke-linecap="round"/></svg> Zero guarantee you'll ever earn</div>
-        <div class="big-stat">Result: burned out, over budget, still not booked.</div>
+    <div class="grid">
+      <div class="item">
+        <span class="num">1</span>
+        <div>
+          <h3>Professional branding package</h3>
+          <p>A logo, color palette, and business cards that make you look established from day one.</p>
+        </div>
       </div>
-
-      <div class="col good">
-        <span class="tag">The smart way</span>
-        <h3>
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#ff6a2b"/><path d="M8 12.5l2.5 2.5L16 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Coffee Cart Launch System
-        </h3>
-        <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Professionally launched in 30 days</div>
-        <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Less money than the DIY route</div>
-        <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> A brand that looks truly professional</div>
-        <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> A booking system built to get events</div>
-        <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Guaranteed first booking or refund</div>
-        <div class="big-stat">Result: professional results, in 30 days, for less.</div>
+      <div class="item">
+        <span class="num">2</span>
+        <div>
+          <h3>Simple website with contact form</h3>
+          <p>A clean, mobile-friendly site so customers can find you and get in touch.</p>
+        </div>
+      </div>
+      <div class="item">
+        <span class="num">3</span>
+        <div>
+          <h3>Permits research guide for your area</h3>
+          <p>Exactly which permits and licenses you need locally, and how to get each one.</p>
+        </div>
+      </div>
+      <div class="item">
+        <span class="num">4</span>
+        <div>
+          <h3>Equipment sourcing list with contacts</h3>
+          <p>A vetted list of what to buy and who to buy it from, with real supplier contacts.</p>
+        </div>
+      </div>
+      <div class="item">
+        <span class="num">5</span>
+        <div>
+          <h3>Basic marketing templates</h3>
+          <p>Ready-to-use templates so you can start promoting your cart the day you launch.</p>
+        </div>
+      </div>
+      <div class="item" style="background:linear-gradient(160deg,#fff,#fff7f2);border:1.5px solid var(--cta)">
+        <span class="num" style="background:var(--cta)">✓</span>
+        <div>
+          <h3>The result</h3>
+          <p>A professional, launch-ready coffee cart business in 14 days, or your money back.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -444,119 +244,47 @@
 
 <!-- ===================== GUARANTEE ===================== -->
 <section class="pad guarantee">
-  <div class="wrap">
-    <div class="g-box">
-      <div class="g-seal"><div><div class="g-100">100%</div><small>Guarantee</small></div></div>
-      <h2>Book your first paid event in 30 days, or get every dollar back</h2>
-      <p>If you don't book your first paid event within 30 days, you get <b>100% of your money back. No questions asked.</b> The risk is entirely on us, so the only thing you have to decide is whether you want to be booked a month from now.</p>
-      <p class="fine">Simple, written, and honored. You either get booked, or you get refunded.</p>
-    </div>
+  <div class="wrap g-inner">
+    <span class="g-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" fill="#ff6a2b"/></svg>
+      100% money-back guarantee
+    </span>
+    <h2>Launch-ready in 14 days, or a full refund</h2>
+    <p>If your package isn't ready to launch within 14 days, you get 100% of your money back. The risk is on us, so all you have to decide is whether you want to be open for business two weeks from now.</p>
   </div>
 </section>
 
-<!-- ===================== OFFER / PRICING ===================== -->
+<!-- ===================== OFFER / PRICE ===================== -->
 <section class="pad offer" id="offer">
   <div class="wrap">
-    <div class="section-head center">
-      <span class="kicker">Claim your spot</span>
-      <h2>Only 5 clients this month</h2>
-      <p>This is a hands-on, done-with-you service, so spots are strictly limited. When this month's 5 are full, the next opening is 30+ days out.</p>
+    <div class="section-head" style="margin:0 auto 34px;text-align:center">
+      <span class="kicker">The offer</span>
+      <h2>Get your Launch-Ready Coffee Cart Package</h2>
     </div>
 
     <div class="price-card">
-      <div class="price-top">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" fill="#ff6a2b"/></svg>
-        Backed by the 30-Day First-Booking Guarantee
-      </div>
+      <div class="price-top">Launch-ready in 14 days or full refund</div>
       <div class="price-body">
-        <div class="scarcity"><span class="pulse"></span> Only 5 spots left this month</div>
+        <div class="price-name">Launch-Ready Coffee Cart Package</div>
+        <span class="scarcity">5 spots per month maximum</span>
 
-        <div class="price-row">
-          <span class="price-now">$4,997</span>
-          <span class="price-was">$7,500</span>
-        </div>
-        <span class="save-badge">Save $2,503 &middot; Limited-time launch pricing</span>
+        <div class="price-amount">$1,997</div>
+        <div class="price-unit">one-time, everything included</div>
 
         <div class="price-list">
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Professional brand package</div>
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Launch-ready website + booking system</div>
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Complete business setup</div>
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Full marketing materials kit</div>
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 30-day coaching &amp; guaranteed first booking</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Professional branding package (logo, colors, business cards)</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Simple website with contact form</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Permits research guide for your area</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Equipment sourcing list with contacts</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Basic marketing templates</div>
         </div>
 
-        <!-- ============================================================= -->
-        <!-- STRIPE CHECKOUT: replace the placeholder values below.          -->
-        <!-- Option A (fastest): create a Stripe Payment Link and set       -->
-        <!--   data-payment-link on the button. No backend needed.          -->
-        <!-- Option B: use Stripe Checkout Sessions via your backend and    -->
-        <!--   set STRIPE_PUBLISHABLE_KEY + CHECKOUT_ENDPOINT in the script. -->
-        <!-- ============================================================= -->
-        <button
-          class="btn btn--lg"
-          id="checkout-button"
-          data-payment-link="https://buy.stripe.com/REPLACE_WITH_YOUR_PAYMENT_LINK"
-          style="margin:0 auto">
-          Start My 30-Day Launch Now &rarr;
-        </button>
-        <span class="btn-sub center" style="display:block">Secure checkout &middot; 30-day money-back guarantee</span>
-
-        <div class="pay-note">
-          <span class="s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#8a7d6f" stroke-width="2"/><path d="M3 10h18" stroke="#8a7d6f" stroke-width="2"/></svg> Powered by Stripe</span>
-          <span class="s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 11V8a5 5 0 0110 0v3" stroke="#8a7d6f" stroke-width="2"/><rect x="5" y="11" width="14" height="9" rx="2" stroke="#8a7d6f" stroke-width="2"/></svg> 256-bit secure payment</span>
-          <span class="s"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" stroke="#8a7d6f" stroke-width="2"/></svg> Money-back guaranteed</span>
+        <div class="price-cta">
+          <a href="mailto:john@roastlaunch.com?subject=Launch-Ready%20Coffee%20Cart%20Package&body=Hi%2C%20I%27d%20like%20to%20claim%20a%20spot%20for%20the%20Launch-Ready%20Coffee%20Cart%20Package.%20Here%27s%20a%20bit%20about%20my%20cart%20and%20my%20area%3A" class="btn btn--lg">Claim Your Spot &rarr;</a>
         </div>
+        <p class="email-line">Or email us directly at <a href="mailto:john@roastlaunch.com?subject=Launch-Ready%20Coffee%20Cart%20Package">john@roastlaunch.com</a></p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ===================== FAQ ===================== -->
-<section class="pad faq">
-  <div class="wrap">
-    <div class="section-head center">
-      <span class="kicker">Questions</span>
-      <h2>Everything you're wondering, answered</h2>
-    </div>
-    <div class="faq-list">
-      <details open>
-        <summary>How does the guarantee actually work? <span class="plus">+</span></summary>
-        <p>Simple: if you don't book your first paid event within 30 days of your launch, you get 100% of your money back. No hoops, no fine print, no questions asked. We only win when you get booked.</p>
-      </details>
-      <details>
-        <summary>Do I need any experience to start? <span class="plus">+</span></summary>
-        <p>None at all. Most of our clients start from zero. We handle the brand, website, business setup, and marketing for you, then coach you to your first booking. You bring the ambition; we bring the system.</p>
-      </details>
-      <details>
-        <summary>What do I actually need to provide? <span class="plus">+</span></summary>
-        <p>Your time and input during the 30 days. We'll ask you questions to shape your brand and offer, but we do the heavy lifting on design, setup, and strategy so you can focus on serving customers.</p>
-      </details>
-      <details>
-        <summary>Why only 5 clients a month? <span class="plus">+</span></summary>
-        <p>Because this is hands-on. We're personally building your brand, website, and coaching you to a booking. To keep quality high and honor the guarantee, we cap it at 5 launches per month. When they're gone, they're gone.</p>
-      </details>
-      <details>
-        <summary>Is the price really $4,997? <span class="plus">+</span></summary>
-        <p>Yes. The full value of this package is $7,500. Right now it's $4,997 as limited-time launch pricing. Compare that to spending 6+ months and $3,000+ doing it yourself and still looking amateur, with no guarantee at all.</p>
-      </details>
-      <details>
-        <summary>How do I pay, and is it secure? <span class="plus">+</span></summary>
-        <p>Checkout is handled by Stripe, the same secure processor used by millions of businesses. Your payment is protected, and it's backed by the 30-day money-back guarantee.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== FINAL CTA ===================== -->
-<section class="pad final">
-  <div class="wrap center">
-    <div class="section-head center" style="margin-bottom:26px">
-      <span class="kicker">Your move</span>
-      <h2>A month from now, you could be booked</h2>
-      <p>You can keep researching for another six months, or you can be a professionally-launched, booked coffee cart in 30 days, with your money guaranteed either way.</p>
-    </div>
-    <a href="#offer" class="btn btn--lg" style="margin:0 auto">Start My 30-Day Launch Now &rarr;</a>
-    <span class="btn-sub">Only 5 spots this month &middot; 100% money-back guarantee</span>
   </div>
 </section>
 
@@ -564,74 +292,14 @@
 <footer>
   <div class="wrap">
     <div class="fnav">
-      <div class="brand"><span class="logo">☕</span> Coffee Cart Launch System</div>
-      <div class="flinks">
-        <a href="#whats-included">What's included</a>
-        <a href="#offer">Pricing</a>
-        <a href="#offer">Get started</a>
-      </div>
+      <div class="brand"><span class="logo">☕</span> Coffee Cart Launch</div>
+      <div><a href="#offer">Claim Your Spot</a></div>
     </div>
     <p class="fine">
-      Coffee Cart Launch System &copy; 2026. Results shown (Sarah's $8,000 month 2, Mike's 6 first-month bookings) reflect individual client experiences and are not a promise of specific earnings. Your results depend on your effort and market. The 30-day guarantee covers booking your first paid event: if you don't, you receive a full refund of your program fee. Payments securely processed by Stripe.
+      Coffee Cart Launch &copy; 2026. The Launch-Ready Coffee Cart Package is a one-time, done-for-you service. The 14-day guarantee covers delivery of a launch-ready package: if it isn't ready to launch within 14 days, you receive a full refund. Permit requirements vary by location; the permits guide is research and guidance, not legal advice.
     </p>
   </div>
 </footer>
 
-<!-- ===================== STICKY MOBILE CTA ===================== -->
-<div class="mobile-bar">
-  <div class="mb-price"><s>$7,500</s>$4,997</div>
-  <a href="#offer" class="btn">Start My Launch &rarr;</a>
-</div>
-
-<script>
-  // ============================================================
-  // STRIPE CHECKOUT WIRING
-  // ------------------------------------------------------------
-  // Two supported paths (pick one):
-  //
-  // A) PAYMENT LINK (no backend, fastest):
-  //    1. In Stripe Dashboard, create a Payment Link for $4,997.
-  //    2. Paste its URL into the button's data-payment-link attribute above.
-  //    That's it. The code below will redirect to it on click.
-  //
-  // B) CHECKOUT SESSION (backend, more control):
-  //    1. Set STRIPE_PUBLISHABLE_KEY below to your pk_live_... key.
-  //    2. Set CHECKOUT_ENDPOINT to your server route that creates a
-  //       Checkout Session and returns { id: sessionId }.
-  //    3. Uncomment the redirectToCheckout block below.
-  // ============================================================
-
-  const STRIPE_PUBLISHABLE_KEY = "pk_live_REPLACE_ME";   // Option B only
-  const CHECKOUT_ENDPOINT       = "/create-checkout-session"; // Option B only
-
-  const checkoutButton = document.getElementById("checkout-button");
-
-  checkoutButton.addEventListener("click", async () => {
-    const paymentLink = checkoutButton.getAttribute("data-payment-link");
-
-    // ---- Option A: Payment Link ----
-    if (paymentLink && !paymentLink.includes("REPLACE_WITH_YOUR_PAYMENT_LINK")) {
-      window.location.href = paymentLink;
-      return;
-    }
-
-    // ---- Option B: Checkout Session (uncomment to use) ----
-    /*
-    try {
-      const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
-      const res = await fetch(CHECKOUT_ENDPOINT, { method: "POST" });
-      const { id } = await res.json();
-      await stripe.redirectToCheckout({ sessionId: id });
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong starting checkout. Please try again.");
-    }
-    return;
-    */
-
-    // Placeholder behavior until Stripe is connected:
-    alert("Stripe checkout goes here.\n\nConnect it by adding your Payment Link (data-payment-link) or your publishable key + backend endpoint. See the comments in index.html.");
-  });
-</script>
 </body>
 </html>
