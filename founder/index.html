@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Founder's Launch-Ready Coffee Cart Package | Book Your First Event in 30 Days</title>
+<meta name="description" content="A done-for-you package to launch your coffee cart and book your first paid event in 30 days: professional branding, a real website, event booking integration, 1-on-1 launch strategy, a local permits guide, equipment sourcing, outreach scripts, and proposal templates. $4,997. Book your first paid event in 30 days, guaranteed." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Founder's Launch-Ready Coffee Cart Package" />
+<meta property="og:description" content="Everything you need to launch your coffee cart and book your first paid event in 30 days. Branding, website, event booking, 1-on-1 launch strategy, permits, equipment, and outreach scripts. $4,997, guaranteed." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --ink:#171310;
+    --muted:#5f574f;
+    --cream:#faf6f1;
+    --cream-2:#f4ede4;
+    --espresso:#5b3a29;
+    --espresso-deep:#3a241a;
+    --cta:#ff6a2b;
+    --cta-hover:#e85512;
+    --green:#1f9d58;
+    --border:#ece5db;
+    --shadow:0 10px 34px rgba(35,22,12,.09);
+    --shadow-lg:0 20px 56px rgba(35,22,12,.14);
+    --radius:16px;
+    --maxw:940px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15;letter-spacing:-.02em;font-weight:700}
+  p{color:var(--muted)}
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    background:var(--cta);color:#fff;font-weight:700;font-family:'Sora',sans-serif;
+    font-size:1.05rem;padding:1rem 1.8rem;border-radius:12px;border:none;cursor:pointer;
+    box-shadow:0 10px 24px rgba(255,106,43,.30);
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;line-height:1.2;
+  }
+  .btn:hover{background:var(--cta-hover);transform:translateY(-2px)}
+  .btn--lg{font-size:1.12rem;padding:1.15rem 2.2rem}
+  .btn-sub{display:block;margin-top:.8rem;font-size:.9rem;color:var(--muted);font-weight:500}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:.55rem;font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
+  .brand .logo-img{height:34px;width:auto;display:block}
+  .nav .btn{padding:.6rem 1.15rem;font-size:.92rem;box-shadow:none}
+
+  /* Hero */
+  .hero{background:linear-gradient(180deg,#fff 0%, var(--cream) 100%)}
+  .hero-inner{padding:64px 0 60px;max-width:760px}
+  .eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--border);color:var(--espresso);
+    font-weight:700;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;padding:.45rem .85rem;border-radius:999px;box-shadow:var(--shadow)}
+  h1.hero-title{font-size:clamp(2.1rem,4.8vw,3.2rem);font-weight:800;margin:1.1rem 0 1rem}
+  h1 .accent{color:var(--espresso)}
+  .hero-sub{font-size:1.15rem;color:var(--muted);max-width:56ch;margin-bottom:1.8rem}
+  .trust-line{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:1.6rem;font-size:.94rem;font-weight:600;color:var(--ink)}
+  .trust-line span{display:inline-flex;align-items:center;gap:.45rem}
+  .trust-line svg{flex:none}
+
+  /* Sections */
+  section.pad{padding:64px 0}
+  .kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:700;color:var(--cta)}
+  .section-head{max-width:620px;margin-bottom:38px}
+  .section-head h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:.55rem 0 .6rem}
+  .section-head p{font-size:1.05rem}
+
+  /* Problem */
+  .problem{background:#fff}
+  .problem .card{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:32px}
+  .problem h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:.8rem;max-width:22ch}
+  .problem p{font-size:1.08rem;max-width:62ch}
+
+  /* Deliverables */
+  .included{background:var(--cream)}
+  .grid{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+  .item{display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px}
+  .item .num{flex:none;width:34px;height:34px;border-radius:9px;background:var(--espresso-deep);color:#fff;font-family:'Sora',sans-serif;font-weight:700;display:grid;place-items:center;font-size:1rem}
+  .item h3{font-size:1.06rem;margin-bottom:.25rem}
+  .item p{font-size:.94rem}
+
+  /* Guarantee */
+  .guarantee{background:linear-gradient(160deg,var(--espresso) 0%, var(--espresso-deep) 100%);color:#fff}
+  .g-inner{max-width:680px;margin:0 auto;text-align:center}
+  .g-badge{display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:.5rem 1rem;font-weight:700;font-size:.85rem;letter-spacing:.03em;color:#fff;margin-bottom:1.2rem}
+  .guarantee h2{color:#fff;font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:.9rem}
+  .guarantee p{color:#f0e2d7;font-size:1.1rem}
+
+  /* Offer / price */
+  .offer{background:#fff}
+  .price-card{max-width:560px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden}
+  .price-top{background:var(--espresso-deep);color:#fff;padding:16px 20px;text-align:center;font-family:'Sora',sans-serif;font-weight:700;font-size:1rem}
+  .price-body{padding:34px 32px}
+  .price-name{font-family:'Sora',sans-serif;font-weight:700;font-size:1.15rem;color:var(--ink);text-align:center;margin-bottom:.4rem}
+  .scarcity{display:block;text-align:center;font-size:.9rem;font-weight:700;color:var(--cta-hover);margin-bottom:1.2rem}
+  .price-amount{font-family:'Sora',sans-serif;font-weight:800;font-size:3.4rem;color:var(--ink);letter-spacing:-.03em;line-height:1;text-align:center}
+  .price-unit{text-align:center;color:var(--muted);font-size:.92rem;margin-top:.4rem;margin-bottom:1.6rem}
+  .price-list{margin:0 auto 1.8rem;max-width:440px}
+  .price-list .li{display:flex;gap:.65rem;align-items:flex-start;padding:.4rem 0;font-size:.97rem;color:var(--ink)}
+  .price-list .li svg{flex:none;margin-top:4px}
+  .price-cta{text-align:center}
+  .price-cta .btn{width:100%;max-width:400px}
+  .email-line{text-align:center;margin-top:1rem;font-size:.92rem;color:var(--muted)}
+  .email-line a{color:var(--espresso);font-weight:600;text-decoration:underline}
+
+  /* Footer */
+  footer{background:var(--espresso-deep);color:#d9c8bc;padding:38px 0}
+  footer .fnav{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+  footer .brand{color:#fff}
+  footer a{color:#d9c8bc}footer a:hover{color:#fff}
+  footer .fine{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:#b49e90;line-height:1.7}
+
+  @media (max-width:760px){
+    .grid{grid-template-columns:1fr}
+    section.pad{padding:50px 0}
+    .nav .btn{display:none}
+    .price-amount{font-size:3rem}
+  }
+</style>
+</head>
+<body>
+
+<div style="background: #ff4444; color: white; padding: 20px; text-align: center; font-weight: bold;">
+🚨 FOUNDER'S RATE: First 3 Coffee Cart Entrepreneurs Only<br>
+I'm testing this system with 3 serious entrepreneurs before the full launch<br>
+Get the complete Launch-Ready Package for just $997 (Regular Price: $4,997)<br>
+This founder's rate expires in 48 hours - then it goes to full price<br>
+I need 3 case studies to prove this system works before I scale it<br>
+<strong>Only 2 spots remaining</strong>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header>
+  <div class="wrap nav">
+    <div class="brand"><img class="logo-img" src="/logo.png" alt="Roast Launch" /> Coffee Cart Launch</div>
+    <a href="#offer" class="btn">Claim Your Spot</a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Founder's Launch-Ready Coffee Cart Package</span>
+    <h1 class="hero-title">Launch Your Coffee Cart &amp; <span class="accent">Book Your First Paid Event in 30 Days</span></h1>
+    <p class="hero-sub">Get professional branding, a real website, 1-on-1 launch strategy, and know exactly which permits you need. Launch in 14 days and book your first event in 30, guaranteed.</p>
+
+    <a href="#offer" class="btn btn--lg">Claim Your Spot &rarr;</a>
+    <span class="btn-sub"><span style="text-decoration: line-through; color: #999;">$4,997</span> $997 &middot; Book your first paid event in 30 days, guaranteed.</span>
+
+    <div class="trust-line">
+      <span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#5b3a29"/><path d="M12 7v5l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Only 2 founder spots remaining
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROBLEM ===================== -->
+<section class="pad problem">
+  <div class="wrap">
+    <div class="card">
+      <span class="kicker">The problem</span>
+      <h2>Most new coffee carts look amateur before they serve a single cup</h2>
+      <p>Amateur logos, DIY websites, wrong permits, cheap equipment. You look like a hobby, not a business. The Founder's Launch-Ready Coffee Cart Package gives you a professional foundation that is ready to launch in two weeks, so you show up looking like a real business from the start.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHAT'S INCLUDED ===================== -->
+<section class="pad included" id="included">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">What's included</span>
+      <h2>Eight things that get you launch-ready &amp; booking events</h2>
+      <p>No fluff, no ongoing commitments. Just the core pieces you need to open, done for you.</p>
+    </div>
+
+    <div class="grid">
+      <div class="item">
+        <span class="num">1</span>
+        <div>
+          <h3>Professional branding package</h3>
+          <p>A logo, color palette, and business cards that make you look established from day one.</p>
+        </div>
+      </div>
+      <div class="item">
+        <span class="num">2</span>
+        <div>
+          <h3>Simple website with contact form</h3>
+          <p>A clean, mobile-friendly site so customers can find you and get in touch.</p>
+        </div>
+      </div>
+      <div class="item">
+        <span class="num">3</span>
+        <div>
+          <h3>Event booking system integration</h3>
+          <p>A seamless system for customers to book your cart for their events directly through your website.</p>
+        </div>
+      </div>
+      <div class="item">
+        <span class="num">4</span>
+        <div>
+          <h3>Permits research guide for your area</h3>
+          <p>Exactly which permits and licenses you need locally, and how to get each one.</p>
+        </div>
+      </div>
+      <div class="item">
+        <span class="num">5</span>
+        <div>
+          <h3>Equipment sourcing list with contacts</h3>
+          <p>A vetted list of what to buy and who to buy it from, with real supplier contacts.</p>
+        </div>
+      </div>
+      <div class="item">
+        <span class="num">6</span>
+        <div>
+          <h3>1-on-1 launch strategy session</h3>
+          <p>A personalized session to plan your first 90 days, identify ideal event locations, and optimize your outreach.</p>
+        </div>
+      </div>
+      <div class="item">
+        <span class="num">7</span>
+        <div>
+          <h3>Proven outreach scripts &amp; templates</h3>
+          <p>Word-for-word scripts and customizable templates for contacting event organizers, businesses, and private clients.</p>
+        </div>
+      </div>
+      <div class="item">
+        <span class="num">8</span>
+        <div>
+          <h3>Customizable event proposal template</h3>
+          <p>A professional template to quickly create compelling proposals for potential event bookings.</p>
+        </div>
+      </div>
+      <div class="item" style="grid-column:1/-1;background:linear-gradient(160deg,#fff,#fff7f2);border:1.5px solid var(--cta)">
+        <span class="num" style="background:var(--cta)">&check;</span>
+        <div>
+          <h3>The result</h3>
+          <p>A professional, launch-ready coffee cart business that books its first paid event within 30 days, guaranteed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GUARANTEE ===================== -->
+<section class="pad guarantee">
+  <div class="wrap g-inner">
+    <span class="g-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" fill="#ff6a2b"/></svg>
+      Book your first paid event in 30 days, guaranteed
+    </span>
+    <h2>Book your first paid event in 30 days, or I work for free</h2>
+    <p>If you don't book your first paid event within 30 days of your package being ready, I will personally work with you for free until you do. The risk is on us, so all you have to decide is whether you want to be booking events a month from now.</p>
+  </div>
+</section>
+
+<!-- ===================== OFFER / PRICE ===================== -->
+<section class="pad offer" id="offer">
+  <div class="wrap">
+    <div class="section-head" style="margin:0 auto 34px;text-align:center">
+      <span class="kicker">The offer</span>
+      <h2>Get your Founder's Launch-Ready Coffee Cart Package</h2>
+    </div>
+
+    <div class="price-card">
+      <div class="price-top">Book your first paid event in 30 days, guaranteed</div>
+      <div class="price-body">
+        <div class="price-name">Founder's Launch-Ready Coffee Cart Package</div>
+        <span class="scarcity">5 spots per month maximum</span>
+
+        <p style="color: #ff4444; font-weight: bold; margin-bottom: 10px;">FOUNDER'S RATE (Save $4,000)</p>
+        <div class="price-amount"><span style="text-decoration: line-through; color: #999;">$4,997</span> $997</div>
+        <div class="price-unit">one-time, everything included</div>
+
+        <div class="price-list">
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Professional branding package (logo, colors, business cards)</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Simple website with contact form</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Event booking system integration</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Permits research guide for your area</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Equipment sourcing list with contacts</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 1-on-1 launch strategy session</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Proven outreach scripts &amp; templates</div>
+          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Customizable event proposal template</div>
+        </div>
+
+        <div class="price-cta">
+          <a href="mailto:john@roastlaunch.com?subject=Launch-Ready%20Coffee%20Cart%20Package&body=Hi%2C%20I%27d%20like%20to%20claim%20a%20spot%20for%20the%20Launch-Ready%20Coffee%20Cart%20Package.%20Here%27s%20a%20bit%20about%20my%20cart%20and%20my%20area%3A" class="btn btn--lg">Claim Your Spot &rarr;</a>
+        </div>
+        <p class="email-line">Or email us directly at <a href="mailto:john@roastlaunch.com?subject=Launch-Ready%20Coffee%20Cart%20Package">john@roastlaunch.com</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="fnav">
+      <div class="brand"><img class="logo-img" src="/logo.png" alt="Roast Launch" /> Coffee Cart Launch</div>
+      <div><a href="#offer">Claim Your Spot</a></div>
+    </div>
+    <p class="fine">
+      Coffee Cart Launch &copy; 2026. Pre-launch validation program limited to 3 entrepreneurs. 30-day event booking guarantee: if you don't book your first paid event within 30 days of package completion, we work with you for free until you do. Founder's rate expires in 48 hours. Permit requirements vary by location.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
