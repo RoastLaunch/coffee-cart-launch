@@ -1,324 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Launch-Ready Coffee Cart Package | Book Your First Event in 30 Days</title>
-<meta name="description" content="A done-for-you package to launch your coffee cart and book your first paid event in 30 days: professional branding, a real website, event booking integration, 1-on-1 launch strategy, a local permits guide, equipment sourcing, outreach scripts, and proposal templates. $4,997. Book your first paid event in 30 days, guaranteed." />
-
-<!-- Open Graph -->
-<meta property="og:title" content="Launch-Ready Coffee Cart Package" />
-<meta property="og:description" content="Everything you need to launch your coffee cart and book your first paid event in 30 days. Branding, website, event booking, 1-on-1 launch strategy, permits, equipment, and outreach scripts. $4,997, guaranteed." />
-<meta property="og:type" content="website" />
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee Cart Launch | Launch your coffee cart and book your first paid event in 30 days</title>
+<meta name="description" content="The Launch-Ready Coffee Cart Package: branding, website, booking system, permits guide, equipment list, outreach scripts, and a 1-on-1 strategy session. Book your first paid event in 30 days, or I work for free.">
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Bricolage+Grotesque:wght@500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#ffffff;
-    --ink:#171310;
-    --muted:#5f574f;
-    --cream:#faf6f1;
-    --cream-2:#f4ede4;
-    --espresso:#5b3a29;
-    --espresso-deep:#3a241a;
-    --cta:#ff6a2b;
-    --cta-hover:#e85512;
-    --green:#1f9d58;
-    --border:#ece5db;
-    --shadow:0 10px 34px rgba(35,22,12,.09);
-    --shadow-lg:0 20px 56px rgba(35,22,12,.14);
-    --radius:16px;
-    --maxw:940px;
-  }
+:root{
+  --canvas:#F3F5E8; --canvas-subtle:#F7F8F0; --canvas-deep:#D8DACF;
+  --ink:#2C2B2B; --ink-deep:#1A1A1A; --ink-soft:#696969; --ink-muted:#888982;
+  --accent:#F5D577; --accent-dark:#D6BA68; --accent-pale:#F7F0D3;
+  --blue-ice:#C0E1EC; --brown:#814F34; --brown-light:#A1775E; --brown-deep:#422513;
+  --white:#FFFFFF; --green:#29A863;
+  --font:'Figtree',sans-serif; --font-accent:'Bricolage Grotesque',sans-serif;
+  --radius-btn:8px; --radius-card:19px;
+  --shadow-glass:0 20px 68px rgba(0,0,0,.25),0 1px 2px rgba(0,0,0,.3),inset 0 2px 1px rgba(255,255,255,.5),inset 1px 1px .25px rgba(255,255,255,.3);
+  --shadow-soft:0 20px 68px rgba(44,43,43,.12),0 1px 2px rgba(44,43,43,.08);
+  --transition:all .2s;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);font-size:14px;line-height:20px;color:var(--ink);background:var(--canvas)}
+::selection{background:var(--accent);color:var(--ink)}
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 5%;position:relative}
+h1{font-size:82px;line-height:78px;letter-spacing:-3px;font-weight:500}
+h2{font-size:56px;line-height:100%;letter-spacing:-2px;font-weight:500}
+.eyebrow{font-family:var(--font-accent);font-size:14px;line-height:20px;letter-spacing:.64px;text-transform:uppercase;font-weight:700;color:var(--brown);margin-bottom:20px}
+.lede{font-size:20px;line-height:28px;max-width:56ch;color:var(--ink-soft)}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:7px;padding:10px 18px;font-size:15px;font-weight:500;border-radius:var(--radius-btn);text-decoration:none;transition:var(--transition);cursor:pointer;white-space:nowrap}
+.btn-outline{color:var(--ink);border:1px solid var(--canvas-deep);background:transparent}
+.btn-outline:hover{background:var(--white);border-color:var(--white)}
+.btn-filled{color:var(--canvas);background:var(--ink);border:1px solid var(--ink)}
+.btn-filled:hover{background:var(--ink-deep);transform:translateY(-1px)}
 
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    color:var(--ink);
-    background:var(--bg);
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
-  }
-  h1,h2,h3{font-family:'Sora',sans-serif;line-height:1.15;letter-spacing:-.02em;font-weight:700}
-  p{color:var(--muted)}
-  a{color:inherit;text-decoration:none}
+/* reveal on scroll (native scroll, CSS transitions only) */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(0,0,.2,1),transform .6s cubic-bezier(0,0,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .marquee-inner{animation:none!important}
+  html{scroll-behavior:auto}
+}
 
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+/* 01 · NAV */
+nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 5%;background:rgba(243,245,232,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--canvas-deep)}
+nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;letter-spacing:-.2px;color:var(--ink);text-decoration:none}
+nav .brand img{height:30px;width:auto;display:block}
+nav .actions{display:flex;gap:10px}
 
-  /* Buttons */
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-    background:var(--cta);color:#fff;font-weight:700;font-family:'Sora',sans-serif;
-    font-size:1.05rem;padding:1rem 1.8rem;border-radius:12px;border:none;cursor:pointer;
-    box-shadow:0 10px 24px rgba(255,106,43,.30);
-    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;line-height:1.2;
-  }
-  .btn:hover{background:var(--cta-hover);transform:translateY(-2px)}
-  .btn--lg{font-size:1.12rem;padding:1.15rem 2.2rem}
-  .btn-sub{display:block;margin-top:.8rem;font-size:.9rem;color:var(--muted);font-weight:500}
+/* 02 · HERO */
+.hero{flex-direction:row;align-items:center;gap:56px;overflow:hidden}
+.hero .grid-line{position:absolute;top:0;bottom:0;width:1px;background:var(--canvas-deep);opacity:.55;pointer-events:none}
+.hero .glow{position:absolute;right:-10%;top:-20%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(245,213,119,.35),transparent 65%);pointer-events:none}
+.hero-left{flex:1.3;position:relative;z-index:1}
+.hero-ctas{display:flex;gap:12px;margin-top:36px}
+h1 .gold{color:var(--brown)}
+.offer-card{flex:1;max-width:400px;background:var(--white);border-radius:var(--radius-card);padding:32px;box-shadow:var(--shadow-soft);position:relative;z-index:1}
+.offer-card .avail{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin-bottom:22px}
+.offer-card .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(41,168,99,.15)}
+.offer-card .pkg{font-size:30px;line-height:100%;font-weight:500;letter-spacing:-.5px;margin-bottom:10px}
+.offer-card .price{font-size:22px;font-weight:500;color:var(--brown);margin-bottom:6px}
+.offer-card .price small{font-size:13px;font-weight:400;color:var(--ink-muted)}
+.offer-card .includes{font-size:13px;color:var(--ink-soft);margin-bottom:22px}
+.offer-card .btn{width:100%}
+.offer-card .call-row{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:18px;border-top:1px solid var(--canvas)}
+.offer-card .call-row span{font-size:13px;color:var(--ink-soft)}
+.offer-card .call-row a{font-size:13px;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent);transition:var(--transition)}
+.offer-card .call-row a:hover{border-color:var(--accent-dark)}
 
-  /* Header */
-  header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid var(--border)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:.55rem;font-family:'Sora',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
-  .brand .logo-img{height:34px;width:auto;display:block}
-  .nav .btn{padding:.6rem 1.15rem;font-size:.92rem;box-shadow:none}
+/* 03 · HOW IT WORKS */
+.hiw{background:var(--canvas-subtle)}
+.hiw-grid{display:flex;gap:32px;margin-top:48px}
+.hiw-card{flex:1;background:var(--white);border-radius:var(--radius-card);overflow:hidden;box-shadow:0 1px 2px rgba(44,43,43,.06);transition:var(--transition)}
+.hiw-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-soft)}
+.hiw-card .grad{height:110px;background:linear-gradient(135deg,var(--accent-pale),var(--accent));display:flex;align-items:flex-end;padding:16px 28px}
+.hiw-card:nth-child(2) .grad{background:linear-gradient(135deg,var(--accent-pale),var(--accent-dark))}
+.hiw-card:nth-child(3) .grad{background:linear-gradient(135deg,var(--accent),var(--brown-light))}
+.hiw-card .step{font-family:var(--font-accent);font-weight:700;font-size:14px;letter-spacing:.64px;color:var(--brown-deep)}
+.hiw-card .body{padding:26px 28px 32px}
+.hiw-card h3{font-size:30px;line-height:100%;letter-spacing:-.5px;font-weight:500;margin-bottom:14px}
+.hiw-card p{color:var(--ink-soft);max-width:34ch}
 
-  /* Hero */
-  .hero{background:linear-gradient(180deg,#fff 0%, var(--cream) 100%)}
-  .hero-inner{padding:64px 0 60px;max-width:760px}
-  .eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--border);color:var(--espresso);
-    font-weight:700;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;padding:.45rem .85rem;border-radius:999px;box-shadow:var(--shadow)}
-  h1.hero-title{font-size:clamp(2.1rem,4.8vw,3.2rem);font-weight:800;margin:1.1rem 0 1rem}
-  h1 .accent{color:var(--espresso)}
-  .hero-sub{font-size:1.15rem;color:var(--muted);max-width:56ch;margin-bottom:1.8rem}
-  .trust-line{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:1.6rem;font-size:.94rem;font-weight:600;color:var(--ink)}
-  .trust-line span{display:inline-flex;align-items:center;gap:.45rem}
-  .trust-line svg{flex:none}
+/* 04 · DELIVERABLES MARQUEE */
+.deliver h2{max-width:16ch}
+.marquee{overflow:hidden;white-space:nowrap;margin-top:48px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-inner{display:inline-flex;gap:12px;padding-right:12px;animation:scroll 30s linear infinite}
+.marquee:hover .marquee-inner{animation-play-state:paused}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;font-size:15px;font-weight:500;background:var(--white);border:1px solid var(--canvas-deep);border-radius:var(--radius-btn)}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent-dark)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.deliver .note{margin-top:28px;font-size:14px;color:var(--ink-muted)}
 
-  /* Sections */
-  section.pad{padding:64px 0}
-  .kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;font-weight:700;color:var(--cta)}
-  .section-head{max-width:620px;margin-bottom:38px}
-  .section-head h2{font-size:clamp(1.6rem,3.2vw,2.2rem);margin:.55rem 0 .6rem}
-  .section-head p{font-size:1.05rem}
+/* 05 · PROOF / GUARANTEE */
+.proof{background:var(--canvas-subtle);text-align:center;align-items:center}
+.stack{display:flex;justify-content:center;align-items:center;margin-bottom:64px;height:240px}
+.artifact{width:270px;background:var(--white);border-radius:12px;box-shadow:0 12px 40px rgba(44,43,43,.16);padding:22px;text-align:left;transition:var(--transition)}
+.artifact:hover{transform:translateY(-6px) rotate(0deg)!important;z-index:3}
+.artifact.a{transform:rotate(-5deg) translateX(36px)}
+.artifact.b{transform:rotate(1deg);z-index:2;width:300px}
+.artifact.c{transform:rotate(5deg) translateX(-36px)}
+.artifact .tag{font-family:var(--font-accent);font-size:11px;font-weight:700;letter-spacing:.64px;text-transform:uppercase;color:var(--ink-muted);margin-bottom:12px}
+.biz-mark{width:34px;height:34px;border-radius:50%;background:var(--brown);margin-bottom:12px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-family:var(--font-accent);font-weight:700}
+.artifact.a .name{font-weight:700;font-size:16px}
+.artifact.a .role{font-size:12px;color:var(--ink-soft);margin-bottom:10px}
+.artifact.a .band{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--accent-dark))}
+.browser-bar{display:flex;gap:5px;margin-bottom:10px}
+.browser-bar i{width:8px;height:8px;border-radius:50%;background:var(--canvas-deep)}
+.mini-hero{background:var(--canvas);border-radius:8px;padding:16px}
+.mini-hero .mh1{height:12px;width:80%;border-radius:6px;background:var(--ink);margin-bottom:6px}
+.mini-hero .mh2{height:12px;width:55%;border-radius:6px;background:var(--ink);opacity:.8;margin-bottom:10px}
+.mini-hero .mbtn{height:22px;width:96px;border-radius:6px;background:var(--brown)}
+.doc-line{height:7px;border-radius:4px;background:var(--canvas-deep);margin-bottom:8px}
+.doc-line.w60{width:60%}.doc-line.w85{width:85%}.doc-line.w70{width:70%}
+.doc-seal{width:44px;height:44px;border-radius:50%;background:var(--accent);border:2px dashed var(--accent-dark);margin-top:14px;display:flex;align-items:center;justify-content:center;font-size:18px}
+.proof .guarantee{max-width:20ch;margin:0 auto}
+.proof .guarantee em{font-style:normal;color:var(--brown);border-bottom:4px solid var(--accent)}
+.proof .sub{margin-top:24px;font-size:16px;color:var(--ink-soft)}
 
-  /* Problem */
-  .problem{background:#fff}
-  .problem .card{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:32px}
-  .problem h2{font-size:clamp(1.5rem,3vw,2rem);margin-bottom:.8rem;max-width:22ch}
-  .problem p{font-size:1.08rem;max-width:62ch}
+/* 06 · PRICING */
+.pricing{align-items:center;text-align:center}
+.pricing h2{max-width:18ch}
+.glass-card{color:var(--white);background:#000;border:1px solid #000;border-radius:var(--radius-card);padding:40px;max-width:560px;width:100%;margin-top:48px;box-shadow:var(--shadow-glass);text-align:left;position:relative;overflow:hidden}
+.glass-card .shine{position:absolute;top:-40%;right:-20%;width:70%;height:120%;background:radial-gradient(circle,rgba(245,213,119,.18),transparent 70%);pointer-events:none}
+.glass-card .hdr{font-size:30px;line-height:100%;letter-spacing:-.5px;font-weight:500;margin-bottom:14px}
+.glass-card .price{font-size:46px;font-weight:500;letter-spacing:-1px;line-height:100%}
+.glass-card .price small{font-size:15px;color:rgba(255,255,255,.55);font-weight:400;letter-spacing:0}
+.glass-card ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin:26px 0 0;color:rgba(255,255,255,.85);font-size:15px;line-height:24px}
+.glass-card ul .check{color:var(--accent);margin-right:8px;font-weight:700}
+.glass-card .cta{display:block;width:100%;margin-top:24px;padding:20px 0;font-size:20px;font-weight:500;text-align:center;color:#000;background:var(--white);border:none;border-radius:var(--radius-btn);transition:var(--transition);text-decoration:none}
+.glass-card .cta:hover{background:var(--accent);transform:translateY(-1px)}
+.glass-card .micro{font-size:13px;color:rgba(255,255,255,.55);text-align:center;margin-top:14px}
+.pricing .spots{margin-top:22px;font-size:14px;color:var(--ink-soft);display:flex;align-items:center;gap:8px}
+.pricing .spots .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
 
-  /* Deliverables */
-  .included{background:var(--cream)}
-  .grid{display:grid;gap:16px;grid-template-columns:1fr 1fr}
-  .item{display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:22px 24px}
-  .item .num{flex:none;width:34px;height:34px;border-radius:9px;background:var(--espresso-deep);color:#fff;font-family:'Sora',sans-serif;font-weight:700;display:grid;place-items:center;font-size:1rem}
-  .item h3{font-size:1.06rem;margin-bottom:.25rem}
-  .item p{font-size:.94rem}
+/* 07 · FAQ + FINAL CTA + FOOTER */
+.faq{max-width:820px;margin:0 auto;width:100%}
+.faq h2{margin-bottom:32px}
+.faq details{border-bottom:1px solid var(--canvas-deep);padding:22px 0}
+.faq summary{font-size:20px;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--font-accent);font-size:22px;color:var(--brown);transition:var(--transition);flex-shrink:0}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:12px;color:var(--ink-soft);max-width:60ch;font-size:15px;line-height:23px}
+.final{text-align:center;align-items:center}
+.final h1{max-width:14ch}
+.final .hero-ctas{justify-content:center}
+footer{padding:60px 5% 24px;overflow:hidden;background:var(--canvas)}
+footer .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-muted);padding-bottom:48px}
+footer .meta a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--canvas-deep);transition:var(--transition)}
+footer .meta a:hover{color:var(--ink)}
+footer .giant{font-family:var(--font);font-size:9.3vw;line-height:.85;font-weight:500;letter-spacing:-.04em;color:var(--canvas-deep);text-align:center;white-space:nowrap;user-select:none}
 
-  /* Guarantee */
-  .guarantee{background:linear-gradient(160deg,var(--espresso) 0%, var(--espresso-deep) 100%);color:#fff}
-  .g-inner{max-width:680px;margin:0 auto;text-align:center}
-  .g-badge{display:inline-flex;align-items:center;gap:.5rem;border:1.5px solid rgba(255,255,255,.35);border-radius:999px;padding:.5rem 1rem;font-weight:700;font-size:.85rem;letter-spacing:.03em;color:#fff;margin-bottom:1.2rem}
-  .guarantee h2{color:#fff;font-size:clamp(1.6rem,3.2vw,2.2rem);margin-bottom:.9rem}
-  .guarantee p{color:#f0e2d7;font-size:1.1rem}
-
-  /* Offer / price */
-  .offer{background:#fff}
-  .price-card{max-width:560px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow-lg);overflow:hidden}
-  .price-top{background:var(--espresso-deep);color:#fff;padding:16px 20px;text-align:center;font-family:'Sora',sans-serif;font-weight:700;font-size:1rem}
-  .price-body{padding:34px 32px}
-  .price-name{font-family:'Sora',sans-serif;font-weight:700;font-size:1.15rem;color:var(--ink);text-align:center;margin-bottom:.4rem}
-  .scarcity{display:block;text-align:center;font-size:.9rem;font-weight:700;color:var(--cta-hover);margin-bottom:1.2rem}
-  .price-amount{font-family:'Sora',sans-serif;font-weight:800;font-size:3.4rem;color:var(--ink);letter-spacing:-.03em;line-height:1;text-align:center}
-  .price-unit{text-align:center;color:var(--muted);font-size:.92rem;margin-top:.4rem;margin-bottom:1.6rem}
-  .price-list{margin:0 auto 1.8rem;max-width:440px}
-  .price-list .li{display:flex;gap:.65rem;align-items:flex-start;padding:.4rem 0;font-size:.97rem;color:var(--ink)}
-  .price-list .li svg{flex:none;margin-top:4px}
-  .price-cta{text-align:center}
-  .price-cta .btn{width:100%;max-width:400px}
-  .email-line{text-align:center;margin-top:1rem;font-size:.92rem;color:var(--muted)}
-  .email-line a{color:var(--espresso);font-weight:600;text-decoration:underline}
-
-  /* Footer */
-  footer{background:var(--espresso-deep);color:#d9c8bc;padding:38px 0}
-  footer .fnav{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
-  footer .brand{color:#fff}
-  footer a{color:#d9c8bc}footer a:hover{color:#fff}
-  footer .fine{margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);font-size:.82rem;color:#b49e90;line-height:1.7}
-
-  @media (max-width:760px){
-    .grid{grid-template-columns:1fr}
-    section.pad{padding:50px 0}
-    .nav .btn{display:none}
-    .price-amount{font-size:3rem}
-  }
+/* mobile */
+@media (max-width:900px){
+  .hero{flex-direction:column;align-items:flex-start;gap:40px}
+  .offer-card{max-width:100%}
+  .hiw-grid{flex-direction:column}
+  .stack{height:auto;flex-direction:column;gap:20px;margin-bottom:48px}
+  .artifact.a,.artifact.b,.artifact.c{transform:none;width:100%;max-width:320px}
+}
+@media (max-width:767px){
+  h1{font-size:60px;line-height:70px;letter-spacing:-4px}
+  h2{font-size:38px;letter-spacing:-1.5px}
+  section{min-height:auto;padding:88px 6%}
+  .glass-card{padding:26px}
+  nav .btn-outline{display:none}
+  footer .meta{flex-direction:column;gap:10px}
+}
+@media (max-width:420px){
+  h1{font-size:44px;line-height:48px;letter-spacing:-2px}
+}
 </style>
 </head>
 <body>
 
-<!-- ===================== HEADER ===================== -->
-<header>
-  <div class="wrap nav">
-    <div class="brand"><img class="logo-img" src="logo.png" alt="Roast Launch" /> Coffee Cart Launch</div>
-    <a href="#offer" class="btn">Claim Your Spot</a>
+<!-- 01 · NAV -->
+<nav>
+  <a class="brand" href="#top"><img src="/logo.png" alt="Coffee Cart Launch logo">Coffee Cart Launch</a>
+  <div class="actions">
+    <a class="btn btn-outline" href="mailto:john@roastlaunch.com">Email John</a>
+    <a class="btn btn-filled" href="#pricing">See pricing</a>
   </div>
-</header>
+</nav>
 
-<!-- ===================== HERO ===================== -->
-<section class="hero">
-  <div class="wrap hero-inner">
-    <span class="eyebrow">Launch-Ready Coffee Cart Package</span>
-    <h1 class="hero-title">Launch Your Coffee Cart &amp; <span class="accent">Book Your First Paid Event in 30 Days</span></h1>
-    <p class="hero-sub">Get professional branding, a real website, 1-on-1 launch strategy, and know exactly which permits you need. Launch in 14 days and book your first event in 30, guaranteed.</p>
-
-    <a href="#offer" class="btn btn--lg">Claim Your Spot &rarr;</a>
-    <span class="btn-sub">$4,997 &middot; Book your first paid event in 30 days, guaranteed.</span>
-
-    <div class="trust-line">
-      <span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" fill="#5b3a29"/><path d="M12 7v5l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Only 5 spots per month
-      </span>
+<!-- 02 · HERO -->
+<section class="hero" id="top">
+  <div class="grid-line" style="left:25%"></div>
+  <div class="grid-line" style="left:50%"></div>
+  <div class="grid-line" style="left:75%"></div>
+  <div class="glow"></div>
+  <div class="hero-left">
+    <div class="eyebrow">The Launch-Ready Coffee Cart Package</div>
+    <h1>Launch your coffee cart. Book your first <span class="gold">paid event.</span></h1>
+    <p class="lede" style="margin-top:24px">Everything you need to go from idea to booked-and-paid in 30 days. One package, one price, one guarantee.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-filled" href="#pricing">Claim Your Spot</a>
+      <a class="btn btn-outline" href="#how">See how it works</a>
+    </div>
+  </div>
+  <div class="offer-card reveal">
+    <div class="avail"><span class="dot"></span>Taking new clients · 5 spots per month</div>
+    <div class="pkg">Launch-Ready Coffee Cart Package</div>
+    <div class="price">$4,997 <small>one-time</small></div>
+    <div class="includes">Branding, website, booking system, permits, equipment, scripts + strategy session.</div>
+    <a class="btn btn-filled" href="#pricing">See what's included</a>
+    <div class="call-row">
+      <span>Prefer to talk first?</span>
+      <a href="mailto:john@roastlaunch.com?subject=Coffee%20Cart%20Launch%20call">Book a call</a>
     </div>
   </div>
 </section>
 
-<!-- ===================== PROBLEM ===================== -->
-<section class="pad problem">
-  <div class="wrap">
-    <div class="card">
-      <span class="kicker">The problem</span>
-      <h2>Most new coffee carts look amateur before they serve a single cup</h2>
-      <p>Amateur logos, DIY websites, wrong permits, cheap equipment. You look like a hobby, not a business. The Launch-Ready Coffee Cart Package gives you a professional foundation that is ready to launch in two weeks, so you show up looking like a real business from the start.</p>
-    </div>
+<!-- 03 · HOW IT WORKS -->
+<section class="hiw" id="how">
+  <div class="reveal">
+    <div class="eyebrow">How it works</div>
+    <h2>Most new carts look amateur.<br>Yours won't.</h2>
   </div>
-</section>
-
-<!-- ===================== WHAT'S INCLUDED ===================== -->
-<section class="pad included" id="included">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">What's included</span>
-      <h2>Eight things that get you launch-ready &amp; booking events</h2>
-      <p>No fluff, no ongoing commitments. Just the core pieces you need to open, done for you.</p>
+  <div class="hiw-grid">
+    <div class="hiw-card reveal">
+      <div class="grad"><span class="step">Step 01</span></div>
+      <div class="body">
+        <h3>Brand it</h3>
+        <p>A professional logo, colors, and business cards, plus a simple website with a contact form. You look established from day one.</p>
+      </div>
     </div>
-
-    <div class="grid">
-      <div class="item">
-        <span class="num">1</span>
-        <div>
-          <h3>Professional branding package</h3>
-          <p>A logo, color palette, and business cards that make you look established from day one.</p>
-        </div>
+    <div class="hiw-card reveal">
+      <div class="grad"><span class="step">Step 02</span></div>
+      <div class="body">
+        <h3>Book it</h3>
+        <p>An event booking system, proven outreach scripts, and a proposal template that wins gigs. Your calendar starts filling before you pour.</p>
       </div>
-      <div class="item">
-        <span class="num">2</span>
-        <div>
-          <h3>Simple website with contact form</h3>
-          <p>A clean, mobile-friendly site so customers can find you and get in touch.</p>
-        </div>
-      </div>
-      <div class="item">
-        <span class="num">3</span>
-        <div>
-          <h3>Event booking system integration</h3>
-          <p>A seamless system for customers to book your cart for their events directly through your website.</p>
-        </div>
-      </div>
-      <div class="item">
-        <span class="num">4</span>
-        <div>
-          <h3>Permits research guide for your area</h3>
-          <p>Exactly which permits and licenses you need locally, and how to get each one.</p>
-        </div>
-      </div>
-      <div class="item">
-        <span class="num">5</span>
-        <div>
-          <h3>Equipment sourcing list with contacts</h3>
-          <p>A vetted list of what to buy and who to buy it from, with real supplier contacts.</p>
-        </div>
-      </div>
-      <div class="item">
-        <span class="num">6</span>
-        <div>
-          <h3>1-on-1 launch strategy session</h3>
-          <p>A personalized session to plan your first 90 days, identify ideal event locations, and optimize your outreach.</p>
-        </div>
-      </div>
-      <div class="item">
-        <span class="num">7</span>
-        <div>
-          <h3>Proven outreach scripts &amp; templates</h3>
-          <p>Word-for-word scripts and customizable templates for contacting event organizers, businesses, and private clients.</p>
-        </div>
-      </div>
-      <div class="item">
-        <span class="num">8</span>
-        <div>
-          <h3>Customizable event proposal template</h3>
-          <p>A professional template to quickly create compelling proposals for potential event bookings.</p>
-        </div>
-      </div>
-      <div class="item" style="grid-column:1/-1;background:linear-gradient(160deg,#fff,#fff7f2);border:1.5px solid var(--cta)">
-        <span class="num" style="background:var(--cta)">&check;</span>
-        <div>
-          <h3>The result</h3>
-          <p>A professional, launch-ready coffee cart business that books its first paid event within 30 days, guaranteed.</p>
-        </div>
+    </div>
+    <div class="hiw-card reveal">
+      <div class="grad"><span class="step">Step 03</span></div>
+      <div class="body">
+        <h3>Launch it</h3>
+        <p>A permits guide for your exact area, an equipment sourcing list with real contacts, and a 1-on-1 strategy session. Nothing left to guess.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== GUARANTEE ===================== -->
-<section class="pad guarantee">
-  <div class="wrap g-inner">
-    <span class="g-badge">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-4z" fill="#ff6a2b"/></svg>
-      Book your first paid event in 30 days, guaranteed
-    </span>
-    <h2>Book your first paid event in 30 days, or I work for free</h2>
-    <p>If you don't book your first paid event within 30 days of your package being ready, I will personally work with you for free until you do. The risk is on us, so all you have to decide is whether you want to be booking events a month from now.</p>
+<!-- 04 · DELIVERABLES MARQUEE -->
+<section class="deliver">
+  <div class="reveal">
+    <div class="eyebrow">What's inside</div>
+    <h2>Eight things that get you launch-ready</h2>
   </div>
+  <div class="marquee" aria-label="Package deliverables">
+    <div class="marquee-inner">
+      <span class="pill">Professional branding package</span>
+      <span class="pill">Simple website with contact form</span>
+      <span class="pill">Event booking system</span>
+      <span class="pill">Permits research guide</span>
+      <span class="pill">Equipment sourcing list</span>
+      <span class="pill">1-on-1 launch strategy session</span>
+      <span class="pill">Outreach scripts &amp; templates</span>
+      <span class="pill">Event proposal template</span>
+      <span class="pill" aria-hidden="true">Professional branding package</span>
+      <span class="pill" aria-hidden="true">Simple website with contact form</span>
+      <span class="pill" aria-hidden="true">Event booking system</span>
+      <span class="pill" aria-hidden="true">Permits research guide</span>
+      <span class="pill" aria-hidden="true">Equipment sourcing list</span>
+      <span class="pill" aria-hidden="true">1-on-1 launch strategy session</span>
+      <span class="pill" aria-hidden="true">Outreach scripts &amp; templates</span>
+      <span class="pill" aria-hidden="true">Event proposal template</span>
+    </div>
+  </div>
+  <p class="note reveal">Every piece is done for you or done with you. Nothing off the shelf.</p>
 </section>
 
-<!-- ===================== OFFER / PRICE ===================== -->
-<section class="pad offer" id="offer">
-  <div class="wrap">
-    <div class="section-head" style="margin:0 auto 34px;text-align:center">
-      <span class="kicker">The offer</span>
-      <h2>Get your Launch-Ready Coffee Cart Package</h2>
+<!-- 05 · PROOF / GUARANTEE -->
+<section class="proof">
+  <div class="stack reveal" aria-hidden="true">
+    <div class="artifact a">
+      <div class="tag">Your business card</div>
+      <div class="biz-mark">C</div>
+      <div class="name">Your Name</div>
+      <div class="role">Owner · Your Coffee Cart</div>
+      <div class="band"></div>
     </div>
-
-    <div class="price-card">
-      <div class="price-top">Book your first paid event in 30 days, guaranteed</div>
-      <div class="price-body">
-        <div class="price-name">Launch-Ready Coffee Cart Package</div>
-        <span class="scarcity">5 spots per month maximum</span>
-
-        <div class="price-amount">$4,997</div>
-        <div class="price-unit">one-time, everything included</div>
-
-        <div class="price-list">
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Professional branding package (logo, colors, business cards)</div>
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Simple website with contact form</div>
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Event booking system integration</div>
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Permits research guide for your area</div>
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Equipment sourcing list with contacts</div>
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 1-on-1 launch strategy session</div>
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Proven outreach scripts &amp; templates</div>
-          <div class="li"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12.5l4 4L19 7" stroke="#1f9d58" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Customizable event proposal template</div>
-        </div>
-
-        <div class="price-cta">
-          <a href="mailto:john@roastlaunch.com?subject=Launch-Ready%20Coffee%20Cart%20Package&body=Hi%2C%20I%27d%20like%20to%20claim%20a%20spot%20for%20the%20Launch-Ready%20Coffee%20Cart%20Package.%20Here%27s%20a%20bit%20about%20my%20cart%20and%20my%20area%3A" class="btn btn--lg">Claim Your Spot &rarr;</a>
-        </div>
-        <p class="email-line">Or email us directly at <a href="mailto:john@roastlaunch.com?subject=Launch-Ready%20Coffee%20Cart%20Package">john@roastlaunch.com</a></p>
+    <div class="artifact b">
+      <div class="tag">Your website</div>
+      <div class="browser-bar"><i></i><i></i><i></i></div>
+      <div class="mini-hero">
+        <div class="mh1"></div>
+        <div class="mh2"></div>
+        <div class="mbtn"></div>
       </div>
     </div>
+    <div class="artifact c">
+      <div class="tag">Your event proposal</div>
+      <div class="doc-line w85"></div>
+      <div class="doc-line w60"></div>
+      <div class="doc-line w70"></div>
+      <div class="doc-seal">☕</div>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="eyebrow">The guarantee</div>
+    <h2 class="guarantee">Book your first paid event in 30 days, <em>or I work for free.</em></h2>
+    <p class="sub">No asterisks. You launch and get booked, or you don't pay for more of my time.</p>
   </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
+<!-- 06 · PRICING -->
+<section class="pricing" id="pricing">
+  <div class="reveal">
+    <div class="eyebrow">Pricing</div>
+    <h2>One package. Everything included.</h2>
+  </div>
+  <div class="glass-card reveal">
+    <div class="shine"></div>
+    <div class="hdr">Launch-Ready Coffee Cart Package</div>
+    <div class="price">$4,997 <small>one-time</small></div>
+    <ul>
+      <li><span class="check">✓</span>Professional branding package</li>
+      <li><span class="check">✓</span>Simple website with contact form</li>
+      <li><span class="check">✓</span>Event booking system integration</li>
+      <li><span class="check">✓</span>Permits research guide for your area</li>
+      <li><span class="check">✓</span>Equipment sourcing list with contacts</li>
+      <li><span class="check">✓</span>1-on-1 launch strategy session</li>
+      <li><span class="check">✓</span>Proven outreach scripts &amp; templates</li>
+      <li><span class="check">✓</span>Customizable event proposal template</li>
+    </ul>
+    <a class="cta" href="mailto:john@roastlaunch.com?subject=Claim%20my%20spot%20-%20Launch-Ready%20Coffee%20Cart%20Package">Claim Your Spot</a>
+    <div class="micro">Book your first paid event in 30 days, or I work for free.</div>
+  </div>
+  <div class="spots reveal"><span class="dot"></span>5 spots per month, so every launch gets real attention.</div>
+</section>
+
+<!-- 07a · FAQ -->
+<section>
+  <div class="faq reveal">
+    <div class="eyebrow">Questions</div>
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>How fast until I'm launch-ready?</summary>
+      <p>The package runs on a 30-day clock. Branding and your website land first, then we line up permits, equipment, and outreach so your first paid event is booked by the end of the month.</p>
+    </details>
+    <details>
+      <summary>What if I don't have a cart yet?</summary>
+      <p>No problem. The equipment sourcing list covers carts, machines, and suppliers with real contacts, so you buy right the first time instead of learning by expensive mistakes.</p>
+    </details>
+    <details>
+      <summary>Do I need permits before we start?</summary>
+      <p>No. The permits research guide is part of the package. We map exactly what your city and county require before you serve your first cup.</p>
+    </details>
+    <details>
+      <summary>What does the guarantee cover?</summary>
+      <p>Simple: book your first paid event within 30 days, or I keep working with you for free until you do.</p>
+    </details>
+    <details>
+      <summary>How do payments work?</summary>
+      <p>One payment of $4,997, no subscriptions and no upsells. Email me and I'll send over the details, or book a call if you'd rather talk it through first.</p>
+    </details>
+  </div>
+</section>
+
+<!-- 07b · FINAL CTA -->
+<section class="final">
+  <div class="reveal">
+    <h1>Booked and pouring by next month.</h1>
+    <p class="lede" style="margin:24px auto 0">Five spots a month. If you're serious about launching, let's talk.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-filled" href="mailto:john@roastlaunch.com?subject=Coffee%20Cart%20Launch%20call">Book a call</a>
+      <a class="btn btn-outline" href="mailto:john@roastlaunch.com">Email John</a>
+    </div>
+  </div>
+</section>
+
+<!-- 07c · FOOTER -->
 <footer>
-  <div class="wrap">
-    <div class="fnav">
-      <div class="brand"><img class="logo-img" src="logo.png" alt="Roast Launch" /> Coffee Cart Launch</div>
-      <div><a href="#offer">Claim Your Spot</a></div>
-    </div>
-    <p class="fine">
-      Coffee Cart Launch &copy; 2026. The Launch-Ready Coffee Cart Package is a one-time, done-for-you service. The 30-day event booking guarantee covers booking your first paid event: if you don't book your first paid event within 30 days of your package being ready, we will work with you for free until you do. Permit requirements vary by location; the permits guide is research and guidance, not legal advice.
-    </p>
+  <div class="meta">
+    <span>© 2026 Coffee Cart Launch · A Roast Launch project</span>
+    <a href="mailto:john@roastlaunch.com">john@roastlaunch.com</a>
   </div>
+  <div class="giant">COFFEE CART LAUNCH</div>
 </footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 
 </body>
 </html>
