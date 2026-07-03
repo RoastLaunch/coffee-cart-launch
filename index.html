@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coffee Cart Launch | Launch your coffee cart and book your first paid event in 30 days</title>
 <meta name="description" content="The Launch-Ready Coffee Cart Package: branding, website, booking system, permits guide, equipment list, outreach scripts, and a 1-on-1 strategy session. Book your first paid event in 30 days, or I work for free.">
+<meta property="og:title" content="Coffee Cart Launch | Launch-Ready Coffee Cart Package">
+<meta property="og:description" content="Launch your coffee cart and book your first paid event in 30 days, or I work for free. One package, one price, one guarantee.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://coffeecartlaunch.com/">
+<meta property="og:image" content="https://coffeecartlaunch.com/img/hero-cart.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +48,7 @@ h2{font-size:56px;line-height:100%;letter-spacing:-2px;font-weight:500}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
-  .marquee-inner{animation:none!important}
+  .marquee-inner,.hero-media img,.steam,.offer-card.in{animation:none!important}
   html{scroll-behavior:auto}
 }
 
@@ -53,11 +59,20 @@ nav .brand img{height:30px;width:auto;display:block}
 nav .actions{display:flex;gap:10px}
 
 /* 02 · HERO */
-.hero{flex-direction:row;align-items:center;gap:56px;overflow:hidden}
+.hero{overflow:hidden;padding-top:80px}
+.hero-row{display:flex;align-items:center;gap:56px;position:relative;z-index:1}
 .hero .grid-line{position:absolute;top:0;bottom:0;width:1px;background:var(--canvas-deep);opacity:.55;pointer-events:none}
 .hero .glow{position:absolute;right:-10%;top:-20%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(245,213,119,.35),transparent 65%);pointer-events:none}
 .hero-left{flex:1.3;position:relative;z-index:1}
 .hero-ctas{display:flex;gap:12px;margin-top:36px}
+.hero-media{margin-top:56px;border-radius:var(--radius-card);overflow:hidden;position:relative;box-shadow:var(--shadow-soft);z-index:1}
+.hero-media img{display:block;width:100%;height:auto;animation:kenburns 26s ease-in-out infinite alternate;transform-origin:60% 40%}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
+.steam{position:absolute;bottom:22%;width:14px;height:60px;border-radius:50%;background:rgba(255,255,255,.55);filter:blur(10px);opacity:0;animation:steam 5.5s ease-in-out infinite;pointer-events:none}
+.steam.s1{left:60%}.steam.s2{left:63%;animation-delay:1.8s}.steam.s3{left:66%;animation-delay:3.4s}
+@keyframes steam{0%{transform:translateY(24px) scaleX(1);opacity:0}30%{opacity:.65}100%{transform:translateY(-90px) scaleX(1.7);opacity:0}}
+.offer-card.in{animation:floaty 7s ease-in-out 1.2s infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 h1 .gold{color:var(--brown)}
 .offer-card{flex:1;max-width:400px;background:var(--white);border-radius:var(--radius-card);padding:32px;box-shadow:var(--shadow-soft);position:relative;z-index:1}
 .offer-card .avail{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin-bottom:22px}
@@ -110,10 +125,7 @@ h1 .gold{color:var(--brown)}
 .artifact.a .band{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--accent-dark))}
 .browser-bar{display:flex;gap:5px;margin-bottom:10px}
 .browser-bar i{width:8px;height:8px;border-radius:50%;background:var(--canvas-deep)}
-.mini-hero{background:var(--canvas);border-radius:8px;padding:16px}
-.mini-hero .mh1{height:12px;width:80%;border-radius:6px;background:var(--ink);margin-bottom:6px}
-.mini-hero .mh2{height:12px;width:55%;border-radius:6px;background:var(--ink);opacity:.8;margin-bottom:10px}
-.mini-hero .mbtn{height:22px;width:96px;border-radius:6px;background:var(--brown)}
+.mini-shot{display:block;width:100%;height:auto;border-radius:8px}
 .doc-line{height:7px;border-radius:4px;background:var(--canvas-deep);margin-bottom:8px}
 .doc-line.w60{width:60%}.doc-line.w85{width:85%}.doc-line.w70{width:70%}
 .doc-seal{width:44px;height:44px;border-radius:50%;background:var(--accent);border:2px dashed var(--accent-dark);margin-top:14px;display:flex;align-items:center;justify-content:center;font-size:18px}
@@ -157,7 +169,7 @@ footer .giant{font-family:var(--font);font-size:9.3vw;line-height:.85;font-weigh
 
 /* mobile */
 @media (max-width:900px){
-  .hero{flex-direction:column;align-items:flex-start;gap:40px}
+  .hero-row{flex-direction:column;align-items:flex-start;gap:40px}
   .offer-card{max-width:100%}
   .hiw-grid{flex-direction:column}
   .stack{height:auto;flex-direction:column;gap:20px;margin-bottom:48px}
@@ -193,25 +205,31 @@ footer .giant{font-family:var(--font);font-size:9.3vw;line-height:.85;font-weigh
   <div class="grid-line" style="left:50%"></div>
   <div class="grid-line" style="left:75%"></div>
   <div class="glow"></div>
-  <div class="hero-left">
-    <div class="eyebrow">The Launch-Ready Coffee Cart Package</div>
-    <h1>Launch your coffee cart. Book your first <span class="gold">paid event.</span></h1>
-    <p class="lede" style="margin-top:24px">Everything you need to go from idea to booked-and-paid in 30 days. One package, one price, one guarantee.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-filled" href="#pricing">Claim Your Spot</a>
-      <a class="btn btn-outline" href="#how">See how it works</a>
+  <div class="hero-row">
+    <div class="hero-left">
+      <div class="eyebrow">The Launch-Ready Coffee Cart Package</div>
+      <h1>Launch your coffee cart. Book your first <span class="gold">paid event.</span></h1>
+      <p class="lede" style="margin-top:24px">Everything you need to go from idea to booked-and-paid in 30 days. One package, one price, one guarantee.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-filled" href="#pricing">Claim Your Spot</a>
+        <a class="btn btn-outline" href="#how">See how it works</a>
+      </div>
+    </div>
+    <div class="offer-card reveal">
+      <div class="avail"><span class="dot"></span>Taking new clients · 5 spots per month</div>
+      <div class="pkg">Launch-Ready Coffee Cart Package</div>
+      <div class="price">$4,997 <small>one-time</small></div>
+      <div class="includes">Branding, website, booking system, permits, equipment, scripts + strategy session.</div>
+      <a class="btn btn-filled" href="#pricing">See what's included</a>
+      <div class="call-row">
+        <span>Prefer to talk first?</span>
+        <a href="mailto:john@roastlaunch.com?subject=Coffee%20Cart%20Launch%20call">Book a call</a>
+      </div>
     </div>
   </div>
-  <div class="offer-card reveal">
-    <div class="avail"><span class="dot"></span>Taking new clients · 5 spots per month</div>
-    <div class="pkg">Launch-Ready Coffee Cart Package</div>
-    <div class="price">$4,997 <small>one-time</small></div>
-    <div class="includes">Branding, website, booking system, permits, equipment, scripts + strategy session.</div>
-    <a class="btn btn-filled" href="#pricing">See what's included</a>
-    <div class="call-row">
-      <span>Prefer to talk first?</span>
-      <a href="mailto:john@roastlaunch.com?subject=Coffee%20Cart%20Launch%20call">Book a call</a>
-    </div>
+  <div class="hero-media reveal">
+    <img src="/img/hero-cart.jpg" alt="A premium coffee cart serving espresso at an outdoor event">
+    <span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
   </div>
 </section>
 
@@ -288,11 +306,7 @@ footer .giant{font-family:var(--font);font-size:9.3vw;line-height:.85;font-weigh
     <div class="artifact b">
       <div class="tag">Your website</div>
       <div class="browser-bar"><i></i><i></i><i></i></div>
-      <div class="mini-hero">
-        <div class="mh1"></div>
-        <div class="mh2"></div>
-        <div class="mbtn"></div>
-      </div>
+      <img class="mini-shot" src="/img/cart-front.jpg" alt="">
     </div>
     <div class="artifact c">
       <div class="tag">Your event proposal</div>

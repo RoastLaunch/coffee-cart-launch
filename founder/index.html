@@ -8,6 +8,9 @@
 <meta property="og:title" content="Founder's Launch-Ready Coffee Cart Package">
 <meta property="og:description" content="Founder's rate: $997 (was $4,997). Everything you need to launch your coffee cart and book your first paid event in 30 days, guaranteed.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://coffeecartlaunch.com/founder/">
+<meta property="og:image" content="https://coffeecartlaunch.com/img/hero-cart.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +48,7 @@ h2{font-size:56px;line-height:100%;letter-spacing:-2px;font-weight:500}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
+  .hero-media img,.steam,.offer-card.in{animation:none!important}
   html{scroll-behavior:auto}
 }
 
@@ -59,7 +63,16 @@ nav .brand img{height:30px;width:auto;display:block}
 nav .actions{display:flex;gap:10px}
 
 /* HERO */
-.hero{flex-direction:row;align-items:center;gap:56px;overflow:hidden;min-height:calc(100vh - 110px)}
+.hero{overflow:hidden;min-height:calc(100vh - 110px);padding-top:80px}
+.hero-row{display:flex;align-items:center;gap:56px;position:relative;z-index:1}
+.hero-media{margin-top:56px;border-radius:var(--radius-card);overflow:hidden;position:relative;box-shadow:var(--shadow-soft);z-index:1}
+.hero-media img{display:block;width:100%;height:auto;animation:kenburns 26s ease-in-out infinite alternate;transform-origin:60% 40%}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
+.steam{position:absolute;bottom:22%;width:14px;height:60px;border-radius:50%;background:rgba(255,255,255,.55);filter:blur(10px);opacity:0;animation:steam 5.5s ease-in-out infinite;pointer-events:none}
+.steam.s1{left:60%}.steam.s2{left:63%;animation-delay:1.8s}.steam.s3{left:66%;animation-delay:3.4s}
+@keyframes steam{0%{transform:translateY(24px) scaleX(1);opacity:0}30%{opacity:.65}100%{transform:translateY(-90px) scaleX(1.7);opacity:0}}
+.offer-card.in{animation:floaty 7s ease-in-out 1.2s infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .hero .grid-line{position:absolute;top:0;bottom:0;width:1px;background:var(--canvas-deep);opacity:.55;pointer-events:none}
 .hero .glow{position:absolute;right:-10%;top:-20%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(245,213,119,.35),transparent 65%);pointer-events:none}
 .hero-left{flex:1.3;position:relative;z-index:1}
@@ -127,7 +140,7 @@ footer .fine{font-size:12px;line-height:18px;color:var(--ink-muted);max-width:80
 footer .giant{font-family:var(--font);font-size:9.3vw;line-height:.85;font-weight:500;letter-spacing:-.04em;color:var(--canvas-deep);text-align:center;white-space:nowrap;user-select:none}
 
 @media (max-width:900px){
-  .hero{flex-direction:column;align-items:flex-start;gap:40px}
+  .hero-row{flex-direction:column;align-items:flex-start;gap:40px}
   .offer-card{max-width:100%}
   .inc-grid{grid-template-columns:1fr}
 }
@@ -164,25 +177,31 @@ footer .giant{font-family:var(--font);font-size:9.3vw;line-height:.85;font-weigh
   <div class="grid-line" style="left:50%"></div>
   <div class="grid-line" style="left:75%"></div>
   <div class="glow"></div>
-  <div class="hero-left">
-    <div class="eyebrow">Founder's Launch-Ready Coffee Cart Package</div>
-    <h1>Launch your coffee cart. Book your first <span class="gold">paid event.</span></h1>
-    <p class="lede" style="margin-top:24px">Professional branding, a real website, 1-on-1 launch strategy, and the exact permits you need. Launch in 14 days, book your first event in 30, guaranteed.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-filled" href="#pricing">Claim Your Spot</a>
-      <span style="font-size:15px;color:var(--ink-soft)"><span class="strike">$4,997</span> <b style="color:var(--brown)">$997</b></span>
+  <div class="hero-row">
+    <div class="hero-left">
+      <div class="eyebrow">Founder's Launch-Ready Coffee Cart Package</div>
+      <h1>Launch your coffee cart. Book your first <span class="gold">paid event.</span></h1>
+      <p class="lede" style="margin-top:24px">Professional branding, a real website, 1-on-1 launch strategy, and the exact permits you need. Launch in 14 days, book your first event in 30, guaranteed.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-filled" href="#pricing">Claim Your Spot</a>
+        <span style="font-size:15px;color:var(--ink-soft)"><span class="strike">$4,997</span> <b style="color:var(--brown)">$997</b></span>
+      </div>
+    </div>
+    <div class="offer-card reveal">
+      <div class="avail"><span class="dot"></span>Only 2 founder spots remaining</div>
+      <div class="pkg">Founder's Launch-Ready Coffee Cart Package</div>
+      <div class="price"><span class="strike">$4,997</span> $997 <small>one-time</small></div>
+      <div class="save">Save $4,000</div>
+      <a class="btn btn-filled" href="#pricing">See what's included</a>
+      <div class="call-row">
+        <span>Prefer to talk first?</span>
+        <a href="mailto:john@roastlaunch.com?subject=Coffee%20Cart%20Launch%20call">Book a call</a>
+      </div>
     </div>
   </div>
-  <div class="offer-card reveal">
-    <div class="avail"><span class="dot"></span>Only 2 founder spots remaining</div>
-    <div class="pkg">Founder's Launch-Ready Coffee Cart Package</div>
-    <div class="price"><span class="strike">$4,997</span> $997 <small>one-time</small></div>
-    <div class="save">Save $4,000</div>
-    <a class="btn btn-filled" href="#pricing">See what's included</a>
-    <div class="call-row">
-      <span>Prefer to talk first?</span>
-      <a href="mailto:john@roastlaunch.com?subject=Coffee%20Cart%20Launch%20call">Book a call</a>
-    </div>
+  <div class="hero-media reveal">
+    <img src="/img/hero-cart.jpg" alt="A premium coffee cart serving espresso at an outdoor event">
+    <span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
   </div>
 </section>
 
