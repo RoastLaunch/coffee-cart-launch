@@ -65,9 +65,13 @@ h2{font-size:52px;line-height:102%;letter-spacing:-1.5px;font-weight:500}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:14px 6%;background:linear-gradient(rgba(58,42,34,.28),transparent);transition:var(--transition)}
 nav.solid{background:rgba(251,243,228,.92);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(58,42,34,.08)}
-nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:var(--white);text-decoration:none;transition:var(--transition)}
+nav .brand{position:relative;display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:var(--white);text-decoration:none;transition:var(--transition)}
 nav.solid .brand{color:var(--ink)}
 nav .brand img{height:24px;width:auto;display:block}
+nav .brand .wm-light{opacity:1;transition:var(--transition)}
+nav .brand .wm-dark{position:absolute;left:0;top:50%;transform:translateY(-50%);opacity:0;transition:var(--transition)}
+nav.solid .brand .wm-light{opacity:0}
+nav.solid .brand .wm-dark{opacity:1}
 nav .actions{display:flex;gap:10px}
 nav .btn-ghost{color:var(--white);border-color:var(--white)}
 nav .btn-ghost:hover{color:#3A2A22}
@@ -178,7 +182,7 @@ footer a{color:var(--butter);text-decoration:none}
 <body>
 
 <nav id="nav">
-  <a class="brand" href="/"><img src="/media/logo-wordmark.png" alt="Coffee Cart Launch"></a>
+  <a class="brand" href="/"><img class="wm-light" src="/media/logo-wordmark-white.png" alt="Coffee Cart Launch"><img class="wm-dark" src="/media/logo-wordmark.png" alt="" aria-hidden="true"></a>
   <div class="actions">
     <a class="btn btn-ghost" href="mailto:john@roastlaunch.com">Email John</a>
     <a class="btn btn-brick" href="#pricing">See pricing</a>
