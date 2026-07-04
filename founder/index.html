@@ -336,7 +336,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // nav turns solid off the hero
 const nav = document.getElementById('nav');
-document.querySelector('.brand').addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+document.querySelector('.brand').addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); history.replaceState(null, '', location.pathname + location.search); });
 const fbar = document.querySelector('.founder-bar');
 const setBarOffset = () => { nav.style.top = fbar.offsetHeight + 'px'; };
 setBarOffset(); addEventListener('resize', setBarOffset);
