@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Bricolage+Grotesque:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://js.stripe.com/v3/"></script>
 <style>
 :root{
   --cream:#FBF3E4; --parchment:#F6E7CF;
@@ -62,6 +63,10 @@ h1{font-size:46px;line-height:102%;letter-spacing:-1.2px;font-weight:500;margin-
 .gate{display:none;text-align:center;padding:60px 0 20px}
 .gate .big{font-family:var(--font-accent);font-size:28px;font-weight:700;margin-bottom:12px}
 .gate p{color:var(--ink-soft);max-width:44ch;margin:0 auto 22px}
+
+.paywrap{position:relative;background:var(--cream);border-radius:26px;padding:30px 26px;margin-top:26px;box-shadow:0 7px 0 rgba(58,42,34,.12), 0 22px 48px rgba(58,42,34,.10)}
+.paywrap-hdr{font-family:var(--font-accent);font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:16px;text-align:center}
+.paywrap-note{font-size:13px;color:var(--ink-muted);text-align:center;margin-top:14px}
 
 footer{padding:28px 6%;text-align:center;font-size:13px;color:var(--ink-soft)}
 footer a{color:var(--brick);text-decoration:none}
@@ -116,6 +121,13 @@ footer a{color:var(--brick);text-decoration:none}
       <div class="micro">Book your first paid event in 30 days, or I work for free.</div>
     </div>
 
+    <div class="paywrap" id="paywrap" style="display:none">
+      <div class="paywrap-hdr">Secure checkout</div>
+      <div id="embedded-checkout"></div>
+      <div class="paywrap-note">Payments are processed by Stripe. Your receipt arrives instantly.</div>
+    </div>
+
+
     <div class="next">
       <h2>What happens next</h2>
       <ol>
@@ -133,8 +145,8 @@ footer a{color:var(--brick);text-decoration:none}
 const SUPA_URL = 'https://nyvvoaryplfkpmbpvkui.supabase.co';
 const SUPA_KEY = 'sb_publishable_8Ie0pkmwliUwKFXKG0c3jA_M7q-KE59';
 
-// Stripe payment links per offer tier. Leave empty to use the email fallback.
-const PAY_LINKS = { standard: '', founder: '' };
+const FN_URL = 'https://nyvvoaryplfkpmbpvkui.supabase.co/functions/v1/ccl-checkout';
+const FN_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55dnZvYXJ5cGxma3BtYnB2a3VpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3OTkyNTYsImV4cCI6MjA5ODM3NTI1Nn0.dIvhINZoNvRlCL_T9sg90RPWHUpRCoNReG3o5e8NW4U';
 const PRICES = { standard: '$4,997', founder: '$997' };
 
 async function init() {
@@ -165,16 +177,39 @@ async function init() {
   }
 
   const pay = document.getElementById('paybtn');
-  if (PAY_LINKS[offer]) {
-    pay.href = PAY_LINKS[offer];
-  } else {
-    pay.textContent = 'Reserve my spot →';
-    pay.href = 'mailto:john@roastlaunch.com?subject=' +
+  pay.addEventListener('click', e => { e.preventDefault(); startCheckout(code, pay); });
+
+  document.getElementById('checkout-body').style.display = 'block';
+}
+
+let checkoutMounted = false;
+async function startCheckout(code, pay) {
+  if (checkoutMounted) { document.getElementById('paywrap').scrollIntoView({ behavior: 'smooth' }); return; }
+  const original = pay.textContent;
+  pay.textContent = 'Preparing secure checkout…';
+  try {
+    if (typeof Stripe === 'undefined') throw new Error('stripejs');
+    const res = await fetch(FN_URL, {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer ' + FN_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'create', code: code })
+    });
+    if (!res.ok) throw new Error('fn ' + res.status);
+    const j = await res.json();
+    if (!j.clientSecret) throw new Error('secret');
+    const stripe = Stripe(j.publishableKey);
+    const checkout = await stripe.initEmbeddedCheckout({ clientSecret: j.clientSecret });
+    document.getElementById('paywrap').style.display = 'block';
+    checkout.mount('#embedded-checkout');
+    checkoutMounted = true;
+    pay.textContent = 'Checkout is open below';
+    document.getElementById('paywrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } catch (_) {
+    pay.textContent = original;
+    location.href = 'mailto:john@roastlaunch.com?subject=' +
       encodeURIComponent('Claiming my spot - invite ' + code) +
       '&body=' + encodeURIComponent('Hi John, my invite code is ' + code + " and I'm ready to claim my spot. Please send my secure payment link.");
   }
-
-  document.getElementById('checkout-body').style.display = 'block';
 }
 init();
 </script>
