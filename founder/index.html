@@ -135,7 +135,7 @@ nav.solid .btn-ghost:hover{background:var(--white)}
 
 /* 05 PRICING */
 .pricing{background:var(--cream);align-items:center;text-align:center;padding-top:62px;padding-bottom:40px}
-.story-card{position:relative;color:var(--white);background:var(--brick);border-radius:26px;padding:34px 44px;max-width:590px;width:100%;margin-top:16px;text-align:left;box-shadow:0 7px 0 var(--brick-deep), 0 22px 48px rgba(158,59,36,.28)}
+.story-card{position:relative;color:var(--white);background:var(--brick);border-radius:26px;padding:34px 38px;max-width:680px;width:100%;margin-top:16px;text-align:left;box-shadow:0 7px 0 var(--brick-deep), 0 22px 48px rgba(158,59,36,.28)}
 .story-card::before{content:"";position:absolute;inset:10px;border:2px dashed rgba(255,253,248,.5);border-radius:18px;pointer-events:none}
 .story-card .hdr{font-size:29px;line-height:102%;letter-spacing:-.5px;font-weight:500;margin-bottom:12px}
 .story-card .price{font-family:var(--font-accent);font-size:46px;font-weight:700;letter-spacing:-.5px;line-height:100%}
@@ -143,8 +143,9 @@ nav.solid .btn-ghost:hover{background:var(--white)}
 .story-card .price-old{position:relative;display:inline-block;font-size:30px;opacity:.8;margin-right:8px}
 .story-card .price-old::after{content:"";position:absolute;left:-8%;right:-8%;top:50%;height:7px;margin-top:-3px;background:var(--butter);border-radius:99px;transform:rotate(-9deg);box-shadow:0 2px 0 rgba(58,42,34,.18);opacity:.85}
 .story-card .price-note{font-size:15px;line-height:23px;margin-top:8px}
-.story-card ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);grid-auto-flow:column;gap:8px 22px;margin:16px 0 0;font-size:15px;line-height:19px}
+.story-card ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);grid-auto-flow:column;gap:8px 24px;margin:16px 0 0;font-size:14px;line-height:18px}
 .story-card li{display:flex;align-items:flex-start}
+.story-card li .t{display:block;text-wrap:balance}
 .story-card .check{color:var(--butter);margin-right:9px;font-weight:700;flex-shrink:0}
 .story-card .cta{display:block;width:100%;margin-top:26px;padding:19px 0;font-size:19px;font-weight:700;text-align:center;color:var(--brick-deep);background:var(--butter);border:none;border-radius:var(--radius);box-shadow:0 4px 0 #C9A94E;transition:var(--transition);text-decoration:none}
 .story-card .cta:hover{transform:translateY(-2px);box-shadow:0 6px 0 #C9A94E}
@@ -307,14 +308,14 @@ nav.solid .btn-ghost:hover{background:var(--white)}
     <div class="price"><span class="price-old">$4,997</span> $997 <small>one-time</small></div>
     <div class="price-note">Founding price; Ends Monday 11:59 PM EST</div>
     <ul>
-      <li><span class="check">✓</span>Professional branding package</li>
-      <li><span class="check">✓</span>Simple website with contact form</li>
-      <li><span class="check">✓</span>Event booking system integration</li>
-      <li><span class="check">✓</span>Permits research guide for your area</li>
-      <li><span class="check">✓</span>Equipment sourcing list with contacts</li>
-      <li><span class="check">✓</span>90-Day launch strategy reports</li>
-      <li><span class="check">✓</span>Proven outreach scripts &amp; templates</li>
-      <li><span class="check">✓</span>Customizable event proposal template</li>
+      <li><span class="check">✓</span><span class="t">Professional branding package</span></li>
+      <li><span class="check">✓</span><span class="t">Simple website with contact form</span></li>
+      <li><span class="check">✓</span><span class="t">Event booking system integration</span></li>
+      <li><span class="check">✓</span><span class="t">Permits research guide for your area</span></li>
+      <li><span class="check">✓</span><span class="t">Equipment sourcing list with contacts</span></li>
+      <li><span class="check">✓</span><span class="t">90-Day launch strategy reports</span></li>
+      <li><span class="check">✓</span><span class="t">Proven outreach scripts &amp; templates</span></li>
+      <li><span class="check">✓</span><span class="t">Customizable event proposal template</span></li>
     </ul>
     <a class="cta js-claim" href="/checkout/">Claim Your Spot</a>
     <div class="micro">Book your first paid event in 30 days, or I work for free.</div>
