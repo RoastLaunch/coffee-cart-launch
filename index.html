@@ -9,7 +9,7 @@
 <meta property="og:description" content="Launch your coffee cart and book your first paid event in 30 days, or I work for free.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://coffeecartlaunch.com/">
-<meta property="og:image" content="https://coffeecartlaunch.com/media/hero-poster.jpg">
+<meta property="og:image" content="https://coffeecartlaunch.com/media/hero-poster-v3.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -186,7 +186,7 @@ footer a{color:var(--butter);text-decoration:none}
 
 <!-- 01 HERO -->
 <section class="hero" id="top" data-dot="Home">
-  <video id="herovid" autoplay muted loop playsinline poster="media/hero-poster.jpg"></video>
+  <video id="herovid" autoplay muted loop playsinline poster="media/hero-poster-v3.jpg"></video>
   <div class="scrim"></div>
   <div class="hero-content">
     <div class="eyebrow" style="color:var(--white);text-shadow:0 1px 3px rgba(20,12,8,.55),0 2px 14px rgba(20,12,8,.4)">The Launch-Ready Coffee Cart Package</div>
@@ -311,7 +311,7 @@ footer a{color:var(--butter);text-decoration:none}
 <script>
 // hero video source by viewport
 const v = document.getElementById('herovid');
-v.src = innerWidth < 900 ? 'media/hero-loop-720.mp4' : 'media/hero-loop.mp4';
+v.src = innerWidth < 900 ? 'media/hero-loop-720-v3.mp4' : 'media/hero-loop-v3.mp4';
 
 // reveals
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
