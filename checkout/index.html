@@ -74,6 +74,7 @@ h1{font-size:46px;line-height:102%;letter-spacing:-1.2px;font-weight:500;margin-
 .paywrap label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
 .paywrap input{width:100%;font-family:var(--font);font-size:15px;color:var(--ink);background:var(--white);border:2px solid rgba(58,42,34,.22);border-radius:12px;padding:12px 14px;transition:var(--transition)}
 .paywrap input:focus{outline:none;border-color:var(--brick);box-shadow:0 0 0 3px rgba(195,79,51,.15)}
+.paywrap input::placeholder{color:var(--ink-muted)}
 #payment-element{margin:2px 0 4px}
 .payerr{display:none;font-size:14px;font-weight:700;color:var(--brick-deep);background:rgba(195,79,51,.1);border:2px solid var(--brick);border-radius:12px;padding:11px 14px;margin-top:14px}
 .paybtn:disabled{opacity:.7;cursor:wait;transform:none}
@@ -139,7 +140,7 @@ footer a{color:var(--brick);text-decoration:none}
       <div class="paywrap-sub" id="paysummary"></div>
       <div class="field">
         <label for="buyer-name">Full name</label>
-        <input id="buyer-name" type="text" autocomplete="name" required>
+        <input id="buyer-name" type="text" autocomplete="name" placeholder="Your Name" required>
       </div>
       <div class="field">
         <div id="link-auth-element"></div>
