@@ -112,11 +112,13 @@ nav.solid .btn-ghost:hover{background:var(--white)}
 
 /* 03 DELIVERABLES */
 .deliver{background:var(--cream)}
-.marquee{overflow:hidden;white-space:nowrap;margin-top:44px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee{overflow:hidden;white-space:nowrap;cursor:grab;touch-action:pan-y;margin-top:44px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .marquee-inner{display:inline-flex;align-items:stretch;gap:16px;padding-right:16px;animation:scroll 46s linear infinite}
 .marquee:hover .marquee-inner{animation-play-state:paused}
+.marquee.dragging{cursor:grabbing}
+.marquee.dragging,.marquee.dragging *{user-select:none}
 .dcard{position:relative;flex:0 0 auto;width:240px;aspect-ratio:3/4;border-radius:var(--radius-lg);overflow:hidden;background:var(--cream);box-shadow:0 5px 0 rgba(58,42,34,.14),0 14px 30px rgba(58,42,34,.10);white-space:normal}
-.dcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;-webkit-user-drag:none;user-select:none;pointer-events:none}
 .dcard figcaption{position:absolute;left:0;right:0;bottom:0;min-height:76px;display:flex;align-items:center;justify-content:center;padding:12px 16px;background:var(--cream);text-align:center;font-family:var(--font);font-weight:700;font-size:15px;line-height:1.15;color:var(--ink)}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .deliver .note{margin-top:26px;color:var(--ink-muted)}
@@ -471,6 +473,47 @@ async function checkInvite() {
   digitEls[0].focus();
 }
 document.getElementById('inviteGo').addEventListener('click', checkInvite);
+</script>
+
+
+<script>
+(function(){
+  var marquee=document.querySelector('.marquee');
+  if(!marquee) return;
+  var inner=marquee.querySelector('.marquee-inner');
+  if(!inner) return;
+  var DURATION=46, half=0;
+  function measure(){ half=inner.scrollWidth/2; }
+  measure(); addEventListener('resize',measure);
+  function curX(){ var t=getComputedStyle(inner).transform; if(t==='none') return 0; try{return new DOMMatrixReadOnly(t).m41;}catch(e){var m=t.match(/matrix\(([^)]+)\)/);return m?parseFloat(m[1].split(',')[4]):0;} }
+  function wrap(x){ if(!half) return x; x=x%half; if(x>0) x-=half; return x; }
+  var dragging=false, startX=0, startOff=0;
+  function down(e){
+    if(e.pointerType==='mouse' && e.button!==0) return;
+    dragging=true; startX=e.clientX; startOff=wrap(curX());
+    inner.style.animation='none';
+    inner.style.transform='translateX('+startOff+'px)';
+    marquee.classList.add('dragging');
+    try{inner.setPointerCapture(e.pointerId);}catch(_){}
+    if(e.pointerType!=='touch') e.preventDefault();
+  }
+  function move(e){
+    if(!dragging) return;
+    inner.style.transform='translateX('+wrap(startOff+(e.clientX-startX))+'px)';
+  }
+  function up(){
+    if(!dragging) return; dragging=false;
+    marquee.classList.remove('dragging');
+    var progress = half ? (-wrap(curX()))/half : 0;
+    inner.style.transform='';
+    inner.style.animation='';
+    inner.style.animationDelay = (-(progress*DURATION))+'s';
+  }
+  inner.addEventListener('pointerdown',down);
+  addEventListener('pointermove',move);
+  addEventListener('pointerup',up);
+  addEventListener('pointercancel',up);
+})();
 </script>
 
 </body>
