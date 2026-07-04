@@ -111,10 +111,11 @@ nav.solid .btn-ghost:hover{background:var(--white)}
 /* 03 DELIVERABLES */
 .deliver{background:var(--cream)}
 .marquee{overflow:hidden;white-space:nowrap;margin-top:44px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee-inner{display:inline-flex;gap:12px;padding-right:12px;animation:scroll 30s linear infinite}
+.marquee-inner{display:inline-flex;align-items:stretch;gap:16px;padding-right:16px;animation:scroll 46s linear infinite}
 .marquee:hover .marquee-inner{animation-play-state:paused}
-.pill{display:inline-flex;align-items:center;gap:9px;padding:13px 20px;font-size:15px;font-weight:700;background:var(--white);border:2px solid var(--ink);border-radius:999px;box-shadow:0 3px 0 rgba(58,42,34,.2)}
-.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brick)}
+.dcard{position:relative;flex:0 0 auto;width:240px;aspect-ratio:3/4;border-radius:var(--radius-lg);overflow:hidden;background:var(--cream);box-shadow:0 5px 0 rgba(58,42,34,.14),0 14px 30px rgba(58,42,34,.10);white-space:normal}
+.dcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dcard figcaption{position:absolute;left:0;right:0;bottom:0;min-height:76px;display:flex;align-items:center;justify-content:center;padding:12px 16px;background:var(--cream);text-align:center;font-family:var(--font);font-weight:700;font-size:15px;line-height:1.15;color:var(--ink)}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .deliver .note{margin-top:26px;color:var(--ink-muted)}
 
@@ -169,6 +170,7 @@ nav.solid .btn-ghost:hover{background:var(--white)}
   .proof{flex-direction:column;gap:34px}
 }
 @media (max-width:767px){
+  .dcard{width:196px}
   h1{font-size:52px;line-height:54px;letter-spacing:-1.8px}
   h2{font-size:36px;letter-spacing:-1px}
   section{min-height:auto;padding:88px 6% 60px}
@@ -261,8 +263,8 @@ nav.solid .btn-ghost:hover{background:var(--white)}
   </div>
   <div class="marquee" aria-label="Package deliverables">
     <div class="marquee-inner">
-      <span class="pill">Professional branding package</span><span class="pill">Simple website with contact form</span><span class="pill">Event booking system</span><span class="pill">Permits research guide</span><span class="pill">Equipment sourcing list</span><span class="pill">90-Day launch strategy reports</span><span class="pill">Outreach scripts &amp; templates</span><span class="pill">Event proposal template</span>
-      <span class="pill" aria-hidden="true">Professional branding package</span><span class="pill" aria-hidden="true">Simple website with contact form</span><span class="pill" aria-hidden="true">Event booking system</span><span class="pill" aria-hidden="true">Permits research guide</span><span class="pill" aria-hidden="true">Equipment sourcing list</span><span class="pill" aria-hidden="true">90-Day launch strategy reports</span><span class="pill" aria-hidden="true">Outreach scripts &amp; templates</span><span class="pill" aria-hidden="true">Event proposal template</span>
+      <figure class="dcard"><img src="media/inside-branding.webp" alt=""><figcaption>Professional branding package</figcaption></figure><figure class="dcard"><img src="media/inside-website.webp" alt=""><figcaption>Simple website with contact form</figcaption></figure><figure class="dcard"><img src="media/inside-booking.webp" alt=""><figcaption>Event booking system</figcaption></figure><figure class="dcard"><img src="media/inside-permits.webp" alt=""><figcaption>Permits research guide</figcaption></figure><figure class="dcard"><img src="media/inside-equipment.webp" alt=""><figcaption>Equipment sourcing list</figcaption></figure><figure class="dcard"><img src="media/inside-reports.webp" alt=""><figcaption>90-Day launch strategy reports</figcaption></figure><figure class="dcard"><img src="media/inside-outreach.webp" alt=""><figcaption>Outreach scripts &amp; templates</figcaption></figure><figure class="dcard"><img src="media/inside-proposal.webp" alt=""><figcaption>Event proposal template</figcaption></figure>
+      <figure class="dcard" aria-hidden="true"><img src="media/inside-branding.webp" alt=""><figcaption>Professional branding package</figcaption></figure><figure class="dcard" aria-hidden="true"><img src="media/inside-website.webp" alt=""><figcaption>Simple website with contact form</figcaption></figure><figure class="dcard" aria-hidden="true"><img src="media/inside-booking.webp" alt=""><figcaption>Event booking system</figcaption></figure><figure class="dcard" aria-hidden="true"><img src="media/inside-permits.webp" alt=""><figcaption>Permits research guide</figcaption></figure><figure class="dcard" aria-hidden="true"><img src="media/inside-equipment.webp" alt=""><figcaption>Equipment sourcing list</figcaption></figure><figure class="dcard" aria-hidden="true"><img src="media/inside-reports.webp" alt=""><figcaption>90-Day launch strategy reports</figcaption></figure><figure class="dcard" aria-hidden="true"><img src="media/inside-outreach.webp" alt=""><figcaption>Outreach scripts &amp; templates</figcaption></figure><figure class="dcard" aria-hidden="true"><img src="media/inside-proposal.webp" alt=""><figcaption>Event proposal template</figcaption></figure>
     </div>
   </div>
   <p class="note reveal">Every piece is done for you or done with you. Nothing off the shelf.</p>
