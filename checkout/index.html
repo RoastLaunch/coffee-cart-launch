@@ -137,14 +137,12 @@ footer a{color:var(--brick);text-decoration:none}
       <a class="paywrap-back" id="paywrapBack">&larr; Back to package details</a>
       <div class="paywrap-hdr">Secure checkout</div>
       <div class="paywrap-sub" id="paysummary"></div>
-      <div class="frow">
-        <div class="field">
-          <label for="buyer-name">Full name</label>
-          <input id="buyer-name" type="text" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <div id="link-auth-element"></div>
-        </div>
+      <div class="field">
+        <label for="buyer-name">Full name</label>
+        <input id="buyer-name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <div id="link-auth-element"></div>
       </div>
       <div id="payment-element"></div>
       <div class="payerr" id="payerr"></div>
@@ -227,7 +225,7 @@ const APPEARANCE = {
   rules: {
     '.Input': { border: '2px solid rgba(58,42,34,.22)', boxShadow: 'none', padding: '12px 14px' },
     '.Input:focus': { border: '2px solid #C34F33', boxShadow: '0 0 0 3px rgba(195,79,51,.15)' },
-    '.Label': { fontWeight: '700', fontSize: '14px', color: '#3A2A22' },
+    '.Label': { fontWeight: '700', fontSize: '14px', color: '#3A2A22', marginBottom: '7px' },
     '.Tab': { border: '2px solid rgba(58,42,34,.22)', borderRadius: '12px' },
     '.Tab--selected': { border: '2px solid #C34F33', boxShadow: '0 0 0 3px rgba(195,79,51,.15)' },
     '.Block': { border: '2px solid rgba(58,42,34,.22)', borderRadius: '12px' }
