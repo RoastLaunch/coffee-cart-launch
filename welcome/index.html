@@ -116,7 +116,13 @@ const FN_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 function show(id) { document.getElementById(id).style.display = 'block'; }
 
 async function init() {
-  const sid = new URLSearchParams(location.search).get('payment_intent');
+  const params = new URLSearchParams(location.search);
+  if (params.get('preview') === '1') {
+    document.getElementById('emailline').textContent = ' to you@example.com';
+    show('st-paid');
+    return;
+  }
+  const sid = params.get('payment_intent');
   if (!sid) { show('st-generic'); return; }
   try {
     const res = await fetch(FN_URL, {

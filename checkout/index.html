@@ -87,6 +87,9 @@ h1{font-size:46px;line-height:102%;letter-spacing:-1.2px;font-weight:500;margin-
 .payerr{display:none;font-size:14px;font-weight:700;color:var(--brick-deep);background:rgba(195,79,51,.1);border:2px solid var(--brick);border-radius:12px;padding:11px 14px;margin-top:14px}
 .paybtn:disabled{opacity:.7;cursor:wait;transform:none}
 .paywrap-note{font-size:13px;color:var(--ink-muted);text-align:center;margin-top:14px}
+.testlink{display:none;margin-top:28px;text-align:center;font-size:13px;color:var(--ink-muted)}
+.testlink a{color:var(--brick);font-weight:700;text-decoration:none}
+.testlink a:hover{color:var(--brick-deep)}
 
 footer{padding:28px 6%;text-align:center;font-size:13px;color:var(--ink-soft)}
 footer a{color:var(--brick);text-decoration:none}
@@ -176,6 +179,8 @@ footer a{color:var(--brick);text-decoration:none}
         <li><span class="num">3</span><span>Your 30-day clock starts. Branding, website, booking system, permits, outreach. First paid event booked, or I keep working free.</span></li>
       </ol>
     </div>
+
+    <div class="testlink" id="testlink">Testing? <a href="/welcome/?preview=1">Preview the page after checkout &rarr;</a></div>
   </div>
 </main>
 
@@ -214,6 +219,7 @@ async function init() {
   currentCode = code;
   sessionStorage.setItem('cclCode', code);
   document.getElementById('chipcode').textContent = code;
+  if (offer === 'test') document.getElementById('testlink').style.display = 'block';
   document.getElementById('mainprice').textContent = PRICES[offer];
   if (offer === 'founder') {
     document.getElementById('oldprice').style.display = 'inline-block';
