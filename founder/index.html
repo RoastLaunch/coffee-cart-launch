@@ -194,7 +194,7 @@ nav.solid .btn-ghost:hover{background:var(--white)}
 <div class="founder-bar">Founder's rate: <b>2 of 5 spots remaining</b> · <b>$997</b> (was $4,997) · Expires Monday 11:59 PM EST</div>
 
 <nav id="nav">
-  <a class="brand" href="/"><img class="wm-light" src="/media/logo-wordmark-white.png" alt="Coffee Cart Launch"><img class="wm-dark" src="/media/logo-wordmark.png" alt="" aria-hidden="true"></a>
+  <a class="brand" href="/founder/"><img class="wm-light" src="/media/logo-wordmark-white.png" alt="Coffee Cart Launch"><img class="wm-dark" src="/media/logo-wordmark.png" alt="" aria-hidden="true"></a>
   <div class="actions">
     <a class="btn btn-ghost" href="mailto:john@roastlaunch.com">Email John</a>
     <a class="btn btn-brick" href="#pricing">See pricing</a>
@@ -336,6 +336,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // nav turns solid off the hero
 const nav = document.getElementById('nav');
+document.querySelector('.brand').addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 const fbar = document.querySelector('.founder-bar');
 const setBarOffset = () => { nav.style.top = fbar.offsetHeight + 'px'; };
 setBarOffset(); addEventListener('resize', setBarOffset);
