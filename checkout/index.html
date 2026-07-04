@@ -75,6 +75,14 @@ h1{font-size:46px;line-height:102%;letter-spacing:-1.2px;font-weight:500;margin-
 .paywrap input{width:100%;font-family:var(--font);font-size:15px;color:var(--ink);background:var(--white);border:2px solid rgba(58,42,34,.22);border-radius:12px;padding:12px 14px;transition:var(--transition)}
 .paywrap input:focus{outline:none;border-color:var(--brick);box-shadow:0 0 0 3px rgba(195,79,51,.15)}
 .paywrap input::placeholder{color:var(--ink-muted)}
+.drow{display:flex;gap:10px}
+.drow input{flex:1;text-transform:uppercase}
+.dapply{padding:12px 18px;font-size:14px;font-weight:700;color:var(--brick);background:transparent;border:2px solid var(--brick);border-radius:12px;cursor:pointer;transition:var(--transition)}
+.dapply:hover{background:var(--brick);color:var(--white)}
+.dapply:disabled{opacity:.6;cursor:wait}
+.dstatus{display:none;font-size:13px;font-weight:700;margin-top:8px}
+.dstatus.ok{display:block;color:var(--olive)}
+.dstatus.err{display:block;color:var(--brick-deep)}
 #payment-element{margin:2px 0 4px}
 .payerr{display:none;font-size:14px;font-weight:700;color:var(--brick-deep);background:rgba(195,79,51,.1);border:2px solid var(--brick);border-radius:12px;padding:11px 14px;margin-top:14px}
 .paybtn:disabled{opacity:.7;cursor:wait;transform:none}
@@ -144,6 +152,14 @@ footer a{color:var(--brick);text-decoration:none}
       </div>
       <div class="field">
         <div id="link-auth-element"></div>
+      </div>
+      <div class="field" id="discount-block" style="display:none">
+        <label for="discount-code">Discount code</label>
+        <div class="drow">
+          <input id="discount-code" type="text" autocomplete="off" placeholder="CODE">
+          <button class="dapply" id="discountApply" type="button">Apply</button>
+        </div>
+        <div class="dstatus" id="dstatus"></div>
       </div>
       <div id="payment-element"></div>
       <div class="payerr" id="payerr"></div>
@@ -236,6 +252,57 @@ const APPEARANCE = {
 
 let stripe = null, elements = null, mounted = false;
 let buyerEmail = '', emailComplete = false;
+let appliedDiscount = null;
+function fmt(cents) {
+  return cents % 100 === 0 ? '$' + (cents / 100).toLocaleString('en-US') : '$' + (cents / 100).toFixed(2);
+}
+function currentAmount() {
+  const base = AMOUNTS[currentOffer];
+  return appliedDiscount ? Math.round(base * (100 - appliedDiscount.percent_off) / 100) : base;
+}
+function refreshTotals() {
+  const amount = currentAmount();
+  document.getElementById('paysummary').textContent = appliedDiscount
+    ? LABELS[currentOffer] + ' \u00b7 ' + appliedDiscount.code + ' applied \u00b7 now ' + fmt(amount)
+    : LABELS[currentOffer];
+  document.getElementById('payNow').textContent = 'Pay ' + fmt(amount) + ' \u2192';
+  if (elements) elements.update({ amount: amount });
+}
+async function applyDiscount() {
+  const input = document.getElementById('discount-code');
+  const btn = document.getElementById('discountApply');
+  const st = document.getElementById('dstatus');
+  const raw = input.value.trim();
+  st.className = 'dstatus';
+  if (!raw) { appliedDiscount = null; refreshTotals(); return; }
+  btn.disabled = true;
+  try {
+    const res = await fetch(FN_URL, { method: 'POST', headers: FN_HEADERS, body: JSON.stringify({ action: 'discount', discount: raw }) });
+    const j = await res.json();
+    if (j && j.valid && currentAmount() !== null) {
+      const trial = Math.round(AMOUNTS[currentOffer] * (100 - j.percent_off) / 100);
+      if (trial < 50) {
+        appliedDiscount = null;
+        st.textContent = 'That discount brings the total below the payment minimum.';
+        st.className = 'dstatus err';
+      } else {
+        appliedDiscount = { code: j.code, percent_off: j.percent_off };
+        st.textContent = j.code + ' applied \u00b7 ' + j.percent_off + '% off';
+        st.className = 'dstatus ok';
+      }
+    } else {
+      appliedDiscount = null;
+      st.textContent = "That code isn't valid.";
+      st.className = 'dstatus err';
+    }
+  } catch (_) {
+    appliedDiscount = null;
+    st.textContent = 'Could not check that code. Please try again.';
+    st.className = 'dstatus err';
+  }
+  btn.disabled = false;
+  refreshTotals();
+}
 
 function showEmbed() {
   document.querySelector('.order-card').style.display = 'none';
@@ -283,8 +350,8 @@ async function ensureElements() {
 async function startCheckout(code, pay) {
   const original = pay.textContent;
   pay.textContent = 'Opening secure checkout\u2026';
-  document.getElementById('paysummary').textContent = LABELS[currentOffer];
-  document.getElementById('payNow').textContent = 'Pay ' + PRICES[currentOffer] + ' \u2192';
+  document.getElementById('discount-block').style.display = currentOffer === 'test' ? 'block' : 'none';
+  refreshTotals();
   showEmbed();
   const ok = await ensureElements().catch(() => false);
   pay.textContent = original;
@@ -304,7 +371,7 @@ async function handlePay() {
     if (sub.error) throw sub.error;
     const res = await fetch(FN_URL, {
       method: 'POST', headers: FN_HEADERS,
-      body: JSON.stringify({ action: 'create', code: currentCode, email: buyerEmail, name: nameEl.value.trim() })
+      body: JSON.stringify({ action: 'create', code: currentCode, email: buyerEmail, name: nameEl.value.trim(), discount: appliedDiscount ? appliedDiscount.code : undefined })
     });
     const j = await res.json();
     if (!res.ok || !j.clientSecret) throw { message: j.detail || 'Could not start the payment. You have not been charged. Please try again.' };
@@ -324,6 +391,7 @@ async function handlePay() {
   }
 }
 document.getElementById('payNow').addEventListener('click', handlePay);
+document.getElementById('discountApply').addEventListener('click', applyDiscount);
 document.getElementById('paywrapBack').addEventListener('click', showCard);
 init();
 </script>
