@@ -69,6 +69,14 @@ h1{font-size:46px;line-height:102%;letter-spacing:-1.2px;font-weight:500;margin-
 .paywrap-sub{font-size:14px;color:var(--ink-soft);text-align:center;margin-bottom:16px}
 .paywrap-back{display:inline-block;font-size:13px;font-weight:700;color:var(--brick);text-decoration:none;cursor:pointer;margin-bottom:12px}
 .paywrap-back:hover{color:var(--brick-deep)}
+.paywrap .frow{display:flex;gap:14px}
+.paywrap .field{flex:1;margin-bottom:16px}
+.paywrap label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
+.paywrap input{width:100%;font-family:var(--font);font-size:15px;color:var(--ink);background:var(--white);border:2px solid rgba(58,42,34,.22);border-radius:12px;padding:12px 14px;transition:var(--transition)}
+.paywrap input:focus{outline:none;border-color:var(--brick);box-shadow:0 0 0 3px rgba(195,79,51,.15)}
+#payment-element{margin:2px 0 4px}
+.payerr{display:none;font-size:14px;font-weight:700;color:var(--brick-deep);background:rgba(195,79,51,.1);border:2px solid var(--brick);border-radius:12px;padding:11px 14px;margin-top:14px}
+.paybtn:disabled{opacity:.7;cursor:wait;transform:none}
 .paywrap-note{font-size:13px;color:var(--ink-muted);text-align:center;margin-top:14px}
 
 footer{padding:28px 6%;text-align:center;font-size:13px;color:var(--ink-soft)}
@@ -82,6 +90,7 @@ footer a{color:var(--brick);text-decoration:none}
   .order-card{padding:32px 24px}
   .price{font-size:38px}
   .price-old{font-size:24px}
+  .paywrap .frow{flex-direction:column;gap:0}
 }
 </style>
 </head>
@@ -128,8 +137,20 @@ footer a{color:var(--brick);text-decoration:none}
       <a class="paywrap-back" id="paywrapBack">&larr; Back to package details</a>
       <div class="paywrap-hdr">Secure checkout</div>
       <div class="paywrap-sub" id="paysummary"></div>
-      <div id="embedded-checkout"></div>
-      <div class="paywrap-note">Payments are processed by Stripe. Your receipt arrives instantly.</div>
+      <div class="frow">
+        <div class="field">
+          <label for="buyer-name">Full name</label>
+          <input id="buyer-name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="buyer-email">Email for your receipt</label>
+          <input id="buyer-email" type="email" autocomplete="email" required>
+        </div>
+      </div>
+      <div id="payment-element"></div>
+      <div class="payerr" id="payerr"></div>
+      <button class="paybtn" id="payNow" type="button">Pay $4,997 &rarr;</button>
+      <div class="paywrap-note">Payments are processed securely by Stripe. Your receipt arrives instantly.</div>
     </div>
 
 
@@ -155,6 +176,7 @@ const FN_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 const PRICES = { standard: '$4,997', founder: '$997' };
 
 let currentOffer = 'standard';
+let currentCode = '';
 async function init() {
   const params = new URLSearchParams(location.search);
   const code = (params.get('code') || sessionStorage.getItem('cclCode') || '').trim();
@@ -175,6 +197,7 @@ async function init() {
 
   const offer = result.offer === 'founder' ? 'founder' : 'standard';
   currentOffer = offer;
+  currentCode = code;
   sessionStorage.setItem('cclCode', code);
   document.getElementById('chipcode').textContent = code;
   document.getElementById('mainprice').textContent = PRICES[offer];
@@ -189,7 +212,31 @@ async function init() {
   document.getElementById('checkout-body').style.display = 'block';
 }
 
-let checkoutMounted = false;
+const FN_HEADERS = { 'Authorization': 'Bearer ' + FN_KEY, 'Content-Type': 'application/json' };
+const AMOUNTS = { standard: 499700, founder: 99700 };
+const LABELS = {
+  standard: 'Launch-Ready Coffee Cart Package \u00b7 $4,997 one-time',
+  founder: "Launch-Ready Coffee Cart Package (Founder's Rate) \u00b7 $997 one-time"
+};
+const APPEARANCE = {
+  theme: 'stripe',
+  variables: {
+    colorPrimary: '#C34F33', colorBackground: '#FFFDF8', colorText: '#3A2A22',
+    colorTextSecondary: '#7A5F4E', colorTextPlaceholder: '#A08670', colorDanger: '#9E3B24',
+    fontFamily: 'Figtree, sans-serif', borderRadius: '12px', spacingUnit: '4px', fontSizeBase: '15px'
+  },
+  rules: {
+    '.Input': { border: '2px solid rgba(58,42,34,.22)', boxShadow: 'none', padding: '12px 14px' },
+    '.Input:focus': { border: '2px solid #C34F33', boxShadow: '0 0 0 3px rgba(195,79,51,.15)' },
+    '.Label': { fontWeight: '700', fontSize: '14px', color: '#3A2A22' },
+    '.Tab': { border: '2px solid rgba(58,42,34,.22)', borderRadius: '12px' },
+    '.Tab--selected': { border: '2px solid #C34F33', boxShadow: '0 0 0 3px rgba(195,79,51,.15)' },
+    '.Block': { border: '2px solid rgba(58,42,34,.22)', borderRadius: '12px' }
+  }
+};
+
+let stripe = null, elements = null, mounted = false;
+
 function showEmbed() {
   document.querySelector('.order-card').style.display = 'none';
   const wrap = document.getElementById('paywrap');
@@ -200,36 +247,79 @@ function showCard() {
   document.getElementById('paywrap').style.display = 'none';
   document.querySelector('.order-card').style.display = 'block';
 }
+function mailtoFallback(code) {
+  return 'mailto:john@roastlaunch.com?subject=' +
+    encodeURIComponent('Claiming my spot - invite ' + code) +
+    '&body=' + encodeURIComponent('Hi John, my invite code is ' + code + " and I'm ready to claim my spot. Please send my secure payment link.");
+}
+function payErr(msg) {
+  const el = document.getElementById('payerr');
+  el.textContent = msg || 'Something went wrong. You have not been charged. Please try again.';
+  el.style.display = 'block';
+}
+
+async function ensureElements() {
+  if (mounted) return true;
+  if (typeof Stripe === 'undefined') return false;
+  const res = await fetch(FN_URL, { method: 'POST', headers: FN_HEADERS, body: JSON.stringify({ action: 'config' }) });
+  if (!res.ok) return false;
+  const j = await res.json();
+  if (!j.publishableKey) return false;
+  stripe = Stripe(j.publishableKey);
+  elements = stripe.elements({
+    mode: 'payment', amount: AMOUNTS[currentOffer], currency: 'usd',
+    appearance: APPEARANCE,
+    fonts: [{ cssSrc: 'https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap' }]
+  });
+  elements.create('payment', { layout: 'tabs' }).mount('#payment-element');
+  mounted = true;
+  return true;
+}
+
 async function startCheckout(code, pay) {
-  if (checkoutMounted) { showEmbed(); return; }
   const original = pay.textContent;
-  pay.textContent = 'Preparing secure checkout…';
+  pay.textContent = 'Opening secure checkout\u2026';
+  document.getElementById('paysummary').textContent = LABELS[currentOffer];
+  document.getElementById('payNow').textContent = currentOffer === 'founder' ? 'Pay $997 \u2192' : 'Pay $4,997 \u2192';
+  showEmbed();
+  const ok = await ensureElements().catch(() => false);
+  pay.textContent = original;
+  if (!ok) { showCard(); location.href = mailtoFallback(code); }
+}
+
+async function handlePay() {
+  const nameEl = document.getElementById('buyer-name');
+  const emailEl = document.getElementById('buyer-email');
+  document.getElementById('payerr').style.display = 'none';
+  if (!nameEl.reportValidity() || !emailEl.reportValidity()) return;
+  const btn = document.getElementById('payNow');
+  const orig = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Processing\u2026';
   try {
-    if (typeof Stripe === 'undefined') throw new Error('stripejs');
+    const sub = await elements.submit();
+    if (sub.error) throw sub.error;
     const res = await fetch(FN_URL, {
-      method: 'POST',
-      headers: { 'Authorization': 'Bearer ' + FN_KEY, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'create', code: code })
+      method: 'POST', headers: FN_HEADERS,
+      body: JSON.stringify({ action: 'create', code: currentCode, email: emailEl.value.trim(), name: nameEl.value.trim() })
     });
-    if (!res.ok) throw new Error('fn ' + res.status);
     const j = await res.json();
-    if (!j.clientSecret) throw new Error('secret');
-    const stripe = Stripe(j.publishableKey);
-    const checkout = await stripe.initEmbeddedCheckout({ clientSecret: j.clientSecret });
-    document.getElementById('paysummary').textContent = currentOffer === 'founder'
-      ? "Launch-Ready Coffee Cart Package (Founder's Rate) · $997 one-time"
-      : 'Launch-Ready Coffee Cart Package · $4,997 one-time';
-    checkout.mount('#embedded-checkout');
-    checkoutMounted = true;
-    pay.textContent = original;
-    showEmbed();
-  } catch (_) {
-    pay.textContent = original;
-    location.href = 'mailto:john@roastlaunch.com?subject=' +
-      encodeURIComponent('Claiming my spot - invite ' + code) +
-      '&body=' + encodeURIComponent('Hi John, my invite code is ' + code + " and I'm ready to claim my spot. Please send my secure payment link.");
+    if (!res.ok || !j.clientSecret) throw { message: j.detail || 'Could not start the payment. You have not been charged. Please try again.' };
+    const result = await stripe.confirmPayment({
+      elements, clientSecret: j.clientSecret,
+      confirmParams: {
+        return_url: 'https://coffeecartlaunch.com/welcome/',
+        payment_method_data: { billing_details: { name: nameEl.value.trim(), email: emailEl.value.trim() } }
+      },
+      redirect: 'if_required'
+    });
+    if (result.error) throw result.error;
+    location.href = '/welcome/?payment_intent=' + encodeURIComponent(result.paymentIntent.id);
+  } catch (e) {
+    payErr(e && e.message);
+    btn.disabled = false; btn.textContent = orig;
   }
 }
+document.getElementById('payNow').addEventListener('click', handlePay);
 document.getElementById('paywrapBack').addEventListener('click', showCard);
 init();
 </script>

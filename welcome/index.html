@@ -116,13 +116,13 @@ const FN_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 function show(id) { document.getElementById(id).style.display = 'block'; }
 
 async function init() {
-  const sid = new URLSearchParams(location.search).get('session_id');
+  const sid = new URLSearchParams(location.search).get('payment_intent');
   if (!sid) { show('st-generic'); return; }
   try {
     const res = await fetch(FN_URL, {
       method: 'POST',
       headers: { 'Authorization': 'Bearer ' + FN_KEY, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'status', session_id: sid })
+      body: JSON.stringify({ action: 'status', payment_intent: sid })
     });
     if (!res.ok) throw new Error('fn ' + res.status);
     const j = await res.json();
