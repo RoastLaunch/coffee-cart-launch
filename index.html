@@ -151,6 +151,7 @@ nav.solid .btn-ghost:hover{background:var(--white)}
 .faq summary::after{content:"+";font-family:var(--font-accent);font-size:22px;color:var(--brick);transition:var(--transition);flex-shrink:0}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq details p{margin-top:12px;color:var(--ink-soft);max-width:60ch;font-size:15px;line-height:23px}
+.faq .fbody{overflow:hidden}
 
 /* 07 FINAL + FOOTER */
 .final{padding:0;justify-content:flex-end;overflow:hidden}
@@ -286,11 +287,11 @@ footer a{color:var(--butter);text-decoration:none}
   <div class="faq reveal">
     <div class="eyebrow">Questions</div>
     <h2>Frequently asked questions</h2>
-    <details><summary>How fast until I'm launch-ready?</summary><p>The package runs on a 30-day clock. Branding and your website land first, then we line up permits, equipment, and outreach so your first paid event is booked by the end of the month.</p></details>
-    <details><summary>What if I don't have a cart yet?</summary><p>No problem. The equipment sourcing list covers carts, machines, and suppliers with real contacts, so you buy right the first time instead of learning by expensive mistakes.</p></details>
-    <details><summary>Do I need permits before we start?</summary><p>No. The permits research guide is part of the package. We map exactly what your city and county require before you serve your first cup.</p></details>
-    <details><summary>What does the guarantee cover?</summary><p>Simple: book your first paid event within 30 days, or I keep working with you for free until you do.</p></details>
-    <details><summary>How do payments work?</summary><p>One payment of $4,997, no subscriptions and no upsells. Email me and I'll send over the details, or book a call if you'd rather talk it through first.</p></details>
+    <details><summary>How fast until I'm launch-ready?</summary><div class="fbody"><p>The package runs on a 30-day clock. Branding and your website land first, then we line up permits, equipment, and outreach so your first paid event is booked by the end of the month.</p></div></details>
+    <details><summary>What if I don't have a cart yet?</summary><div class="fbody"><p>No problem. The equipment sourcing list covers carts, machines, and suppliers with real contacts, so you buy right the first time instead of learning by expensive mistakes.</p></div></details>
+    <details><summary>Do I need permits before we start?</summary><div class="fbody"><p>No. The permits research guide is part of the package. We map exactly what your city and county require before you serve your first cup.</p></div></details>
+    <details><summary>What does the guarantee cover?</summary><div class="fbody"><p>Simple: book your first paid event within 30 days, or I keep working with you for free until you do.</p></div></details>
+    <details><summary>How do payments work?</summary><div class="fbody"><p>One payment of $4,997, no subscriptions and no upsells. Email me and I'll send over the details, or book a call if you'd rather talk it through first.</p></div></details>
   </div>
 </section>
 
@@ -346,6 +347,37 @@ const secObs = new IntersectionObserver(es => es.forEach(e => {
   }
 }), { threshold: .55 });
 sections.forEach(s => secObs.observe(s));
+
+// FAQ accordion: one open at a time, animated height + fade
+const faqItems = [...document.querySelectorAll('.faq details')];
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+function faqToggle(el, opening) {
+  const body = el.querySelector('.fbody');
+  if (reduceMotion.matches) { el.open = opening; return; }
+  const cur = el.open ? body.offsetHeight : 0;
+  const curO = el.open ? getComputedStyle(body).opacity : 0;
+  if (el._anim) el._anim.cancel();
+  el._closing = !opening;
+  el.open = true;
+  const target = opening ? body.scrollHeight : 0;
+  el._anim = body.animate(
+    { height: [cur + 'px', target + 'px'], opacity: [curO, opening ? 1 : 0] },
+    { duration: opening ? 400 : 320, easing: 'cubic-bezier(.4,0,.2,1)' }
+  );
+  el._anim.onfinish = () => {
+    el._anim = null;
+    el._closing = false;
+    if (!opening) el.open = false;
+  };
+}
+faqItems.forEach(el => {
+  el.querySelector('summary').addEventListener('click', e => {
+    e.preventDefault();
+    const opening = !el.open || el._closing;
+    if (opening) faqItems.forEach(o => { if (o !== el && o.open && !o._closing) faqToggle(o, false); });
+    faqToggle(el, opening);
+  });
+});
 </script>
 
 </body>
