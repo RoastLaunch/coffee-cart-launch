@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join the list | Coffee Cart Launch</title>
+<meta name="description" content="Coffee Cart Launch is invite-only. Tell me where you are in your coffee cart journey and, if it's a fit, your invite code arrives by email.">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/media/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Bricolage+Grotesque:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FBF3E4; --parchment:#F6E7CF;
+  --ink:#3A2A22; --ink-soft:#7A5F4E; --ink-muted:#A08670;
+  --brick:#C34F33; --brick-deep:#9E3B24; --butter:#F5D577; --butter-pale:#FAEBC0;
+  --olive:#8A8B4F; --white:#FFFDF8;
+  --font:'Figtree',sans-serif; --font-accent:'Bricolage Grotesque',sans-serif;
+  --radius:14px; --radius-lg:22px;
+  --transition:all .2s;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);font-size:15px;line-height:22px;color:var(--ink);background:var(--parchment)}
+::selection{background:var(--butter);color:var(--ink)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:14px 6%;background:rgba(251,243,228,.92);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(58,42,34,.08)}
+nav .brand img{height:24px;width:auto;display:block}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:7px;padding:12px 22px;font-size:15px;font-weight:700;border-radius:var(--radius);text-decoration:none;transition:var(--transition);cursor:pointer;white-space:nowrap}
+.btn-ghost{color:var(--ink);border:2px solid var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--white)}
+.btn-brick{color:var(--white);background:var(--brick);border:2px solid var(--brick-deep);box-shadow:0 3px 0 var(--brick-deep)}
+.btn-brick:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--brick-deep)}
+
+main{max-width:680px;margin:0 auto;padding:132px 6% 70px}
+.eyebrow{font-family:var(--font-accent);font-size:14px;line-height:20px;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--brick);margin-bottom:18px}
+h1{font-size:46px;line-height:102%;letter-spacing:-1.2px;font-weight:500;margin-bottom:16px}
+.lede{font-size:18px;line-height:27px;color:var(--ink-soft);max-width:56ch}
+.lede b{color:var(--ink)}
+
+.form-card{position:relative;background:var(--cream);border-radius:26px;padding:38px 36px;margin-top:34px;box-shadow:0 7px 0 rgba(58,42,34,.12), 0 22px 48px rgba(58,42,34,.10)}
+.form-card::before{content:"";position:absolute;inset:10px;border:2px dashed rgba(58,42,34,.22);border-radius:18px;pointer-events:none}
+.form-card form{position:relative;z-index:1}
+.frow{display:flex;gap:14px}
+.frow .field{flex:1}
+.field{margin-bottom:18px}
+label{display:block;font-weight:700;font-size:14px;margin-bottom:7px}
+label small{font-weight:400;color:var(--ink-muted)}
+input,select,textarea{width:100%;font-family:var(--font);font-size:15px;color:var(--ink);background:var(--white);border:2px solid rgba(58,42,34,.22);border-radius:12px;padding:12px 14px;transition:var(--transition)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brick);box-shadow:0 0 0 3px rgba(195,79,51,.15)}
+textarea{min-height:92px;resize:vertical}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233A2A22' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.hp{position:absolute;left:-9999px;opacity:0;height:0;overflow:hidden}
+.submit{width:100%;padding:17px 0;font-size:17px;margin-top:6px;border:2px solid var(--brick-deep)}
+.finehint{text-align:center;font-size:13px;color:var(--ink-muted);margin-top:14px}
+.err{display:none;background:rgba(195,79,51,.1);border:2px solid var(--brick);border-radius:12px;padding:12px 14px;margin-bottom:16px;font-weight:600;color:var(--brick-deep)}
+.err a{color:var(--brick-deep)}
+
+.thanks{display:none;position:relative;z-index:1;text-align:center;padding:26px 6px}
+.thanks .big{font-family:var(--font-accent);font-size:30px;font-weight:700;letter-spacing:-.5px;margin-bottom:12px}
+.thanks p{color:var(--ink-soft);max-width:44ch;margin:0 auto 8px}
+
+footer{padding:28px 6%;text-align:center;font-size:13px;color:var(--ink-soft)}
+footer a{color:var(--brick);text-decoration:none}
+
+@media (max-width:600px){
+  h1{font-size:36px}
+  nav .brand img{width:min(190px,50vw);height:auto}
+  nav .btn{padding:10px 14px;font-size:13px}
+  .frow{flex-direction:column;gap:0}
+  .form-card{padding:30px 22px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="/"><img src="/media/logo-wordmark.png" alt="Coffee Cart Launch"></a>
+  <a class="btn btn-ghost" href="/">Back to the site</a>
+</nav>
+
+<main>
+  <div class="eyebrow">Invite-only</div>
+  <h1>Join the list.</h1>
+  <p class="lede">Coffee Cart Launch takes on <b>five launches a month, maximum</b>, and every spot is by personal invite. Tell me where you are in the journey. I read every application myself, and if it's a fit, your invite code lands in your inbox.</p>
+
+  <div class="form-card">
+    <form id="joinform" novalidate>
+      <div class="err" id="formerr">Something went wrong sending your application. Please try again, or email me directly at <a href="mailto:john@roastlaunch.com">john@roastlaunch.com</a>.</div>
+
+      <div class="field">
+        <label for="f-name">Full name</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="frow">
+        <div class="field">
+          <label for="f-city">City</label>
+          <input id="f-city" name="city" type="text" autocomplete="address-level2" required>
+        </div>
+        <div class="field">
+          <label for="f-state">State</label>
+          <input id="f-state" name="state" type="text" autocomplete="address-level1" maxlength="20" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-situation">Where are you in the journey?</label>
+        <select id="f-situation" name="situation" required>
+          <option value="" disabled selected>Choose one</option>
+          <option>Dreaming and researching</option>
+          <option>Committed, saving up</option>
+          <option>Cart bought or build in progress</option>
+          <option>Already operating, want more paid events</option>
+        </select>
+      </div>
+      <div class="frow">
+        <div class="field">
+          <label for="f-timeline">When do you want your first paid event?</label>
+          <select id="f-timeline" name="timeline" required>
+            <option value="" disabled selected>Choose one</option>
+            <option>Within 30 days</option>
+            <option>1&ndash;3 months</option>
+            <option>3&ndash;6 months</option>
+            <option>6+ months</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-budget">Total launch budget</label>
+          <select id="f-budget" name="budget" required>
+            <option value="" disabled selected>Choose one</option>
+            <option>Under $5,000</option>
+            <option>$5,000&ndash;$10,000</option>
+            <option>$10,000&ndash;$20,000</option>
+            <option>$20,000+</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-goal">What does a win look like 12 months from now?</label>
+        <textarea id="f-goal" name="goal" required placeholder="Booked every weekend? Quit the day job? A second cart?"></textarea>
+      </div>
+      <div class="field">
+        <label for="f-obstacle">What's the biggest thing holding you back? <small>(optional)</small></label>
+        <textarea id="f-obstacle" name="obstacle"></textarea>
+      </div>
+      <div class="field">
+        <label for="f-source">How did you hear about Coffee Cart Launch? <small>(optional)</small></label>
+        <input id="f-source" name="source" type="text">
+      </div>
+      <div class="hp"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+
+      <button class="btn btn-brick submit" type="submit" id="joinbtn">Request my invite</button>
+      <div class="finehint">Applications are read personally. No newsletter, no spam, no sharing your info.</div>
+    </form>
+
+    <div class="thanks" id="thanks">
+      <div class="big">You're on the list.</div>
+      <p>I read every application myself, usually within a day. If it's a fit, your invite code arrives by email from john@roastlaunch.com.</p>
+      <p>Keep an eye on your inbox (and spam folder, just in case).</p>
+    </div>
+  </div>
+</main>
+
+<footer>&copy; 2026 Coffee Cart Launch &middot; A Roast Launch Subsidiary &middot; <a href="mailto:john@roastlaunch.com">john@roastlaunch.com</a></footer>
+
+<script>
+const SUPA_URL = 'https://nyvvoaryplfkpmbpvkui.supabase.co';
+const SUPA_KEY = 'sb_publishable_8Ie0pkmwliUwKFXKG0c3jA_M7q-KE59';
+
+const form = document.getElementById('joinform');
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const err = document.getElementById('formerr');
+  err.style.display = 'none';
+  if (!form.reportValidity()) return;
+
+  const data = Object.fromEntries(new FormData(form).entries());
+  if (data.website) { form.style.display = 'none'; document.getElementById('thanks').style.display = 'block'; return; }
+  delete data.website;
+
+  const btn = document.getElementById('joinbtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  try {
+    const res = await fetch(SUPA_URL + '/rest/v1/ccl_waitlist', {
+      method: 'POST',
+      headers: {
+        'apikey': SUPA_KEY,
+        'Authorization': 'Bearer ' + SUPA_KEY,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw new Error('bad status ' + res.status);
+    form.style.display = 'none';
+    document.getElementById('thanks').style.display = 'block';
+  } catch (_) {
+    err.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Request my invite';
+    err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+});
+</script>
+
+</body>
+</html>
