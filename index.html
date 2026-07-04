@@ -11,7 +11,9 @@
 <meta property="og:url" content="https://coffeecartlaunch.com/">
 <meta property="og:image" content="https://coffeecartlaunch.com/media/hero-poster-v3.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/logo.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/media/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/media/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Bricolage+Grotesque:wght@500;700&display=swap" rel="stylesheet">
@@ -65,7 +67,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:
 nav.solid{background:rgba(251,243,228,.92);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(58,42,34,.08)}
 nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:var(--white);text-decoration:none;transition:var(--transition)}
 nav.solid .brand{color:var(--ink)}
-nav .brand img{height:30px;width:auto}
+nav .brand img{height:24px;width:auto;display:block}
 nav .actions{display:flex;gap:10px}
 nav .btn-ghost{color:var(--white);border-color:var(--white)}
 nav .btn-ghost:hover{color:#3A2A22}
@@ -169,13 +171,14 @@ footer a{color:var(--butter);text-decoration:none}
   .hero,.final{min-height:100vh}
   .story-card{padding:30px 24px}
   nav .btn-ghost{display:none}
+  nav .brand img{width:min(200px,52vw);height:auto}
 }
 </style>
 </head>
 <body>
 
 <nav id="nav">
-  <a class="brand" href="/"><img src="/logo.png" alt="Coffee Cart Launch logo">Coffee Cart Launch</a>
+  <a class="brand" href="/"><img src="/media/logo-wordmark.png" alt="Coffee Cart Launch"></a>
   <div class="actions">
     <a class="btn btn-ghost" href="mailto:john@roastlaunch.com">Email John</a>
     <a class="btn btn-brick" href="#pricing">See pricing</a>
