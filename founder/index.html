@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Founder's Launch-Ready Coffee Cart Package | Book Your First Event in 30 Days</title>
-<meta name="description" content="Founder's rate: $997 (was $4,997) for the Launch-Ready Coffee Cart Package. Branding, website, booking system, permits guide, equipment list, outreach scripts, and a 1-on-1 strategy session. Book your first paid event in 30 days, or I work for free.">
-<meta property="og:title" content="Founder's Launch-Ready Coffee Cart Package">
-<meta property="og:description" content="Founder's rate: $997 (was $4,997). Everything you need to launch your coffee cart and book your first paid event in 30 days, guaranteed.">
+<title>Coffee Cart Launch | Launch your coffee cart and book your first paid event in 30 days</title>
+<meta name="description" content="The Launch-Ready Coffee Cart Package: branding, website, booking system, permits guide, equipment list, outreach scripts, and a 1-on-1 strategy session. Book your first paid event in 30 days, or I work for free.">
+<meta property="og:title" content="Coffee Cart Launch | Launch-Ready Coffee Cart Package">
+<meta property="og:description" content="Launch your coffee cart and book your first paid event in 30 days, or I work for free.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://coffeecartlaunch.com/founder/">
-<meta property="og:image" content="https://coffeecartlaunch.com/img/hero-cart.jpg">
+<meta property="og:image" content="https://coffeecartlaunch.com/media/hero-poster-v3.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="/media/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/media/favicon-192.png">
@@ -19,236 +19,267 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Bricolage+Grotesque:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --canvas:#F3F5E8; --canvas-subtle:#F7F8F0; --canvas-deep:#D8DACF;
-  --ink:#2C2B2B; --ink-deep:#1A1A1A; --ink-soft:#696969; --ink-muted:#888982;
-  --accent:#F5D577; --accent-dark:#D6BA68; --accent-pale:#F7F0D3;
-  --blue-ice:#C0E1EC; --brown:#814F34; --brown-light:#A1775E; --brown-deep:#422513;
-  --white:#FFFFFF; --green:#29A863;
+  --sky:#FCD9C6; --sky-deep:#F3BFa4; --hills:#E3AE8F; --path:#EDB992; --grass:#D6A36C;
+  --cream:#FBF3E4; --parchment:#F6E7CF;
+  --ink:#3A2A22; --ink-soft:#7A5F4E; --ink-muted:#A08670;
+  --brick:#C34F33; --brick-deep:#9E3B24; --butter:#F5D577; --butter-pale:#FAEBC0;
+  --olive:#8A8B4F; --white:#FFFDF8;
   --font:'Figtree',sans-serif; --font-accent:'Bricolage Grotesque',sans-serif;
-  --radius-btn:8px; --radius-card:19px;
-  --shadow-glass:0 20px 68px rgba(0,0,0,.25),0 1px 2px rgba(0,0,0,.3),inset 0 2px 1px rgba(255,255,255,.5),inset 1px 1px .25px rgba(255,255,255,.3);
-  --shadow-soft:0 20px 68px rgba(44,43,43,.12),0 1px 2px rgba(44,43,43,.08);
+  --radius:14px; --radius-lg:22px;
   --transition:all .2s;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font);font-size:14px;line-height:20px;color:var(--ink);background:var(--canvas)}
-::selection{background:var(--accent);color:var(--ink)}
-section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 5%;position:relative}
-h1{font-size:82px;line-height:78px;letter-spacing:-3px;font-weight:500}
-h2{font-size:56px;line-height:100%;letter-spacing:-2px;font-weight:500}
-.eyebrow{font-family:var(--font-accent);font-size:14px;line-height:20px;letter-spacing:.64px;text-transform:uppercase;font-weight:700;color:var(--brown);margin-bottom:20px}
-.lede{font-size:20px;line-height:28px;max-width:56ch;color:var(--ink-soft)}
-.btn{display:inline-flex;justify-content:center;align-items:center;gap:7px;padding:10px 18px;font-size:15px;font-weight:500;border-radius:var(--radius-btn);text-decoration:none;transition:var(--transition);cursor:pointer;white-space:nowrap}
-.btn-outline{color:var(--ink);border:1px solid var(--canvas-deep);background:transparent}
-.btn-outline:hover{background:var(--white);border-color:var(--white)}
-.btn-filled{color:var(--canvas);background:var(--ink);border:1px solid var(--ink)}
-.btn-filled:hover{background:var(--ink-deep);transform:translateY(-1px)}
-.strike{text-decoration:line-through;color:var(--ink-muted);font-weight:400}
+body{font-family:var(--font);font-size:15px;line-height:22px;color:var(--ink);background:var(--cream)}
+::selection{background:var(--butter);color:var(--ink)}
 
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(0,0,.2,1),transform .6s cubic-bezier(0,0,.2,1)}
+/* snap scrolling: desktop only */
+@media (min-width:768px){
+  html{scroll-snap-type:y mandatory}
+  section{scroll-snap-align:start;scroll-snap-stop:always}
+}
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:110px 6% 70px;position:relative}
+
+h1{font-size:76px;line-height:74px;letter-spacing:-2.5px;font-weight:500}
+h2{font-size:52px;line-height:102%;letter-spacing:-1.5px;font-weight:500}
+.eyebrow{font-family:var(--font-accent);font-size:14px;line-height:20px;letter-spacing:1px;text-transform:uppercase;font-weight:700;color:var(--brick);margin-bottom:18px}
+.lede{font-size:19px;line-height:28px;max-width:56ch;color:var(--ink-soft)}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:7px;padding:12px 22px;font-size:15px;font-weight:700;border-radius:var(--radius);text-decoration:none;transition:var(--transition);cursor:pointer;white-space:nowrap}
+.btn-brick{color:var(--white);background:var(--brick);border:2px solid var(--brick-deep);box-shadow:0 3px 0 var(--brick-deep)}
+.btn-brick:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--brick-deep)}
+.btn-ghost{color:var(--ink);border:2px solid var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--white)}
+.hero-outline{color:var(--white);border-color:var(--white)}
+.hero-outline:hover{color:#3A2A22}
+.btn-cream{color:var(--brick-deep);background:var(--white);border:2px solid var(--butter);box-shadow:0 3px 0 var(--butter)}
+.btn-cream:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--butter)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(0,0,.2,1),transform .6s cubic-bezier(0,0,.2,1)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
-  .hero-media img,.steam,.offer-card.in{animation:none!important}
-  html{scroll-behavior:auto}
+  .marquee-inner{animation:none!important}
+  html{scroll-behavior:auto;scroll-snap-type:none}
 }
 
-/* URGENCY BAR */
-.founder-bar{background:var(--accent);color:var(--ink);text-align:center;padding:12px 5%;font-family:var(--font-accent);font-size:13px;font-weight:700;letter-spacing:.64px;text-transform:uppercase}
-.founder-bar b{color:var(--brown-deep)}
+/* FOUNDER BAR */
+.founder-bar{position:fixed;top:0;left:0;right:0;z-index:40;background:var(--brick-deep);color:var(--butter-pale);text-align:center;font-size:13px;font-weight:600;letter-spacing:.2px;line-height:150%;padding:9px 5%}
+.founder-bar b{color:var(--butter);font-weight:700}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 5%;background:rgba(243,245,232,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--canvas-deep)}
-nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;letter-spacing:-.2px;color:var(--ink);text-decoration:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;justify-content:space-between;align-items:center;padding:14px 6%;background:linear-gradient(rgba(58,42,34,.28),transparent);transition:var(--transition)}
+nav.solid{background:rgba(251,243,228,.92);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(58,42,34,.08)}
+nav .brand{position:relative;display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:var(--white);text-decoration:none;transition:var(--transition)}
+nav.solid .brand{color:var(--ink)}
 nav .brand img{height:24px;width:auto;display:block}
+nav .brand .wm-light{opacity:1;transition:var(--transition)}
+nav .brand .wm-dark{position:absolute;left:0;top:50%;transform:translateY(-50%);opacity:0;transition:var(--transition)}
+nav.solid .brand .wm-light{opacity:0}
+nav.solid .brand .wm-dark{opacity:1}
 nav .actions{display:flex;gap:10px}
+nav .btn-ghost{color:var(--white);border-color:var(--white)}
+nav .btn-ghost:hover{color:#3A2A22}
+nav.solid .btn-ghost{color:var(--ink);border-color:var(--ink)}
+nav.solid .btn-ghost:hover{background:var(--white)}
 
-/* HERO */
-.hero{overflow:hidden;min-height:calc(100vh - 110px);padding-top:80px}
-.hero-row{display:flex;align-items:center;gap:56px;position:relative;z-index:1}
-.hero-media{margin-top:56px;border-radius:var(--radius-card);overflow:hidden;position:relative;box-shadow:var(--shadow-soft);z-index:1}
-.hero-media img{display:block;width:100%;height:auto;animation:kenburns 26s ease-in-out infinite alternate;transform-origin:60% 40%}
-@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.08)}}
-.steam{position:absolute;bottom:22%;width:14px;height:60px;border-radius:50%;background:rgba(255,255,255,.55);filter:blur(10px);opacity:0;animation:steam 5.5s ease-in-out infinite;pointer-events:none}
-.steam.s1{left:60%}.steam.s2{left:63%;animation-delay:1.8s}.steam.s3{left:66%;animation-delay:3.4s}
-@keyframes steam{0%{transform:translateY(24px) scaleX(1);opacity:0}30%{opacity:.65}100%{transform:translateY(-90px) scaleX(1.7);opacity:0}}
-.offer-card.in{animation:floaty 7s ease-in-out 1.2s infinite}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.hero .grid-line{position:absolute;top:0;bottom:0;width:1px;background:var(--canvas-deep);opacity:.55;pointer-events:none}
-.hero .glow{position:absolute;right:-10%;top:-20%;width:60vw;height:60vw;border-radius:50%;background:radial-gradient(circle,rgba(245,213,119,.35),transparent 65%);pointer-events:none}
-.hero-left{flex:1.3;position:relative;z-index:1}
-.hero-ctas{display:flex;gap:12px;margin-top:36px;align-items:center}
-h1 .gold{color:var(--brown)}
-.offer-card{flex:1;max-width:400px;background:var(--white);border-radius:var(--radius-card);padding:32px;box-shadow:var(--shadow-soft);position:relative;z-index:1;border:1px solid var(--accent-dark)}
-.offer-card .avail{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);margin-bottom:22px}
-.offer-card .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(41,168,99,.15)}
-.offer-card .pkg{font-size:30px;line-height:100%;font-weight:500;letter-spacing:-.5px;margin-bottom:10px}
-.offer-card .price{font-size:22px;font-weight:500;color:var(--brown);margin-bottom:6px}
-.offer-card .price small{font-size:13px;font-weight:400;color:var(--ink-muted)}
-.offer-card .save{display:inline-block;background:var(--accent-pale);border:1px solid var(--accent-dark);border-radius:var(--radius-btn);padding:4px 10px;font-family:var(--font-accent);font-size:12px;font-weight:700;letter-spacing:.64px;text-transform:uppercase;color:var(--brown-deep);margin-bottom:18px}
-.offer-card .btn{width:100%}
-.offer-card .call-row{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:18px;border-top:1px solid var(--canvas)}
-.offer-card .call-row span{font-size:13px;color:var(--ink-soft)}
-.offer-card .call-row a{font-size:13px;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--accent);transition:var(--transition)}
-.offer-card .call-row a:hover{border-color:var(--accent-dark)}
+/* DOT NAV */
+.dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:30;display:flex;flex-direction:column;gap:12px}
+.dots a{width:11px;height:11px;border-radius:50%;background:rgba(58,42,34,.25);border:2px solid transparent;transition:var(--transition)}
+.dots a.active{background:var(--brick);transform:scale(1.25)}
+.dots a:hover{background:var(--brick)}
+@media (max-width:767px){.dots{display:none}}
 
-/* DELIVERABLES GRID */
-.included{background:var(--canvas-subtle)}
-.inc-grid{display:grid;gap:16px;grid-template-columns:1fr 1fr;margin-top:48px}
-.inc-item{display:flex;gap:16px;align-items:flex-start;background:var(--white);border-radius:var(--radius-card);padding:24px 26px;box-shadow:0 1px 2px rgba(44,43,43,.06);transition:var(--transition)}
-.inc-item:hover{transform:translateY(-3px);box-shadow:var(--shadow-soft)}
-.inc-item .num{flex:none;width:34px;height:34px;border-radius:var(--radius-btn);background:var(--brown-deep);color:var(--accent);font-family:var(--font-accent);font-weight:700;display:grid;place-items:center;font-size:14px}
-.inc-item h3{font-size:17px;line-height:22px;font-weight:700;margin-bottom:4px}
-.inc-item p{font-size:14px;color:var(--ink-soft)}
-.inc-item.result{grid-column:1/-1;background:linear-gradient(135deg,var(--white),var(--accent-pale));border:1px solid var(--accent-dark)}
-.inc-item.result .num{background:var(--accent);color:var(--brown-deep)}
+/* 01 HERO */
+.hero{padding:0;justify-content:flex-end;overflow:hidden}
+.hero video,.hero .fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .scrim{position:absolute;inset:0;background:
+  radial-gradient(80% 75% at 20% 100%, rgba(35,24,18,.62), rgba(35,24,18,.28) 45%, transparent 72%),
+  linear-gradient(rgba(58,42,34,.16) 0%,transparent 28%,transparent 52%,rgba(58,42,34,.38) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 6% 9vh;max-width:920px}
+.hero h1{color:var(--white);text-shadow:0 2px 18px rgba(58,42,34,.35)}
+.hero h1 em{font-style:normal;color:var(--brick);text-shadow:0 2px 18px rgba(58,42,34,.5)}
+.hero .lede{color:var(--butter-pale);margin-top:18px;text-shadow:0 1px 3px rgba(20,12,8,.55),0 3px 16px rgba(20,12,8,.45)}
+.hero-ctas{display:flex;gap:12px;margin-top:30px}
 
-/* GUARANTEE */
-.proof{background:var(--canvas);text-align:center;align-items:center}
-.proof .guarantee{max-width:20ch;margin:0 auto}
-.proof .guarantee em{font-style:normal;color:var(--brown);border-bottom:4px solid var(--accent)}
-.proof .sub{margin-top:24px;font-size:16px;color:var(--ink-soft);max-width:60ch}
+/* 02 HOW IT WORKS */
+.hiw{background:var(--parchment)}
+.hiw-grid{display:flex;gap:26px;margin-top:44px}
+.panel{flex:1;border-radius:var(--radius-lg);padding:34px 30px;color:var(--white);position:relative;box-shadow:0 5px 0 rgba(58,42,34,.16)}
+.panel .step{font-family:var(--font-accent);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;opacity:.85}
+.panel h3{font-size:30px;line-height:100%;font-weight:500;margin:12px 0 14px}
+.panel p{opacity:.94;max-width:34ch}
+.panel.brick{background:var(--brick)}
+.panel.mustard{background:#C99332}
+.panel.olive{background:var(--olive)}
 
-/* PRICING */
-.pricing{align-items:center;text-align:center;background:var(--canvas-subtle)}
-.pricing h2{max-width:18ch}
-.glass-card{color:var(--white);background:#000;border:1px solid #000;border-radius:var(--radius-card);padding:40px;max-width:560px;width:100%;margin-top:48px;box-shadow:var(--shadow-glass);text-align:left;position:relative;overflow:hidden}
-.glass-card .shine{position:absolute;top:-40%;right:-20%;width:70%;height:120%;background:radial-gradient(circle,rgba(245,213,119,.18),transparent 70%);pointer-events:none}
-.glass-card .founder-tag{display:inline-block;background:var(--accent);color:var(--brown-deep);border-radius:var(--radius-btn);padding:5px 12px;font-family:var(--font-accent);font-size:12px;font-weight:700;letter-spacing:.64px;text-transform:uppercase;margin-bottom:16px}
-.glass-card .hdr{font-size:30px;line-height:100%;letter-spacing:-.5px;font-weight:500;margin-bottom:14px}
-.glass-card .price{font-size:46px;font-weight:500;letter-spacing:-1px;line-height:100%}
-.glass-card .price .strike{font-size:26px;color:rgba(255,255,255,.4)}
-.glass-card .price small{font-size:15px;color:rgba(255,255,255,.55);font-weight:400;letter-spacing:0}
-.glass-card ul{list-style:none;display:flex;flex-direction:column;gap:6px;margin:26px 0 0;color:rgba(255,255,255,.85);font-size:15px;line-height:24px}
-.glass-card ul .check{color:var(--accent);margin-right:8px;font-weight:700}
-.glass-card .cta{display:block;width:100%;margin-top:24px;padding:20px 0;font-size:20px;font-weight:500;text-align:center;color:#000;background:var(--white);border:none;border-radius:var(--radius-btn);transition:var(--transition);text-decoration:none}
-.glass-card .cta:hover{background:var(--accent);transform:translateY(-1px)}
-.glass-card .micro{font-size:13px;color:rgba(255,255,255,.55);text-align:center;margin-top:14px}
+/* 03 DELIVERABLES */
+.deliver{background:var(--cream)}
+.marquee{overflow:hidden;white-space:nowrap;margin-top:44px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-inner{display:inline-flex;gap:12px;padding-right:12px;animation:scroll 30s linear infinite}
+.marquee:hover .marquee-inner{animation-play-state:paused}
+.pill{display:inline-flex;align-items:center;gap:9px;padding:13px 20px;font-size:15px;font-weight:700;background:var(--white);border:2px solid var(--ink);border-radius:999px;box-shadow:0 3px 0 rgba(58,42,34,.2)}
+.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brick)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.deliver .note{margin-top:26px;color:var(--ink-muted)}
+
+/* 04 PROOF / GUARANTEE */
+.proof{background:var(--parchment);flex-direction:row;align-items:center;gap:54px}
+.proof .art{flex:1.1;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 6px 0 rgba(58,42,34,.16);border:3px solid var(--white)}
+.proof .art img{display:block;width:100%;height:auto}
+.proof .text{flex:1}
+.proof .guarantee em{font-style:normal;color:var(--brick);border-bottom:5px solid var(--butter)}
+.proof .sub{margin-top:22px;font-size:16px;color:var(--ink-soft);max-width:44ch}
+
+/* 05 PRICING */
+.pricing{background:var(--cream);align-items:center;text-align:center}
+.story-card{position:relative;color:var(--white);background:var(--brick);border-radius:26px;padding:42px 44px;max-width:590px;width:100%;margin-top:42px;text-align:left;box-shadow:0 7px 0 var(--brick-deep), 0 22px 48px rgba(158,59,36,.28)}
+.story-card::before{content:"";position:absolute;inset:10px;border:2px dashed rgba(255,253,248,.5);border-radius:18px;pointer-events:none}
+.story-card .hdr{font-size:29px;line-height:102%;letter-spacing:-.5px;font-weight:500;margin-bottom:12px}
+.story-card .price{font-family:var(--font-accent);font-size:46px;font-weight:700;letter-spacing:-.5px;line-height:100%}
+.story-card .price small{font-size:15px;font-weight:400;opacity:.75;letter-spacing:0}
+.story-card .price-old{position:relative;display:inline-block;font-size:30px;opacity:.8;margin-right:8px}
+.story-card .price-old::after{content:"";position:absolute;left:-8%;right:-8%;top:50%;height:7px;margin-top:-3px;background:var(--butter);border-radius:99px;transform:rotate(-9deg);box-shadow:0 2px 0 rgba(58,42,34,.18)}
+.story-card .price-note{font-size:15px;line-height:23px;margin-top:8px}
+.story-card ul{list-style:none;display:flex;flex-direction:column;gap:7px;margin:24px 0 0;font-size:15px;line-height:23px}
+.story-card .check{color:var(--butter);margin-right:9px;font-weight:700}
+.story-card .cta{display:block;width:100%;margin-top:26px;padding:19px 0;font-size:19px;font-weight:700;text-align:center;color:var(--brick-deep);background:var(--butter);border:none;border-radius:var(--radius);box-shadow:0 4px 0 #C9A94E;transition:var(--transition);text-decoration:none}
+.story-card .cta:hover{transform:translateY(-2px);box-shadow:0 6px 0 #C9A94E}
+.story-card .micro{font-size:13px;opacity:.85;text-align:center;margin-top:14px}
 .pricing .spots{margin-top:22px;font-size:14px;color:var(--ink-soft);display:flex;align-items:center;gap:8px}
-.pricing .spots .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
-.pricing .email-line{margin-top:10px;font-size:13px;color:var(--ink-muted)}
-.pricing .email-line a{color:var(--brown);font-weight:700;text-decoration:none;border-bottom:2px solid var(--accent)}
+.pricing .spots i{width:9px;height:9px;border-radius:50%;background:var(--olive)}
 
-/* FINAL + FOOTER */
-.final{text-align:center;align-items:center}
-.final h1{max-width:14ch}
+/* 06 FAQ */
+.faqsec{background:var(--parchment)}
+.faq{max-width:820px;margin:0 auto;width:100%}
+.faq h2{margin-bottom:30px}
+.faq details{border-bottom:2px solid rgba(58,42,34,.14);padding:20px 0}
+.faq summary{font-size:19px;font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--font-accent);font-size:22px;color:var(--brick);transition:var(--transition);flex-shrink:0}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p s{opacity:.6}
+.faq details p{margin-top:12px;color:var(--ink-soft);max-width:60ch;font-size:15px;line-height:23px}
+.faq .fbody{overflow:hidden}
+
+/* 07 FINAL + FOOTER */
+.final{padding:0;justify-content:flex-end;overflow:hidden}
+.final .bgart{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.final .scrim{position:absolute;inset:0;background:linear-gradient(rgba(58,42,34,.1),rgba(58,42,34,.55) 85%)}
+.final-content{position:relative;z-index:2;text-align:center;padding:0 6% 16vh;align-self:center}
+.final h1{color:var(--white);max-width:16ch;margin:0 auto;text-shadow:0 2px 18px rgba(58,42,34,.4)}
+.final .lede{color:var(--butter-pale);margin:20px auto 0}
 .final .hero-ctas{justify-content:center}
-footer{padding:60px 5% 24px;overflow:hidden;background:var(--canvas)}
-footer .meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink-muted);padding-bottom:24px;gap:16px}
-footer .meta a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--canvas-deep);transition:var(--transition)}
-footer .meta a:hover{color:var(--ink)}
-footer .fine{font-size:12px;line-height:18px;color:var(--ink-muted);max-width:80ch;padding-bottom:48px}
-footer .giant{font-family:var(--font);font-size:9.3vw;line-height:.85;font-weight:500;letter-spacing:-.04em;color:var(--canvas-deep);text-align:center;white-space:nowrap;user-select:none}
+.final-meta{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:14px;flex-wrap:wrap;padding:22px 6%;color:var(--butter-pale);text-shadow:0 1px 8px rgba(58,42,34,.55)}
+.final-meta a{color:var(--butter);text-decoration:none}
 
 @media (max-width:900px){
-  .hero-row{flex-direction:column;align-items:flex-start;gap:40px}
-  .offer-card{max-width:100%}
-  .inc-grid{grid-template-columns:1fr}
+  .hiw-grid{flex-direction:column}
+  .proof{flex-direction:column;gap:34px}
 }
 @media (max-width:767px){
-  h1{font-size:60px;line-height:70px;letter-spacing:-4px}
-  h2{font-size:38px;letter-spacing:-1.5px}
-  section{min-height:auto;padding:88px 6%}
-  .glass-card{padding:26px}
-  nav .btn-outline{display:none}
-  footer .meta{flex-direction:column;gap:10px;align-items:flex-start}
-}
-@media (max-width:420px){
-  h1{font-size:44px;line-height:48px;letter-spacing:-2px}
+  h1{font-size:52px;line-height:54px;letter-spacing:-1.8px}
+  h2{font-size:36px;letter-spacing:-1px}
+  section{min-height:auto;padding:88px 6% 60px}
+  .hero,.final{min-height:100vh}
+  .story-card{padding:30px 24px}
+  nav .btn-ghost{display:none}
+  nav .brand img{width:min(200px,52vw);height:auto}
+  .story-card .price{font-size:38px}
+  .story-card .price-old{font-size:25px}
 }
 </style>
 </head>
 <body>
 
-<!-- URGENCY BAR -->
-<div class="founder-bar">Founder's rate: <b>2 of 3 spots remaining</b> · $997 (was $4,997) · Expires Monday 11:59 PM EST</div>
+<div class="founder-bar">Founder's rate: <b>2 of 5 spots remaining</b> · <b>$997</b> (was $4,997) · Expires Monday 11:59 PM EST</div>
 
-<!-- NAV -->
-<nav>
-  <a class="brand" href="/"><img src="/media/logo-wordmark.png" alt="Coffee Cart Launch"></a>
+<nav id="nav">
+  <a class="brand" href="/"><img class="wm-light" src="/media/logo-wordmark-white.png" alt="Coffee Cart Launch"><img class="wm-dark" src="/media/logo-wordmark.png" alt="" aria-hidden="true"></a>
   <div class="actions">
-    <a class="btn btn-outline" href="mailto:john@roastlaunch.com">Email John</a>
-    <a class="btn btn-filled" href="#pricing">Claim Your Spot</a>
+    <a class="btn btn-ghost" href="mailto:john@roastlaunch.com">Email John</a>
+    <a class="btn btn-brick" href="#pricing">See pricing</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="grid-line" style="left:25%"></div>
-  <div class="grid-line" style="left:50%"></div>
-  <div class="grid-line" style="left:75%"></div>
-  <div class="glow"></div>
-  <div class="hero-row">
-    <div class="hero-left">
-      <div class="eyebrow">Founder's Launch-Ready Coffee Cart Package</div>
-      <h1>Launch your coffee cart. Book your first <span class="gold">paid event.</span></h1>
-      <p class="lede" style="margin-top:24px">Professional branding, a real website, 1-on-1 launch strategy, and the exact permits you need. Launch in 14 days, book your first event in 30, guaranteed.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-filled" href="#pricing">Claim Your Spot</a>
-        <span style="font-size:15px;color:var(--ink-soft)"><span class="strike">$4,997</span> <b style="color:var(--brown)">$997</b></span>
-      </div>
+<div class="dots" id="dots"></div>
+
+<!-- 01 HERO -->
+<section class="hero" id="top" data-dot="Home">
+  <video id="herovid" autoplay muted loop playsinline poster="/media/hero-poster-v3.jpg"></video>
+  <div class="scrim"></div>
+  <div class="hero-content">
+    <div class="eyebrow" style="color:var(--white);text-shadow:0 1px 3px rgba(20,12,8,.55),0 2px 14px rgba(20,12,8,.4)">The Launch-Ready Coffee Cart Package</div>
+    <h1>Launch your coffee cart. Book your first <em>paid event.</em></h1>
+    <p class="lede">Everything you need to go from idea to booked-and-paid in 30 days. One package, one price, one guarantee.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-brick" href="#pricing">Claim Your Spot</a>
+      <a class="btn btn-ghost hero-outline" href="#how">See how it works</a>
     </div>
-    <div class="offer-card reveal">
-      <div class="avail"><span class="dot"></span>Only 2 founder spots remaining</div>
-      <div class="pkg">Founder's Launch-Ready Coffee Cart Package</div>
-      <div class="price"><span class="strike">$4,997</span> $997 <small>one-time</small></div>
-      <div class="save">Save $4,000</div>
-      <a class="btn btn-filled" href="#pricing">See what's included</a>
-      <div class="call-row">
-        <span>Prefer to talk first?</span>
-        <a href="mailto:john@roastlaunch.com?subject=Coffee%20Cart%20Launch%20call">Book a call</a>
-      </div>
-    </div>
-  </div>
-  <div class="hero-media reveal">
-    <img src="/img/hero-cart.jpg" alt="A premium coffee cart serving espresso at an outdoor event">
-    <span class="steam s1"></span><span class="steam s2"></span><span class="steam s3"></span>
   </div>
 </section>
 
-<!-- DELIVERABLES -->
-<section class="included" id="included">
+<!-- 02 HOW IT WORKS -->
+<section class="hiw" id="how" data-dot="How it works">
   <div class="reveal">
-    <div class="eyebrow">What's included</div>
+    <div class="eyebrow">How it works</div>
+    <h2>Most new carts look amateur.<br>Yours won't.</h2>
+  </div>
+  <div class="hiw-grid">
+    <div class="panel brick reveal">
+      <div class="step">Step 01</div>
+      <h3>Brand it</h3>
+      <p>A professional logo, colors, and business cards, plus a simple website with a contact form. You look established from day one.</p>
+    </div>
+    <div class="panel mustard reveal">
+      <div class="step">Step 02</div>
+      <h3>Book it</h3>
+      <p>An event booking system, proven outreach scripts, and a proposal template that wins gigs. Your calendar starts filling before you pour.</p>
+    </div>
+    <div class="panel olive reveal">
+      <div class="step">Step 03</div>
+      <h3>Launch it</h3>
+      <p>A permits guide for your exact area, an equipment sourcing list with real contacts, and a 1-on-1 strategy session. Nothing left to guess.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 DELIVERABLES -->
+<section class="deliver" data-dot="What's inside">
+  <div class="reveal">
+    <div class="eyebrow">What's inside</div>
     <h2>Eight things that get you launch-ready</h2>
-    <p class="lede" style="margin-top:20px">No fluff, no ongoing commitments. Just the core pieces you need to open, done for you.</p>
   </div>
-  <div class="inc-grid">
-    <div class="inc-item reveal"><span class="num">1</span><div><h3>Professional branding package</h3><p>A logo, color palette, and business cards that make you look established from day one.</p></div></div>
-    <div class="inc-item reveal"><span class="num">2</span><div><h3>Simple website with contact form</h3><p>A clean, mobile-friendly site so customers can find you and get in touch.</p></div></div>
-    <div class="inc-item reveal"><span class="num">3</span><div><h3>Event booking system integration</h3><p>A system for customers to book your cart for their events directly through your website.</p></div></div>
-    <div class="inc-item reveal"><span class="num">4</span><div><h3>Permits research guide for your area</h3><p>Exactly which permits and licenses you need locally, and how to get each one.</p></div></div>
-    <div class="inc-item reveal"><span class="num">5</span><div><h3>Equipment sourcing list with contacts</h3><p>A vetted list of what to buy and who to buy it from, with real supplier contacts.</p></div></div>
-    <div class="inc-item reveal"><span class="num">6</span><div><h3>1-on-1 launch strategy session</h3><p>A personalized session to plan your first 90 days, identify ideal event locations, and sharpen your outreach.</p></div></div>
-    <div class="inc-item reveal"><span class="num">7</span><div><h3>Proven outreach scripts &amp; templates</h3><p>Word-for-word scripts and customizable templates for contacting event organizers, businesses, and private clients.</p></div></div>
-    <div class="inc-item reveal"><span class="num">8</span><div><h3>Customizable event proposal template</h3><p>A professional template to quickly create compelling proposals for potential event bookings.</p></div></div>
-    <div class="inc-item result reveal"><span class="num">✓</span><div><h3>The result</h3><p>A professional, launch-ready coffee cart business that books its first paid event within 30 days, guaranteed.</p></div></div>
+  <div class="marquee" aria-label="Package deliverables">
+    <div class="marquee-inner">
+      <span class="pill">Professional branding package</span><span class="pill">Simple website with contact form</span><span class="pill">Event booking system</span><span class="pill">Permits research guide</span><span class="pill">Equipment sourcing list</span><span class="pill">1-on-1 launch strategy session</span><span class="pill">Outreach scripts &amp; templates</span><span class="pill">Event proposal template</span>
+      <span class="pill" aria-hidden="true">Professional branding package</span><span class="pill" aria-hidden="true">Simple website with contact form</span><span class="pill" aria-hidden="true">Event booking system</span><span class="pill" aria-hidden="true">Permits research guide</span><span class="pill" aria-hidden="true">Equipment sourcing list</span><span class="pill" aria-hidden="true">1-on-1 launch strategy session</span><span class="pill" aria-hidden="true">Outreach scripts &amp; templates</span><span class="pill" aria-hidden="true">Event proposal template</span>
+    </div>
   </div>
+  <p class="note reveal">Every piece is done for you or done with you. Nothing off the shelf.</p>
 </section>
 
-<!-- GUARANTEE -->
-<section class="proof">
-  <div class="reveal">
+<!-- 04 PROOF / GUARANTEE -->
+<section class="proof" data-dot="Guarantee">
+  <div class="art reveal"><img src="/media/section-midday.jpg" alt="Illustration of the coffee cart on its morning route with animal friends"></div>
+  <div class="text reveal">
     <div class="eyebrow">The guarantee</div>
     <h2 class="guarantee">Book your first paid event in 30 days, <em>or I work for free.</em></h2>
-    <p class="sub">If you don't book your first paid event within 30 days of your package being ready, I personally work with you for free until you do. The risk is on us. All you have to decide is whether you want to be booking events a month from now.</p>
+    <p class="sub">No asterisks. You launch and get booked, or you don't pay for more of my time.</p>
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="pricing" id="pricing">
+<!-- 05 PRICING -->
+<section class="pricing" id="pricing" data-dot="Pricing">
   <div class="reveal">
-    <div class="eyebrow">The offer</div>
-    <h2>The founder's rate. Everything included.</h2>
+    <div class="eyebrow">Pricing</div>
+    <h2>One package. Everything included.</h2>
   </div>
-  <div class="glass-card reveal">
-    <div class="shine"></div>
-    <div class="founder-tag">Founder's rate · Save $4,000</div>
+  <div class="story-card reveal">
     <div class="hdr">Launch-Ready Coffee Cart Package</div>
-    <div class="price"><span class="strike">$4,997</span> $997 <small>one-time, everything included</small></div>
+    <div class="price"><span class="price-old">$4,997</span> $997 <small>one-time</small></div>
+    <div class="price-note">Founding price; Ends Monday 11:59 PM EST</div>
     <ul>
-      <li><span class="check">✓</span>Professional branding package (logo, colors, business cards)</li>
+      <li><span class="check">✓</span>Professional branding package</li>
       <li><span class="check">✓</span>Simple website with contact form</li>
       <li><span class="check">✓</span>Event booking system integration</li>
       <li><span class="check">✓</span>Permits research guide for your area</li>
@@ -257,38 +288,108 @@ footer .giant{font-family:var(--font);font-size:9.3vw;line-height:.85;font-weigh
       <li><span class="check">✓</span>Proven outreach scripts &amp; templates</li>
       <li><span class="check">✓</span>Customizable event proposal template</li>
     </ul>
-    <a class="cta" href="mailto:john@roastlaunch.com?subject=Launch-Ready%20Coffee%20Cart%20Package&body=Hi%2C%20I%27d%20like%20to%20claim%20a%20spot%20for%20the%20Launch-Ready%20Coffee%20Cart%20Package.%20Here%27s%20a%20bit%20about%20my%20cart%20and%20my%20area%3A">Claim Your Spot</a>
+    <a class="cta" href="mailto:john@roastlaunch.com?subject=Claim%20my%20spot%20-%20Launch-Ready%20Coffee%20Cart%20Package">Claim Your Spot</a>
     <div class="micro">Book your first paid event in 30 days, or I work for free.</div>
   </div>
-  <div class="spots reveal"><span class="dot"></span>Only 2 founder spots remaining · Expires Monday 11:59 PM EST</div>
-  <p class="email-line reveal">Or email directly: <a href="mailto:john@roastlaunch.com?subject=Launch-Ready%20Coffee%20Cart%20Package">john@roastlaunch.com</a></p>
+  <div class="spots reveal"><i></i>5 spots per month, so every launch gets real attention.</div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final">
-  <div class="reveal">
-    <h1>Two spots. Then the price goes up.</h1>
-    <p class="lede" style="margin:24px auto 0">The founder's rate exists because early launches become the case studies. Be one of them.</p>
-    <div class="hero-ctas">
-      <a class="btn btn-filled" href="#pricing">Claim Your Spot</a>
-      <a class="btn btn-outline" href="mailto:john@roastlaunch.com?subject=Coffee%20Cart%20Launch%20call">Book a call</a>
-    </div>
+<!-- 06 FAQ -->
+<section class="faqsec" data-dot="FAQ">
+  <div class="faq reveal">
+    <div class="eyebrow">Questions</div>
+    <h2>Frequently asked questions</h2>
+    <details><summary>How fast until I'm launch-ready?</summary><div class="fbody"><p>The package runs on a 30-day clock. Branding and your website land first, then we line up permits, equipment, and outreach so your first paid event is booked by the end of the month.</p></div></details>
+    <details><summary>What if I don't have a cart yet?</summary><div class="fbody"><p>No problem. The equipment sourcing list covers carts, machines, and suppliers with real contacts, so you buy right the first time instead of learning by expensive mistakes.</p></div></details>
+    <details><summary>Do I need permits before we start?</summary><div class="fbody"><p>No. The permits research guide is part of the package. We map exactly what your city and county require before you serve your first cup.</p></div></details>
+    <details><summary>What does the guarantee cover?</summary><div class="fbody"><p>Simple: book your first paid event within 30 days, or I keep working with you for free until you do.</p></div></details>
+    <details><summary>How do payments work?</summary><div class="fbody"><p>One payment of <s>$4,997</s> $997, no subscriptions and no upsells. Email me and I'll send over the details, or book a call if you'd rather talk it through first.</p></div></details>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="meta">
+<!-- 07 FINAL CTA -->
+<section class="final" data-dot="Get started">
+  <img class="bgart" src="/media/section-dusk.jpg" alt="">
+  <div class="scrim"></div>
+  <div class="final-content reveal">
+    <h1>Booked and pouring by next month.</h1>
+    <p class="lede">Five spots a month. If you're serious about launching, let's talk.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-brick" href="mailto:john@roastlaunch.com?subject=Coffee%20Cart%20Launch%20call">Book a call</a>
+      <a class="btn btn-cream" href="mailto:john@roastlaunch.com">Email John</a>
+    </div>
+  </div>
+  <div class="final-meta">
     <span>© 2026 Coffee Cart Launch · A Roast Launch Subsidiary</span>
     <a href="mailto:john@roastlaunch.com">john@roastlaunch.com</a>
   </div>
-  <p class="fine">Pre-launch validation program limited to 3 entrepreneurs. 30-day event booking guarantee: if you don't book your first paid event within 30 days of package completion, we work with you for free until you do. Founder's rate expires Monday 11:59 PM EST. Permit requirements vary by location.</p>
-  <div class="giant">COFFEE CART LAUNCH</div>
-</footer>
+</section>
 
 <script>
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// hero video source by viewport
+const v = document.getElementById('herovid');
+v.src = innerWidth < 900 ? '/media/hero-loop-720-v3.mp4' : '/media/hero-loop-v3.mp4';
+
+// reveals
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// nav turns solid off the hero
+const nav = document.getElementById('nav');
+const fbar = document.querySelector('.founder-bar');
+const setBarOffset = () => { nav.style.top = fbar.offsetHeight + 'px'; };
+setBarOffset(); addEventListener('resize', setBarOffset);
+const hero = document.querySelector('.hero');
+new IntersectionObserver(es => es.forEach(e => nav.classList.toggle('solid', !e.isIntersecting)), { threshold: .25 }).observe(hero);
+
+// dot nav
+const sections = [...document.querySelectorAll('section[data-dot]')];
+const dots = document.getElementById('dots');
+sections.forEach((s, i) => {
+  const a = document.createElement('a');
+  a.href = '#' + (s.id || (s.id = 'sec' + i));
+  a.title = s.dataset.dot;
+  dots.appendChild(a);
+});
+const dotEls = [...dots.children];
+const secObs = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    const i = sections.indexOf(e.target);
+    dotEls.forEach((d, j) => d.classList.toggle('active', i === j));
+  }
+}), { threshold: .55 });
+sections.forEach(s => secObs.observe(s));
+
+// FAQ accordion: one open at a time, animated height + fade
+const faqItems = [...document.querySelectorAll('.faq details')];
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+function faqToggle(el, opening) {
+  const body = el.querySelector('.fbody');
+  if (reduceMotion.matches) { el.open = opening; return; }
+  const cur = el.open ? body.offsetHeight : 0;
+  const curO = el.open ? getComputedStyle(body).opacity : 0;
+  if (el._anim) el._anim.cancel();
+  el._closing = !opening;
+  el.open = true;
+  const target = opening ? body.scrollHeight : 0;
+  el._anim = body.animate(
+    { height: [cur + 'px', target + 'px'], opacity: [curO, opening ? 1 : 0] },
+    { duration: opening ? 400 : 320, easing: 'cubic-bezier(.4,0,.2,1)' }
+  );
+  el._anim.onfinish = () => {
+    el._anim = null;
+    el._closing = false;
+    if (!opening) el.open = false;
+  };
+}
+faqItems.forEach(el => {
+  el.querySelector('summary').addEventListener('click', e => {
+    e.preventDefault();
+    const opening = !el.open || el._closing;
+    if (opening) faqItems.forEach(o => { if (o !== el && o.open && !o._closing) faqToggle(o, false); });
+    faqToggle(el, opening);
+  });
+});
 </script>
 
 </body>
