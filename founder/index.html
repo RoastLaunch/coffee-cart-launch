@@ -104,13 +104,18 @@ nav.solid .btn-ghost:hover{background:var(--white)}
 /* 02 HOW IT WORKS */
 .hiw{background:var(--parchment)}
 .hiw-grid{display:flex;gap:26px;margin-top:44px}
-.panel{flex:1;border-radius:var(--radius-lg);padding:34px 30px;color:var(--white);position:relative;box-shadow:0 5px 0 rgba(58,42,34,.16)}
-.panel .step{font-family:var(--font-accent);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;opacity:.85}
-.panel h3{font-size:30px;line-height:100%;font-weight:500;margin:12px 0 14px}
-.panel p{opacity:.94;max-width:34ch}
-.panel.brick{background:var(--brick)}
-.panel.mustard{background:#C99332}
-.panel.olive{background:var(--olive)}
+.panel{position:relative;flex:1;border-radius:var(--radius-lg);padding:34px 30px;color:var(--white);overflow:hidden;box-shadow:0 5px 0 rgba(58,42,34,.16);background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27120%27%20height%3D%27120%27%3E%3Cfilter%20id%3D%27n%27%3E%3CfeTurbulence%20type%3D%27fractalNoise%27%20baseFrequency%3D%270.85%27%20numOctaves%3D%272%27%20stitchTiles%3D%27stitch%27/%3E%3C/filter%3E%3Crect%20width%3D%27100%25%27%20height%3D%27100%25%27%20filter%3D%27url%28%23n%29%27%20opacity%3D%270.06%27/%3E%3C/svg%3E");background-size:120px 120px}
+.panel::before{content:"";position:absolute;inset:10px;border:2px dashed rgba(255,253,248,.4);border-radius:14px;pointer-events:none;z-index:3}
+.panel::after{content:"";position:absolute;right:-6px;bottom:-10px;width:148px;height:148px;background-repeat:no-repeat;background-position:bottom right;background-size:contain;opacity:.13;pointer-events:none;z-index:0}
+.panel .step{position:relative;z-index:2;font-family:var(--font-accent);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;opacity:.85}
+.panel h3{position:relative;z-index:2;font-size:30px;line-height:100%;font-weight:500;margin:12px 0 14px}
+.panel p{position:relative;z-index:2;opacity:.94;max-width:34ch}
+.panel.brick{background-color:var(--brick)}
+.panel.mustard{background-color:#C99332}
+.panel.olive{background-color:var(--olive)}
+.panel.brick::after{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20fill%3D%27none%27%20stroke%3D%27%23fff%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M22%2036h56l-7%2013H29z%27/%3E%3Cpath%20d%3D%27M30%2049v6M70%2049v6%27/%3E%3Crect%20x%3D%2727%27%20y%3D%2755%27%20width%3D%2746%27%20height%3D%2723%27%20rx%3D%273%27/%3E%3Ccircle%20cx%3D%2738%27%20cy%3D%2785%27%20r%3D%276%27/%3E%3Ccircle%20cx%3D%2762%27%20cy%3D%2785%27%20r%3D%276%27/%3E%3C/svg%3E")}
+.panel.mustard::after{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20fill%3D%27none%27%20stroke%3D%27%23fff%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Crect%20x%3D%2724%27%20y%3D%2728%27%20width%3D%2752%27%20height%3D%2750%27%20rx%3D%275%27/%3E%3Cpath%20d%3D%27M24%2042h52%27/%3E%3Cpath%20d%3D%27M36%2022v10M64%2022v10%27/%3E%3Cpath%20d%3D%27M40%2058l7%207%2014-16%27/%3E%3C/svg%3E")}
+.panel.olive::after{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%20100%20100%27%20fill%3D%27none%27%20stroke%3D%27%23fff%27%20stroke-width%3D%274%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M50%2026c-13%200-22%2010-22%2023%200%2016%2022%2033%2022%2033s22-17%2022-33c0-13-9-23-22-23z%27/%3E%3Ccircle%20cx%3D%2750%27%20cy%3D%2747%27%20r%3D%278%27/%3E%3C/svg%3E")}
 
 /* 03 DELIVERABLES */
 .deliver{background:var(--cream)}
