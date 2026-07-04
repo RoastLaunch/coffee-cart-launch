@@ -65,7 +65,10 @@ h1{font-size:46px;line-height:102%;letter-spacing:-1.2px;font-weight:500;margin-
 .gate p{color:var(--ink-soft);max-width:44ch;margin:0 auto 22px}
 
 .paywrap{position:relative;background:var(--cream);border-radius:26px;padding:30px 26px;margin-top:26px;box-shadow:0 7px 0 rgba(58,42,34,.12), 0 22px 48px rgba(58,42,34,.10)}
-.paywrap-hdr{font-family:var(--font-accent);font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:16px;text-align:center}
+.paywrap-hdr{font-family:var(--font-accent);font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px;text-align:center}
+.paywrap-sub{font-size:14px;color:var(--ink-soft);text-align:center;margin-bottom:16px}
+.paywrap-back{display:inline-block;font-size:13px;font-weight:700;color:var(--brick);text-decoration:none;cursor:pointer;margin-bottom:12px}
+.paywrap-back:hover{color:var(--brick-deep)}
 .paywrap-note{font-size:13px;color:var(--ink-muted);text-align:center;margin-top:14px}
 
 footer{padding:28px 6%;text-align:center;font-size:13px;color:var(--ink-soft)}
@@ -122,7 +125,9 @@ footer a{color:var(--brick);text-decoration:none}
     </div>
 
     <div class="paywrap" id="paywrap" style="display:none">
+      <a class="paywrap-back" id="paywrapBack">&larr; Back to package details</a>
       <div class="paywrap-hdr">Secure checkout</div>
+      <div class="paywrap-sub" id="paysummary"></div>
       <div id="embedded-checkout"></div>
       <div class="paywrap-note">Payments are processed by Stripe. Your receipt arrives instantly.</div>
     </div>
@@ -149,6 +154,7 @@ const FN_URL = 'https://nyvvoaryplfkpmbpvkui.supabase.co/functions/v1/ccl-checko
 const FN_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im55dnZvYXJ5cGxma3BtYnB2a3VpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI3OTkyNTYsImV4cCI6MjA5ODM3NTI1Nn0.dIvhINZoNvRlCL_T9sg90RPWHUpRCoNReG3o5e8NW4U';
 const PRICES = { standard: '$4,997', founder: '$997' };
 
+let currentOffer = 'standard';
 async function init() {
   const params = new URLSearchParams(location.search);
   const code = (params.get('code') || sessionStorage.getItem('cclCode') || '').trim();
@@ -168,6 +174,7 @@ async function init() {
   if (!result || !result.valid) { gate.style.display = 'block'; return; }
 
   const offer = result.offer === 'founder' ? 'founder' : 'standard';
+  currentOffer = offer;
   sessionStorage.setItem('cclCode', code);
   document.getElementById('chipcode').textContent = code;
   document.getElementById('mainprice').textContent = PRICES[offer];
@@ -183,8 +190,18 @@ async function init() {
 }
 
 let checkoutMounted = false;
+function showEmbed() {
+  document.querySelector('.order-card').style.display = 'none';
+  const wrap = document.getElementById('paywrap');
+  wrap.style.display = 'block';
+  window.scrollTo({ top: Math.max(0, wrap.getBoundingClientRect().top + scrollY - 96), behavior: 'smooth' });
+}
+function showCard() {
+  document.getElementById('paywrap').style.display = 'none';
+  document.querySelector('.order-card').style.display = 'block';
+}
 async function startCheckout(code, pay) {
-  if (checkoutMounted) { document.getElementById('paywrap').scrollIntoView({ behavior: 'smooth' }); return; }
+  if (checkoutMounted) { showEmbed(); return; }
   const original = pay.textContent;
   pay.textContent = 'Preparing secure checkout…';
   try {
@@ -199,11 +216,13 @@ async function startCheckout(code, pay) {
     if (!j.clientSecret) throw new Error('secret');
     const stripe = Stripe(j.publishableKey);
     const checkout = await stripe.initEmbeddedCheckout({ clientSecret: j.clientSecret });
-    document.getElementById('paywrap').style.display = 'block';
+    document.getElementById('paysummary').textContent = currentOffer === 'founder'
+      ? "Launch-Ready Coffee Cart Package (Founder's Rate) · $997 one-time"
+      : 'Launch-Ready Coffee Cart Package · $4,997 one-time';
     checkout.mount('#embedded-checkout');
     checkoutMounted = true;
-    pay.textContent = 'Checkout is open below';
-    document.getElementById('paywrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    pay.textContent = original;
+    showEmbed();
   } catch (_) {
     pay.textContent = original;
     location.href = 'mailto:john@roastlaunch.com?subject=' +
@@ -211,6 +230,7 @@ async function startCheckout(code, pay) {
       '&body=' + encodeURIComponent('Hi John, my invite code is ' + code + " and I'm ready to claim my spot. Please send my secure payment link.");
   }
 }
+document.getElementById('paywrapBack').addEventListener('click', showCard);
 init();
 </script>
 
