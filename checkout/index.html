@@ -268,6 +268,7 @@ async function ensureElements() {
   stripe = Stripe(j.publishableKey);
   elements = stripe.elements({
     mode: 'payment', amount: AMOUNTS[currentOffer], currency: 'usd',
+    paymentMethodTypes: ['card', 'link'],
     appearance: APPEARANCE,
     fonts: [{ cssSrc: 'https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&display=swap' }]
   });
