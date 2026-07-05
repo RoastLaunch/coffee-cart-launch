@@ -410,7 +410,7 @@ const dotBlob = document.createElement('span');
 dotBlob.className = 'dot-blob';
 dots.appendChild(dotBlob);
 const dotReduce = matchMedia('(prefers-reduced-motion: reduce)');
-let dotAnim = null, dotActive = -1;
+let dotAnim = null, dotActive = -1, navIndex = 0;
 function dotYpos(i){ return dotEls[i] ? dotEls[i].offsetTop : 0; }
 function dotReadY(){ try{ return new DOMMatrixReadOnly(getComputedStyle(dotBlob).transform).m42; }catch(e){ return 0; } }
 function moveBlob(i, animate){
@@ -430,10 +430,43 @@ requestAnimationFrame(()=>{ dotBlob.style.transform = 'translateY('+dotYpos(0)+'
 const secObs = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) {
     const i = sections.indexOf(e.target);
+    navIndex = i;
     if(i !== dotActive){ dotActive = i; moveBlob(i, true); }
   }
 }), { threshold: .55 });
 sections.forEach(s => secObs.observe(s));
+
+// keyboard section nav: one clean jump per press; rapid presses during a
+// transition are ignored so the page never overshoots or stutters.
+let navLock = false;
+const navSnap = matchMedia('(min-width: 768px)');
+function navBlocked(el){
+  if(!el) return false;
+  if(el.matches && el.matches('input,textarea,select,button,a,summary,[contenteditable="true"]')) return true;
+  return !!(el.closest && el.closest('summary,.invite-card'));
+}
+function navTo(dir){
+  const t = Math.max(0, Math.min(sections.length - 1, navIndex + dir));
+  if(t === navIndex) return;
+  navIndex = t; navLock = true;
+  sections[t].scrollIntoView({ behavior: 'smooth', block: 'start' });
+  let relT;
+  const release = () => { navLock = false; removeEventListener('scrollend', release); clearTimeout(relT); };
+  addEventListener('scrollend', release, { once: true });
+  relT = setTimeout(release, 1000);
+}
+addEventListener('keydown', e => {
+  if(!navSnap.matches || e.ctrlKey || e.metaKey || e.altKey) return;
+  const modal = document.getElementById('inviteModal');
+  if((modal && modal.classList.contains('open')) || navBlocked(document.activeElement)) return;
+  let dir = 0;
+  if(e.code === 'Space') dir = e.shiftKey ? -1 : 1;
+  else if(e.code === 'ArrowDown' || e.code === 'PageDown') dir = 1;
+  else if(e.code === 'ArrowUp' || e.code === 'PageUp') dir = -1;
+  else return;
+  e.preventDefault();
+  if(!navLock) navTo(dir);
+});
 
 // FAQ accordion: one open at a time, animated height + fade
 const faqItems = [...document.querySelectorAll('.faq details')];
