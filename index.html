@@ -79,9 +79,10 @@ nav.solid .btn-ghost{color:var(--ink);border-color:var(--ink)}
 nav.solid .btn-ghost:hover{background:var(--white)}
 
 /* DOT NAV */
-.dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:30;display:flex;flex-direction:column;gap:12px}
-.dots a{width:11px;height:11px;border-radius:50%;background:rgba(58,42,34,.25);border:2px solid transparent;transition:var(--transition)}
-.dots a.active{background:var(--brick);transform:scale(1.25)}
+.dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:30;display:flex;flex-direction:column;gap:12px;filter:url(#goo)}
+.dots a{width:11px;height:11px;border-radius:50%;background:rgba(58,42,34,.28);transition:background var(--transition)}
+.dot-blob{position:absolute;left:0;top:0;width:11px;height:11px;border-radius:50%;background:var(--brick);pointer-events:none;transform:translateY(0);transform-origin:center}
+.goo-defs{position:absolute;width:0;height:0;overflow:hidden}
 .dots a:hover{background:var(--brick)}
 @media (max-width:767px){.dots{display:none}}
 
@@ -384,13 +385,35 @@ sections.forEach((s, i) => {
   const a = document.createElement('a');
   a.href = '#' + (s.id || (s.id = 'sec' + i));
   a.title = s.dataset.dot;
+  a.setAttribute('aria-label', s.dataset.dot);
   dots.appendChild(a);
 });
 const dotEls = [...dots.children];
+const dotBlob = document.createElement('span');
+dotBlob.className = 'dot-blob';
+dots.appendChild(dotBlob);
+const dotReduce = matchMedia('(prefers-reduced-motion: reduce)');
+let dotAnim = null, dotActive = -1;
+function dotYpos(i){ return dotEls[i] ? dotEls[i].offsetTop : 0; }
+function dotReadY(){ try{ return new DOMMatrixReadOnly(getComputedStyle(dotBlob).transform).m42; }catch(e){ return 0; } }
+function moveBlob(i, animate){
+  const from = dotReadY(), to = dotYpos(i);
+  dotEls.forEach((d,j)=>{ d.setAttribute('aria-current', j===i ? 'true':'false'); });
+  if(dotAnim){ dotAnim.cancel(); dotAnim = null; }
+  if(!animate || dotReduce.matches || Math.abs(to-from) < 0.5){ dotBlob.style.transform = 'translateY('+to+'px)'; return; }
+  const mid = (from+to)/2, dist = Math.abs(to-from), stretch = Math.min(2.7, 1 + dist/20);
+  dotAnim = dotBlob.animate([
+    { transform: 'translateY('+from+'px) scaleY(1)' },
+    { transform: 'translateY('+mid+'px) scaleY('+stretch+')', offset: .5 },
+    { transform: 'translateY('+to+'px) scaleY(1)' }
+  ], { duration: 540, easing: 'cubic-bezier(.5,0,.24,1)', fill: 'forwards' });
+  dotAnim.onfinish = ()=>{ dotBlob.style.transform = 'translateY('+to+'px)'; dotAnim = null; };
+}
+requestAnimationFrame(()=>{ dotBlob.style.transform = 'translateY('+dotYpos(0)+'px)'; });
 const secObs = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) {
     const i = sections.indexOf(e.target);
-    dotEls.forEach((d, j) => d.classList.toggle('active', i === j));
+    if(i !== dotActive){ dotActive = i; moveBlob(i, true); }
   }
 }), { threshold: .55 });
 sections.forEach(s => secObs.observe(s));
@@ -516,5 +539,6 @@ document.getElementById('inviteGo').addEventListener('click', checkInvite);
 })();
 </script>
 
+<svg class="goo-defs" aria-hidden="true"><defs><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="2.6" result="b"/><feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" result="g"/><feBlend in="SourceGraphic" in2="g" mode="normal"/></filter></defs></svg>
 </body>
 </html>
